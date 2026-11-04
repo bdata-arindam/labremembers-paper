@@ -1,0 +1,6 @@
+quantity,value,unit,status,scope,doi,source_locator
+film formation batch duration,22,minutes per 96 films,reported in original experimental section,batch throughput; not a marginal fresh-versus-routine cost,10.1002/adma.201907801,Main article workflow paragraph and Experimental Section: High-Throughput Coating
+drying duration,4,minutes,reported in original experimental section,duration only; overlap with other workflow steps not resolved,10.1002/adma.201907801,Main article workflow paragraph and Experimental Section: High-Throughput Coating
+thermal annealing duration,15,minutes,reported in original experimental section,duration only; no sum with batch duration asserted,10.1002/adma.201907801,Main article workflow paragraph and Experimental Section: High-Throughput Coating
+light aging duration,18,hours,reported in original main article,shared/parallel aging is not automatically marginal preparation cost,10.1002/adma.201907801,Main article workflow paragraph and Experimental Section: High-Throughput Coating
+dispensed mixture volume,25,microlitres per film,reported in original experimental section,nominal deposited volume; excludes unspecified handling waste,10.1002/adma.201907801,Main article workflow paragraph and Experimental Section: High-Throughput Coating

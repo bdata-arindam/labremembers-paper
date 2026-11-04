@@ -1,0 +1,87 @@
+# V2 executed results
+
+This extension combines measured OPV data, explicit response emulators and simulated carryover. The confidence construction certifies a fixed emulator under supplied bounds; it does not certify a physical OPV formulation from these data.
+
+The frozen study completed3,200main campaign scenarios and1,600predeclared sensitivity scenarios, producing62,400policy runs. The same200 report seeds are reused across cases; uncertainty is calculated separately within case.
+
+## Held-out response fidelity
+
+| System | Held-out groups | MAE | RMSE | R² | Emulator L1 certificate |
+|---|---:|---:|---:|---:|---:|
+|pbq_qf|154|0.04390|0.05950|0.6062|1.66314|
+|ptb7_th|154|0.05097|0.06732|0.4849|1.88188|
+
+These are modest prediction errors relative to the illustrative0.10 loss threshold. The fitted cubic family was prespecified and retained after held-out evaluation. These errors are not added to the emulator-only certificate, so the certificate cannot be transferred to real material response without additional validated model-error bounds.
+
+## Primary case table
+
+Correct-acceptance yield uses every campaign, not only valid recipes. A case with no invalid candidates cannot estimate false acceptance conditional on invalid candidates.
+
+| System | Scenario | Truly qualifying | Planner true accepts | Tail4 true accepts | Fresh true accepts | Planner false accepts | Planner unresolved | Planner half-width |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+|pbq_qf|no_carryover|200/200|200/200|200/200|200/200|0/200|0/200|0.01060|
+|pbq_qf|trace_carryover|200/200|200/200|200/200|200/200|0/200|0/200|0.01060|
+|pbq_qf|low_carryover|200/200|200/200|200/200|200/200|0/200|0/200|0.01080|
+|pbq_qf|moderate_carryover|200/200|200/200|200/200|200/200|0/200|0/200|0.01138|
+|pbq_qf|high_carryover|195/200|190/200|189/200|183/200|0/200|8/200|0.01251|
+|pbq_qf|ineffective_wash|195/200|183/200|189/200|183/200|0/200|15/200|0.02079|
+|pbq_qf|persistent_memory|197/200|175/200|64/200|175/200|0/200|24/200|0.02079|
+|pbq_qf|strongly_persistent_stress|200/200|195/200|0/200|195/200|0/200|5/200|0.02079|
+|ptb7_th|no_carryover|200/200|200/200|200/200|200/200|0/200|0/200|0.01063|
+|ptb7_th|trace_carryover|200/200|200/200|200/200|200/200|0/200|0/200|0.01063|
+|ptb7_th|low_carryover|200/200|200/200|200/200|200/200|0/200|0/200|0.01080|
+|ptb7_th|moderate_carryover|200/200|200/200|200/200|200/200|0/200|0/200|0.01146|
+|ptb7_th|high_carryover|195/200|194/200|192/200|186/200|0/200|3/200|0.01272|
+|ptb7_th|ineffective_wash|195/200|186/200|192/200|186/200|0/200|11/200|0.02079|
+|ptb7_th|persistent_memory|198/200|192/200|9/200|192/200|0/200|6/200|0.02079|
+|ptb7_th|strongly_persistent_stress|26/200|17/200|0/200|17/200|0/200|10/200|0.02079|
+
+## Planner versus the burn-in control
+
+Differences are planner minus bounded tail4. Percentile intervals use5000 paired seed bootstrap replicates; no multiplicity-adjusted superiority claim is made.
+
+| System | Scenario | Difference in correct-acceptance yield (percentage points) | Difference in false confirmations (percentage points) |
+|---|---|---:|---:|
+|pbq_qf|no_carryover|+0.00 [+0.00,+0.00]|+0.00 [+0.00,+0.00]|
+|pbq_qf|trace_carryover|+0.00 [+0.00,+0.00]|+0.00 [+0.00,+0.00]|
+|pbq_qf|low_carryover|+0.00 [+0.00,+0.00]|+0.00 [+0.00,+0.00]|
+|pbq_qf|moderate_carryover|+0.00 [+0.00,+0.00]|+0.00 [+0.00,+0.00]|
+|pbq_qf|high_carryover|+0.50 [+0.00,+1.50]|+0.00 [+0.00,+0.00]|
+|pbq_qf|ineffective_wash|-3.00 [-6.00,-0.50]|+0.00 [+0.00,+0.00]|
+|pbq_qf|persistent_memory|+55.50 [+48.50,+62.00]|+0.00 [+0.00,+0.00]|
+|pbq_qf|strongly_persistent_stress|+97.50 [+95.00,+99.50]|+0.00 [+0.00,+0.00]|
+|ptb7_th|no_carryover|+0.00 [+0.00,+0.00]|+0.00 [+0.00,+0.00]|
+|ptb7_th|trace_carryover|+0.00 [+0.00,+0.00]|+0.00 [+0.00,+0.00]|
+|ptb7_th|low_carryover|+0.00 [+0.00,+0.00]|+0.00 [+0.00,+0.00]|
+|ptb7_th|moderate_carryover|+0.00 [+0.00,+0.00]|+0.00 [+0.00,+0.00]|
+|ptb7_th|high_carryover|+1.00 [+0.00,+2.50]|+0.00 [+0.00,+0.00]|
+|ptb7_th|ineffective_wash|-3.00 [-6.00,-0.50]|+0.00 [+0.00,+0.00]|
+|ptb7_th|persistent_memory|+91.50 [+87.50,+95.00]|+0.00 [+0.00,+0.00]|
+|ptb7_th|strongly_persistent_stress|+8.50 [+5.00,+12.50]|+0.00 [+0.00,+0.00]|
+
+## Empirical coverage shortfall retained
+
+The fixed-final mathematical construction did not yield nominal95% coverage in every finite simulation case. The following predeclared no-carryover case makes the observed shortfall explicit; common confirmation noise is reused across cases, so repeated low-carryover coverage values are not independent replications.
+
+| Method | Covered / campaigns, with Wilson95% interval |
+|---|---:|
+|bounded_repeat|188/200 (94.0%;95%CI89.8–96.5)|
+|bounded_tail4|183/200 (91.5%;95%CI86.8–94.6)|
+|bounded_fresh|186/200 (93.0%;95%CI88.6–95.8)|
+|bounded_planner|188/200 (94.0%;95%CI89.8–96.5)|
+
+The retained audit_noise_coverage.py independently reconstructs the already-used stage21 Gaussian streams, with no new report seeds. The tail4 and fresh standardized errors reproduce their respective observed misses; the saved mean errors agree with the reconstructed noise to floating-point precision. No tail indexing or normalization defect was found. This check does not erase the empirical shortfall or establish empirical calibration; see coverage_noise_audit.json and coverage_noise_reconstruction.csv for exact counts, discrepancies and the finite-block diagnostic.
+
+## Interpretation boundaries
+
+The planner is a preplanned preparation schedule, not an outcome-adaptive algorithm. Its exact optimality is restricted to enumerated routine/wash1/wash3/fresh count schedules using all their observations with equal weights. The prespecified discard-four control lies outside this class and can be better; this is why it remains a primary comparator.
+
+Strong washes are placed first to reduce the accumulated worst-case bias bound. Fresh assays remove modeled carryover from their own observations while leaving the shared-line residual unchanged. With broad bounds, persistent memory or a large Delaunay Lipschitz certificate, the valid response interval can become conservative and fresh preparation may be selected. Such behavior reflects the supplied assumptions and costs, not measured OPV apparatus parameters.
+
+At equal fresh/routine cost, an all-fresh schedule has zero modeled bias and the maximum affordable number of assays; it weakly dominates in the certified-width objective. The equal-cost sensitivity is included because no measured OPV cost data support the default four-unit fresh cost.
+
+The empirical-contrast-noise sensitivity resamples symmetric half-differences of measured SDA pairs while still using assumed sigma0.03 in inference. It deliberately challenges the Gaussian/noise-bound assumption. Its coverage results are not covered by the main theorem, and this resampling is not a verified stochastic model of the laboratory.
+
+Measured replicate disagreement, emulator prediction error and simulated carryover effects are separate evidence types. See the measured-data analysis for literal threshold reversals; neither those reversals nor interpolator roughness identifies carryover causally.
+
+All methods and cases, exact counts/denominators, coverage and paired intervals are in summary.json, all_results_with_intervals.csv and paired_comparisons.csv. Every policy run is in trial_results.csv. Frozen configuration, scalar-only information boundary, source hashes and test/audit results are retained.

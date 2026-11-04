@@ -1,0 +1,7 @@
+batch_id,main_phase,previous_nominal_recipe,contaminant,reported_mol_percent_relative_to_main_phase,source_table
+C1-S7,ZnO,Zn0.6Zr0.4Oy,Zr,0.11,Table 1
+C2-S8,ZrO2,In2O3,In,0.07,Table 1
+C3-S7,ZnO,In0.2Zr0.8Oy,Zr,0.070,Table 1
+C3-S7,ZnO,In0.2Zr0.8Oy,In,0.0163,Table 1
+C4-S3,In2O3,In0.05Zr0.95Oy,Zn,0.016,Table 1
+C4-S3,In2O3,In0.05Zr0.95Oy,Zr,0.122,Table 1

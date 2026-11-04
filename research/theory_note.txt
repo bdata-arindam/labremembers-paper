@@ -1,0 +1,242 @@
+# What can be confirmed when preparation history is hidden?
+
+Working theory note, 3 November 2026. These are elementary derivations and applications of established Lipschitz-extension and concentration arguments. They are not claimed as new mathematical theorems. The frozen baseline benchmark is unchanged; any implementation of these rules belongs to a separately specified extension.
+
+## 1. Target, state and assumptions
+
+Let x* be a nominal composition frozen after discovery and let theta = f(x*) be its mean response under an independent fresh preparation. Composition lies in a simplex. A norm must be fixed throughout; the simplex has diameter 2 in L1 and square root of 2 in L2.
+
+For a shared-line preparation of x*, write
+
+`z_t = (1-r_t) x* + r_t h_(t-1)`
+
+and
+
+`h_t = (1-lambda_t) h_(t-1) + lambda_t z_t`.
+
+Here z_t is the actual mixture, h is residual composition and r_t is the retained fraction of the fixed final batch. Assume 0 <= r_t <= rbar_t < 1 and 0 < lambda_min <= lambda_t <= 1. Washes can justify `rbar_t = rho_bar * eta_bar**k_t` only when a valid bound eta_bar on the retained fraction after each wash is available. Without that information, a wash cannot be credited with a guaranteed reduction beyond the existing rho_bar bound.
+
+Assume f is L-Lipschitz on the accessible composition domain in the chosen norm:
+
+`|f(u)-f(v)| <= L ||u-v||`.
+
+The assay is `Y_t = f(z_t) + epsilon_t`: preparation history is assumed to affect the mean only through actual composition. Additional drift, morphology changes or reaction pathways require their own valid bias bounds; otherwise this model does not cover them. For the concentration results, noise must satisfy the conditional moment-generating-function bound
+
+`E[exp(s epsilon_t) | F_(t-1), action_t] <= exp(s^2 sigma^2/2)`
+
+for every real s. Thus it is conditionally mean zero and sigma-sub-Gaussian. The action and its bias bound must be chosen from information available before observing epsilon_t. Independent Gaussian noise with known standard deviation sigma is a sufficient special case. An independent fresh preparation has z_t = x*, bias zero and leaves the shared-line state unchanged.
+
+These assumptions are inputs requiring physical calibration or a justified model. They are not consequences of a successful simulation or a well-fitting regression. If an emulator is clipped to a physical range, clip its latent response before adding zero-mean noise; clipping the noisy observation itself generally introduces bias.
+
+## 2. Natural flushing and a deterministic bias envelope
+
+Subtracting x* from the state update gives the exact identity
+
+`h_t-x* = [1-lambda_t(1-r_t)] (h_(t-1)-x*)`.
+
+For constant rho and lambda with no washing, q = 1-lambda(1-rho). Therefore `h_t-x* = q**t (h_0-x*)`. The matched lambda = 1 model contracts by rho. At rho = 0.40 and lambda = 0.45 the contraction factor is 0.73. Here h_0 denotes the state at the beginning of the confirmation repetition sequence, not necessarily the known initial priming state before discovery.
+
+If `D_(t-1) >= ||h_(t-1)-x*||`, a valid observable envelope is
+
+`B_t = L rbar_t D_(t-1)`
+
+`D_t = [1-lambda_min(1-rbar_t)] D_(t-1)`.
+
+Then `|f(z_t)-theta| <= B_t` and `||h_t-x*|| <= D_t`. The proof is the identity above, monotonicity in retained fraction and the Lipschitz inequality. A conservative initial D_0 is the simplex diameter; a tighter calibrated initial-state bound may be used. For a fresh action use B_t = 0 and D_t = D_(t-1).
+
+For constant bounds rho_bar and lambda_min, let `qbar = 1-lambda_min(1-rho_bar)`. After b discarded routine repeats and m further unwashed repeats, the mean systematic error is bounded by
+
+`Bbar_(b,m) = L rho_bar D_0 qbar**b (1-qbar**m) / [m(1-qbar)]`.
+
+This follows by summing a geometric series. If qbar = 1, use the limit instead; the bound does not decay with repetitions. The result requires a positive lower bound on lambda and an upper bound below one on retained fraction for geometric contraction. A favorable posterior mean of these parameters does not supply such bounds.
+
+A final mixture can be nearly fresh while the average of every earlier assay remains biased. Prespecified burn-in and tail averaging are consequently essential simple controls, alongside same-model repetition.
+
+## 3. Fixed-horizon and adaptive confidence intervals
+
+Write `b_t = f(z_t)-theta`, so `|b_t| <= B_t`. For n target assays let `Ybar_n = sum(Y_t)/n` and `Bbar_n = sum(B_t)/n`.
+
+### Fixed sample size
+
+If n is fixed before observing the confirmation outcomes, the sub-Gaussian tail bound gives
+
+`theta in [Ybar_n - Bbar_n - R_n, Ybar_n + Bbar_n + R_n]`
+
+with probability at least 1-alpha, where
+
+`R_n = sigma sqrt[2 log(2/alpha)/n]`.
+
+The same statement holds for a fixed tail window after prespecified burn-in. Under independent Gaussian noise, `z_(1-alpha/2) sigma / sqrt(n)` replaces R_n for a tighter fixed-sample interval. Neither expression may be reused for unrestricted repeated peeking without a correction.
+
+### Adaptive actions and stopping up to T target assays
+
+For a predeclared maximum T, use
+
+`R_n = sigma sqrt[2 log(2T/alpha)/n]`, for n = 1,...,T.
+
+The intervals using this R_n and Bbar_n cover theta simultaneously with probability at least 1-alpha. Thus wash/fresh choices can depend on previous measurements and the study may stop at any n <= T.
+
+Proof: iterated conditional moment-generating-function bounds imply `P(|sum_(t=1)^n epsilon_t| >= sigma sqrt[2n log(2T/alpha)]) <= alpha/T` for each fixed n. A union bound over n yields simultaneous control. On that event, the triangle inequality and `|sum b_t| <= sum B_t` give every stated interval. The bias bounds may be random and depend on previous outcomes because their inequality holds pathwise; noise must retain the stated conditional bound.
+
+For the claim theta >= tau, accept only when the lower endpoint is at least tau, reject only when the upper endpoint is below tau and otherwise remain unresolved. Under the assumptions, any wrong threshold conclusion over the entire horizon occurs with probability at most alpha. This is conditional on one frozen candidate and valid assumptions; it is not a guarantee against arbitrary unmodeled laboratory behavior. Repeatedly replacing the candidate until one is accepted requires a separate multiple-candidate error budget.
+
+This controls error probability over repetitions of the specified confirmation procedure. It does not imply that at most alpha of the accepted claims will be false: the false fraction among accepted claims also depends on candidate prevalence and acceptance power. Report those quantities separately.
+
+### Selecting a tail window after seeing data
+
+A post hoc choice of burn-in or a favorable tail must also be accounted for. There are `M = T(T+1)/2` contiguous windows. For every window s,...,t of length m, use
+
+`R_(s,t) = sigma sqrt[2 log(2M/alpha)/m]`
+
+and its own mean response and mean bias bound. A union bound makes all these intervals valid simultaneously. Any one window can then be selected adaptively or their intersection can be used. If the intersection is empty, report incompatible evidence and do not manufacture a point estimate or confidence claim. This simple construction is conservative; sharper time-uniform methods are established in the confidence-sequence literature [Howard et al., 2021; existing source 10].
+
+If calibrated physical bounds hold only with probability at least 1-delta, a separate union bound yields coverage at least 1-alpha-delta. This requires a justified joint calibration statement; it cannot turn an empirical slope estimate into a global smoothness guarantee.
+
+## 4. Exact finite-data Lipschitz envelopes
+
+Suppose actual query points z_i and noiseless responses y_i are known. Assume their pairwise values are L-consistent: `|y_i-y_j| <= L ||z_i-z_j||`. Every L-Lipschitz function agreeing with the data obeys
+
+`lower(x*) = max_i [y_i - L ||z_i-x*||]`
+
+`upper(x*) = min_i [y_i + L ||z_i-x*||]`.
+
+These bounds are sharp over the class. To see this, define on the whole domain
+
+`f_lower(x) = max_i [y_i - L ||z_i-x||]`
+
+and
+
+`f_upper(x) = min_i [y_i + L ||z_i-x||]`.
+
+Each function is L-Lipschitz. Pairwise consistency makes both interpolate every y_i. They attain the respective endpoints at x*. Convex combinations of these two functions realize every intermediate value while retaining the same data and Lipschitz constant. This is an application of the classical real-valued Lipschitz extension construction associated with McShane, not a new extension theorem.
+
+Consequently, the data force theta >= tau only if lower(x*) >= tau and force theta < tau only if upper(x*) < tau. Otherwise both conclusions are compatible with the stated function class. A model-based point prediction inside the interval does not remove this ambiguity.
+
+For simultaneous measurement bands `ell_i <= f(z_i) <= u_i`, replace y_i by ell_i in the lower envelope and by u_i in the upper envelope. When the bands admit an L-Lipschitz function, the same construction shows sharpness. These envelopes concern uncertainty in function values at known actual locations. If actual locations are hidden but `||z_i-x*|| <= D_i` is guaranteed, replacing each distance by D_i yields valid conservative bounds; sharpness generally disappears because it ignores joint constraints on possible hidden trajectories.
+
+## 5. What finite smooth data alone cannot identify
+
+Smoothness without a known quantitative bound does not determine the fresh response from a finite transcript. Grant the observer even the actual query set Z = {z_1,...,z_n} and suppose x* is absent from Z. Let d be the minimum distance from x* to Z and choose radius r < d. There is a smooth bump b supported in the ball of radius r around x*, with b(x*) = 1 and b(z_i) = 0. For example, inside the ball use
+
+`b(x) = e * exp[-1/(1-||x-x*||_2^2/r^2)]`,
+
+and use zero outside. Restricting this smooth ambient function to a boundary of the simplex is permitted.
+
+For any smooth compatible f_0, the functions `f_0 + Delta*b` agree at every observed actual point and can differ arbitrarily at x*. Two offsets can place their target values on opposite sides of tau. For a fixed noiseless adaptive transcript, the same observed path is obtained by induction because each previously queried response is unchanged. With noise, the construction establishes equal likelihood conditional on those locations or pathwise compatibility under the same realized noise.
+
+This is finite-transcript underdetermination, not a claim that every randomized-design statistical model is globally unidentifiable. A restrictive finite-dimensional response family, a quantitative Lipschitz bound or a direct fresh measurement supplies additional information. The frozen quadratic benchmark has precisely such strong structural assumptions.
+
+## 6. A reviewable extension policy
+
+Keep the frozen baseline intact. A conservative extension can compare a finite menu of plans: independent fresh repeats; fixed burn-in followed by ordinary candidate repeats; and fixed burn-in followed by k washes before each candidate assay. Choose the plan minimizing the proved interval half-width subject to the declared cost cap. For wash plan k, use `rbar = rho_bar eta_bar**k` and `qbar_k = 1-lambda_min(1-rbar)` in the geometric sum. Charge discarded burn-in assays, wash operations and every fresh assay.
+
+For adaptive operation, maintain D_t and all B_t values, choose actions using any prespecified rule and base conclusions on the simultaneous interval. An approximate action planner does not invalidate coverage if its choices are predictable and the physical/noise assumptions hold. Its efficiency still needs comparison against fresh-only, fixed washed repeats, same-model repetition and prespecified tail averages. An action rule based on interval width or look-ahead is a research proposal, not a demonstrated new algorithm or a guaranteed improvement.
+
+## 7. What measured materials data can establish
+
+The maximum observed pairwise slope in a dataset is a lower bound on any Lipschitz constant consistent with those data. It is not an upper bound on an unknown material response between samples. Independent physical knowledge, additional regularity assumptions or a certified bound for a specifically defined emulator is needed. A bound proved for an emulator certifies that emulator, not its approximation to a real material.
+
+Using measured organic-photovoltaic formulation outcomes to construct a response surface can add a concrete application. If carryover, wash efficacy and assay noise are subsequently simulated, describe the study as a measured-data-anchored emulator with synthetic preparation history. Claims about actual carryover in that materials system require corresponding measurements. The physical assumptions, emulator error and confirmation error are three distinct sources of uncertainty.
+
+## 8. A computable Lipschitz certificate for a Bernstein emulator
+
+Let a K-component composition lie in the unit simplex and define a degree-p standard multivariate Bernstein polynomial
+
+`f(x) = sum_(|alpha|=p) beta_alpha B_alpha^p(x)`,
+
+where `B_alpha^p(x) = (p! / product_i alpha_i!) product_i x_i**alpha_i`. All multi-indices of total degree p must be included. Its ambient polynomial derivative is
+
+`partial_i f(x) = p sum_(|gamma|=p-1) beta_(gamma+e_i) B_gamma^(p-1)(x)`.
+
+For any vector c and tangent direction v with `sum_i v_i = 0`,
+
+`|c dot v| <= (max_i c_i - min_i c_i) ||v||_1 / 2`.
+
+Proof: subtract the midpoint of the largest and smallest c_i from every component; the subtraction does not change c dot v and Hölder's inequality bounds the result. The factor one half is attained by transferring equal opposite mass between a maximal and minimal coordinate.
+
+For each gradient difference, Bernstein weights are nonnegative and sum to one on the simplex. Therefore a valid global L1 Lipschitz constant is
+
+`L_certificate = (p/2) max_(|gamma|=p-1, i,j) |beta_(gamma+e_i)-beta_(gamma+e_j)|`.
+
+Integrating the bounded directional derivative along the straight segment between any two simplex points proves the Lipschitz inequality. This is an upper bound; it need not be the smallest possible constant. It is computable from fitted coefficients and does not depend on unobserved material labels.
+
+Use normalized composition fractions summing to one. Transforming the response by an affine scaling multiplies the certificate by the absolute scale factor. Clipping the polynomial response to a fixed interval cannot increase its Lipschitz constant. Recompute the certificate from the final fitted coefficients after any train-plus-validation refit. The certificate concerns this mathematical emulator on the chosen simplex; held-out prediction error and correspondence to real materials must be evaluated separately. A conservative certificate may produce wide intervals and few decisions; that outcome must remain visible.
+
+## 9. Optimal ordering for a specified fixed-schedule bound
+
+Consider only candidate assays, with known costs, the same noise bound sigma and a common memory lower bound lambda_min. Every observation is retained with equal weight. An action has retained-fraction upper bound r and state-contraction bound `q(r) = 1-lambda_min(1-r)`. No additional order-dependent costs or feasibility restrictions are assumed.
+
+Given state-distance bound D before two adjacent shared-line actions a and b, their total bias-bound contribution is
+
+`S_ab = L D [r_a + r_b q(r_a)]`.
+
+Reversing their order gives
+
+`S_ab - S_ba = L D lambda_min (r_a-r_b)`.
+
+Their final state bound is `D q(r_a) q(r_b)`, which is the same in either order. Every later contribution is therefore unchanged. If `r_a <= r_b`, placing a before b cannot increase the total bound. Repeatedly swapping inverted adjacent pairs proves that, for fixed action counts, ascending retained fraction—strongest washing first—minimizes the summed bias bound. This is a direct exchange argument for this model and objective; no first-ever scheduling theorem is claimed.
+
+A block of n identical shared actions contributes
+
+`L r D (1-q(r)**n)/(1-q(r))`
+
+and leaves state bound `D q(r)**n`. Use the limiting value `L r D n` when q(r) = 1. Fresh actions add zero bias and do not change D. Their position is irrelevant to this final-width objective, although it can affect early stopping behavior and must be fixed if such outcomes are reported.
+
+For a finite action menu, enumerate all nonnegative count vectors satisfying the cost cap and a prespecified minimum number of assays. For each vector, sort the shared actions as proved above, compute total bias bound S and let N count all shared and fresh observations. Under independent Gaussian noise and a plan chosen before confirmation outcomes, minimize
+
+`H = S/N + z_(1-alpha/2) sigma/sqrt(N)`.
+
+The result minimizes the certified fixed-final confidence half-width within this explicitly defined class. Finite enumeration is possible because every action has positive cost. A different noise radius depending only on N can be substituted without changing the ordering argument.
+
+This is not a global optimum among tail-discarding, weighted, model-based or outcome-adaptive policies. Discarding burn-in changes which contributions appear in S and a prespecified burn-in/tail-average baseline remains essential. Nor does minimum worst-case width guarantee best realized prediction error or lowest decision cost. Those are empirical comparisons. The old frozen benchmark is preserved; this schedule analysis belongs to the separately specified extension.
+
+## 10. When inexpensive repetition can beat independent preparation
+
+This is a sufficient comparison within the assumed scalar model. It is not a general claim that repeating a contaminated preparation is preferable in a laboratory.
+
+Assume valid constant bounds with `0 <= qbar < 1`, fixed `L`, `rho_bar` and `D0`, independent Gaussian errors with known `sigma > 0`, plus `0 < alpha < 1`. Define `z = z_(1-alpha/2)` and
+
+`C = L rho_bar D0/(1-qbar)`.
+
+With n routine candidate assays and every observation retained, the exact mean-bias bound is `C(1-qbar**n)/n <= C/n`. Consequently
+
+`H_repeat <= C/n + z sigma/sqrt(n)`.
+
+The transient bias contribution is `O(1/n)` for fixed valid bounds, whereas the Gaussian averaging term is `O(n**(-1/2))`. This asymptotic comparison is about increasing affordable assay counts. It does not ensure a useful bias bound at a fixed small budget. A qbar close to one can make C large.
+
+Let routine cost be one. If the same budget permits n routine assays or exactly n/c fresh assays, where `c > 1` and n/c is an admissible integer count, then
+
+`H_fresh = z sigma sqrt(c)/sqrt(n)`.
+
+A conservative sufficient condition for the repeat-radius upper bound to be strictly smaller is
+
+`sqrt(n) > C/[z sigma (sqrt(c)-1)]`.
+
+Derivation: subtract the repeat Gaussian term from the fresh radius and compare the remaining quantity with C/n. Multiplication by n gives `C < z sigma (sqrt(c)-1) sqrt(n)`. This condition compares certified radii, not realized mean absolute error or acceptance yield.
+
+For arbitrary positive action costs and integer budget remainders, use the actual feasible counts n and m. Provided `1 <= m < n`, the corresponding sufficient condition is
+
+`C/n < z sigma [1/sqrt(m)-1/sqrt(n)]`.
+
+The planner uses its exact feasible-count objective rather than either sufficient approximation. If fresh and routine costs are equal, fresh observations attain the same sample count with zero preparation bias and therefore weakly dominate this menu in certified fixed-final width. If sigma is zero, these divisions by sigma do not apply; fresh preparation has zero radius under the idealized model and routine preparation can at most tie it when its bias bound is zero.
+
+## 11. A conditional power bound for a fixed plan
+
+Fix the confirmation sample count n and a deterministic valid mean-bias bound Bbar. Assume independent Gaussian errors with known `sigma > 0`. If `theta = tau + Delta` with `Delta > 0`, acceptance requires
+
+`Ybar - Bbar - z sigma/sqrt(n) >= tau`.
+
+Write `Ybar = theta + bbar + epsilonbar`, where `|bbar| <= Bbar`. The event
+
+`epsilonbar >= 2 Bbar + z sigma/sqrt(n) - Delta`
+
+is sufficient for acceptance for every admissible bias. Since `epsilonbar/(sigma/sqrt(n))` is standard Gaussian,
+
+`P(accept) >= Phi[(Delta-2 Bbar) sqrt(n)/sigma-z]`.
+
+For a failing target `theta = tau-Delta`, the analogous lower bound holds for rejection by using the least favorable bias `+Bbar`. The statement holds conditional on the frozen discovery record with the same valid physical bounds. It is a lower bound, not an estimate of actual power or a power calculation for the proposed physical pilot. Smaller Bbar helps the guarantee, but a more expensive preparation can reduce n enough to offset that improvement. For random data-selected n or bias bounds, this particular fixed-plan expression cannot be reused without a justified conditioning or sequential argument.
+
+## Primary attribution and access record
+
+- E. J. McShane (1934), “Extension of range of functions,” *Bulletin of the American Mathematical Society* 40(12), 837–842. DOI: https://doi.org/10.1090/S0002-9904-1934-05978-0. Original AMS endpoint: https://www.ams.org/bull/1934-40-12/S0002-9904-1934-05978-0/S0002-9904-1934-05978-0.pdf. Bibliographic metadata was cross-checked; the AMS and Project Euclid original full-text endpoints returned access/security errors during this session. No quotation or unverified attribution of a specific theorem number is used. The envelope proof above is supplied explicitly.
+- S. R. Howard, A. Ramdas, J. McAuliffe and J. Sekhon (2021), “Time-uniform, nonparametric, nonasymptotic confidence sequences,” *Annals of Statistics* 49(2), 1055–1080. DOI: https://doi.org/10.1214/20-AOS1991. Author preprint: https://arxiv.org/abs/1810.08240. This establishes broader context for time-uniform inference; the elementary finite-union argument above is proved directly.

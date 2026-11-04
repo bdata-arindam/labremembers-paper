@@ -1,0 +1,9 @@
+quantity,value,unit,evidence_type,source_location,interpretation
+one_cleaning_cycle,30,seconds,approximately_reported,Section 3.2,Duration of one cycle; not a price
+cleaning_cycles_per_sequence,3,count,reported,Section 3.2,Standard repeated cleaning operation
+cleaning_sequence_arithmetic,90,seconds,derived_30_times_3,Section 3.2,Arithmetic sum; not an independent timing observation
+campaign1_processing,100,minutes,approximately_reported,Section 4.3,Campaign-level elapsed process quantity
+preparative_tasks,50,minutes,approximately_reported,Section 4.3,Campaign-level preparation
+operator_attendance_total,150,minutes,approximately_reported,Section 4.3,Includes preparation and process attendance
+filter_change_collection_min,2,minutes_per_batch,approximately_reported_range,Section 4.3,Operator handling lower end
+filter_change_collection_max,3,minutes_per_batch,approximately_reported_range,Section 4.3,Operator handling upper end

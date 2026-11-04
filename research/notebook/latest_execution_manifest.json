@@ -1,0 +1,898 @@
+{
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "pandas": "2.2.3",
+      "matplotlib": "3.10.8",
+      "openpyxl": "3.1.5",
+      "nbformat": "5.11.1",
+      "nbclient": "0.11.0",
+      "nbconvert": "7.17.2",
+      "ipykernel": "7.4.0"
+    },
+    "project_root": "/workspace/scratch/6749959b1e50/lab_remembers",
+    "run_root": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project",
+    "run_tag": "20261103T083351_324712Z"
+  },
+  "input_sha256": {
+    "application/DATA_PROVENANCE.txt": "aa32687da0cf935e6d9f08f410c99f3a53cfb8c2b13815c497d604401fe43d05",
+    "application/README.txt": "9dd4ec6b01705de7e707d6d70797f8f32deae163f1ab2761f9b28c2c8d6addf4",
+    "application/autofsp/carryover_measurements.csv": "60786cc14b32eec1008f083d82f7a1dea7147bc9479ee099d7d36a15c696ba73",
+    "application/autofsp/provenance.json": "a64d2a25ee8688b0ef64aa7c247ee568def68bd46c932a9be06dcf2dd92dda70",
+    "application/autofsp/reported_resource_times.csv": "a518548c2acd98622391c1d58fcb55b03de1edc4af35b09bb08d9c69a089867c",
+    "application/crossref_metadata.json": "17c406e6bb05bd2029ec771ad1e00e6080e8c821bdd96d716a0afb8494f4050f",
+    "application/extract_measured_data.py": "4322712def6999bb2d33eab7c1df7ea32c1dda37572de25735f42bb9901cfc0a",
+    "application/extraction_log.json": "f99a594dc8d9b388b3257ac07f5f0399018a122715c8d5a74bba214e6afaca88",
+    "application/independent_measured_analysis_audit.md": "2c44fbf8454ce93ad726ddf20a3bfe0a314935d03ea04d3a14f719581f496bcf",
+    "application/measured_data_profile.json": "f99a594dc8d9b388b3257ac07f5f0399018a122715c8d5a74bba214e6afaca88",
+    "application/measured_observations_tidy.csv": "4e680407be0e86ea459d5da84c2de05ebcad0bd55adc4389b90a14a644b45164",
+    "application/measured_reconfirmation_counts.csv": "8d46ef05d53cd458f648eb5bafdad07ddd7e335f8bef55b7039b440dc0912253",
+    "application/measured_reconfirmation_labelled_pairs.csv": "7092c17914a27db7b504bd90539e5d801e29320eeb94a9b23fc05cb585a774c5",
+    "application/measured_reconfirmation_summary.json": "2df89ea3f733291ad98e52292ec39e1c7a52c90d2f7f63bf50f9153aeca97a06",
+    "application/measured_sda_replicate_pairs.csv": "2abf9c1b031880e3bc27c89fa7cfce0b8dfca18a1f424e390ef21002a52f964c",
+    "application/olympus_download_manifest.json": "d258a09e1eb2cece06e38f90c8b5fd840e54f81b7327d5cd464070e31add9d94",
+    "application/olympus_photo_pce10_config.json": "89c45acb702c5489bc8669c5f454126ebda4e3c843e5a29cded9b004b93c3b31",
+    "application/olympus_photo_pce10_data.csv": "b41c72b8e38e73a5ddd175db19e62f1bbd51da75e040fe6bd08afbdf87f0c4cf",
+    "application/olympus_photo_pce10_description.txt": "d355073280600ca196509018a911793032b5225007c71f6370dc9295e7b16202",
+    "application/olympus_photo_wf3_config.json": "ea67b8cb572b812b87e79fb6318addf26952932a5100047005adfadcf168ce61",
+    "application/olympus_photo_wf3_data.csv": "e9a26f291a85692fb6322ebae93d285b0a4fe212b2cf2a067c479e0e591fb64f",
+    "application/olympus_photo_wf3_description.txt": "6acb8de8711611814726876b87dba90e6444f7ed53c9c1b8a367c52a84ee4cc5",
+    "application/olympus_repository_commit.json": "906fcf198968003e73a7f8a88e996b1ec3154b8f1ddfb68f576d689b255ab081",
+    "application/olympus_tree.json": "0b471698c65f5abfbb8ec83016c5d1cc9983890a873efb58d127193c981cb835",
+    "application/opv_piecewise_affine.py": "8f70aef540a33fde25f54e66674fc297e1555271f1ab147e9579a9bcec0e0372",
+    "application/opv_reported_resource_times.csv": "1cb86544e7a410b35eab2d6dbb37679d4bda96bb0c97cc327a1e64ebc7de1dd5",
+    "application/opv_resource_provenance.json": "b498c9d02929aa55beb94307f7f0466f9987d2e78bcdb8bc9fb8caadaa1d94e6",
+    "application/original_README.md": "6a6dfe45296b34fcddaef5cd0878677445e1b5e30daddbd298d5dc8f9e2dfdf2",
+    "application/original_download_manifest.json": "78dfcf0632c82e9b71138f33247bdaf8d7dc020f45c394a6f8fd8e360a0ba92b",
+    "application/original_repository_commit.json": "ba93755880b2a043f714f1ad69f3d7b786e8a0f2b04bc705a1f1f6eb7f966215",
+    "application/original_repository_metadata.json": "1aaf9cdb9d5485c1a58917e233d8498e01390adbcb51d30f8e35fc70c5c5812f",
+    "application/pbq_qf_hte_composition_means.csv": "28bd23c7b28a852b31dba9092a70c269a8c138237bbf642d20162b13358d449c",
+    "application/pbq_qf_hte_measured.csv": "b6b07b3842f0375f8e27a96d58d968e0b075142345bcc75c60a29e2db0ded7b3",
+    "application/pbq_qf_piecewise_affine_arrays.npz": "acbad23326e7d35b5dacdc764ba0911180646ed03d0d2972adc07172b2455ef5",
+    "application/physical_validation_plan.json": "e91f6f1e66f1066fb8bad25d8738ead91164a0a3bc533e917bedb6bb3a0081f8",
+    "application/piecewise_affine_heldout_predictions.csv": "c948832e042473275cc165be295449035b66846635ef2b6a67db4fefe089977c",
+    "application/piecewise_affine_protocol.json": "88332244cf48b0d968209415ab069465c239260745f176abcb11bf0af21de5c3",
+    "application/piecewise_affine_validation.json": "55da1f024775d02c2ffe8545c4a16441acd5017220055935282ebfdf19e83c7b",
+    "application/plot_piecewise_validation.py": "b4d02e210d565be7f03995e7a976d27c46e9adf8f4a714d0e29364715daaa775",
+    "application/ptb7_th_hte_composition_means.csv": "92550afe2f0d7a0d00d114176f97fdf2c301eed04e251f868dcb271ccda91b15",
+    "application/ptb7_th_hte_measured.csv": "2c61aba932b042367d8c71a690d3a716fe168c058ab6b0bde28b2f47bfd6ca57",
+    "application/ptb7_th_piecewise_affine_arrays.npz": "5f29c1800dbbd770e0681ab99e2f524930ce26db5b1dec4bb81d97267e96296a",
+    "application/quaterny_opvs_experimental_data.xlsx": "69ae8917cd63fe9391278df86722c0ebc2921af92dd1b27d9b957cb030a074ad",
+    "application/reconfirmation_analysis.py": "32df10d241ba864635e74794786959b27e89e5d6299457080ad8beb38fea5fb3",
+    "application/reconfirmation_protocol.json": "8b7a5c95fc2c3867d7950f6a0cd6a0b63d78c43eb3d0ff1bb436e85de9a03928",
+    "application/retrieve_original_data.py": "67942eadd72a32f4cf8f2e93a7f7a4f1847d517b91618e1d40ee582d5a0fd261",
+    "application/validate_piecewise_affine.py": "b1a5eb2a0d53e7459ffd9a0e411c3423794ca709b8e0383ef9ab625ed1d8762b",
+    "research/lab_memory.py": "9df060c60a7fc082eb31fa0afae6a42c76a32b5c77d49962817f0c14da9879ac",
+    "research/make_figures.py": "277cf034b207668c80d248f902d110ffebbf2b30fe76550f24f75edeaaa46597",
+    "research/protocol.json": "7664e99d41415c5e19577afee914173e895ce94c91cda6b77a81e6ad06d09eae",
+    "research/requirements.txt": "7cc9a7650ef4bf55dd0efdab27183678af5ca6ef6b82fe1bcd83f29900125695",
+    "research/run_study.py": "f4cce3edca990510493b0625ddedea9d43b0ba09eb0ae97833d213ffd3f02e9a",
+    "research/test_lab_memory.py": "080d066a5d821cc731bfec525a4c7bbdca9cf389febb02382fd55d89c5cb1d9a",
+    "research/theory_note.md": "5ab0b9be0eb58703f0d396011319343a1648160beb6beb2c6eab4e41e2779866",
+    "research/v2/audit_noise_coverage.py": "f60cf518bb8776a2c606dff9e38c526c40734b1c01dc3226284696a0cfbc72af",
+    "research/v2/confirmation_planner.py": "6c9aa59f3f4137ed45e592e043c9d89e5e2cb51d0aa2301b87a8257f233ef28b",
+    "research/v2/emulator_models.json": "d485398d02fb8e77d5a4eae823334d40620d271551f6f09ed77a66f4149cd5d5",
+    "research/v2/emulator_validation.json": "cd1dfffb6e7df4ee9ee4eef69f412815bc8c50fd5d506f187b60d559b1d9049e",
+    "research/v2/make_v2_figures.py": "078f809d6db1daaa0823c6a13463c0ac3714b84b53ceeee5f0860377e0116bfe",
+    "research/v2/opv_bernstein.py": "2ebba69d995a2852c55152d6ca8f35767cc1be230470424041cffb5dac2e7b22",
+    "research/v2/opv_confirmation.py": "bbb6762f5a45276db639e7bc7f309d1b711dbf019c20a929d4381e8e2e474c8e",
+    "research/v2/protocol.json": "e312c4133a3fb23b1be0bd2192b225b335af2e5c6492c8a686f9ef5e811e2d50",
+    "research/v2/protocol_draft.json": "41aabfdfcf951f33dbbd9759deb6f81761c31f3881a67a3e85de9b50c38ebbdc",
+    "research/v2/run_v2.py": "3ffb3b4891042039f69deead0414324f4686a3944d889c08c2455f67bc19a3a7",
+    "research/v2/test_v2.py": "3426cd6b4fec55072c177d9b49e522fe1a50b2d66473574552ae023171b0ad34",
+    "research/v2/write_v2_results.py": "8254470ec6a82f30fd6f556e5380d15dcb1e4f62111b8a4e605b869bae4ba3c7",
+    "research/write_results.py": "5646dc2d44db1e66d0709b51ff57ba0a924cec7200a2818cf9b4dde11398db88"
+  },
+  "frozen_v1_protocol": {
+    "title": "When the Lab Remembers",
+    "status": "frozen before evaluation",
+    "date": "2026-11-03",
+    "claim": "The frozen nominal candidate exceeds a predeclared dimensionless fresh-preparation response threshold of 0.85.",
+    "scope": "Computational benchmark; no experimentally measured materials properties or hardware validation.",
+    "mass_balance": "Fixed final batch mass/volume. actual=(1-r)*nominal+r*residual, with r=rho*eta**wash_count the retained fraction of the final batch; nominal and residual are nonnegative ternary mass fractions summing to one. Washing reduces residual contribution; no solvent blank or unmodeled fourth component is used.",
+    "fresh_action": "An independent preparation and assay of the nominal composition is available to all methods; it leaves the shared line residual unchanged and costs four assumed cost units by default.",
+    "latent_information": "Only the simulator and scorer know true carryover, wash efficacy and clean response. Policies receive commanded compositions, wash counts, fresh flags, assumed costs and noisy observations.",
+    "inference": "Finite-grid Bayesian model averaging over carryover and wash retention; conditional Bayesian linear regression in six quadratic Bernstein mixture features. Noise standard deviation assumed known at 0.03. Primary model assumes last-actual-composition memory.",
+    "active_action_rule": "For the moment-matched joint distribution of clean-candidate latent response theta and the next observation Y, utility is Cov(theta,Y)^2 / Var(Y) / action_cost. This is linear-projection variance reduction, not exact expected Bayesian model-average posterior variance reduction or threshold entropy reduction.",
+    "discovery": {
+      "initial_random": 8,
+      "total_assays": 24,
+      "optimizer": "stateless Bayesian quadratic UCB",
+      "ucb_weight": 1.5,
+      "candidate_pool": "ternary grid in increments of 0.1",
+      "candidate_selection": "highest posterior-mean tested nominal formulation",
+      "wash_count": 0
+    },
+    "decision": {
+      "target": 0.85,
+      "posterior_accept": 0.975,
+      "posterior_reject": 0.025,
+      "minimum_target_confirmation_assays": 2,
+      "coverage_claim": "No finite-sample or arbitrary-misspecification reliability guarantee is claimed."
+    },
+    "costs": {
+      "routine_assay": 1.0,
+      "wash": 0.5,
+      "fresh_assay": 4.0,
+      "conditioning_assay": 1.0
+    },
+    "baselines": [
+      "candidate_repeat",
+      "sequence_repeat",
+      "randomized_predecessor",
+      "wash_once",
+      "wash_three",
+      "fresh_only",
+      "history_fixed",
+      "active_confirmation",
+      "history_repeat",
+      "active_no_cost"
+    ],
+    "planned_regimes": [
+      {
+        "name": "no_carryover",
+        "rho": 0.0,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "weak_carryover",
+        "rho": 0.1,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "strong_carryover",
+        "rho": 0.4,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "ineffective_wash",
+        "rho": 0.4,
+        "eta": 0.8,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "long_memory_stress",
+        "rho": 0.4,
+        "eta": 0.5,
+        "memory_lambda": 0.45,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "nonlinear_response_stress",
+        "rho": 0.4,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": true,
+        "wash_cost": 0.5,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "cheap_wash",
+        "rho": 0.4,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.1,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "expensive_wash",
+        "rho": 0.4,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 2.0,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "cheap_fresh",
+        "rho": 0.4,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 2.0
+      },
+      {
+        "name": "expensive_fresh",
+        "rho": 0.4,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 8.0
+      },
+      {
+        "name": "off_grid_stress",
+        "rho": 0.32,
+        "eta": 0.35,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 4.0
+      },
+      {
+        "name": "severe_carryover",
+        "rho": 0.7,
+        "eta": 0.2,
+        "memory_lambda": 1.0,
+        "nonlinear": false,
+        "wash_cost": 0.5,
+        "fresh_cost": 4.0
+      }
+    ],
+    "evaluation_seeds": "10000 through 10399 inclusive, disjoint from development seeds 0-19. Same seeded surface across regimes; inference is per regime and no pooled independent-campaign uncertainty is used.",
+    "pilot_changes": [
+      "Original development pilot: seeds 0-9, first six regimes, eight policies, 60 campaigns and 480 policy runs. Completed before report seeds were used. No false confirmations observed in this small pilot; washing and candidate repetition were already competitive.",
+      "Increased planned campaigns from 120 to 400 per regime to improve precision for rare false-confirmation rates; did not change response family, peak range, threshold, observation noise or prior based on performance.",
+      "Added history_repeat to separate inference from adaptive action selection, and active_no_cost to ablate cost division.",
+      "Added expensive wash and cheap/expensive fresh sensitivity, off-grid carryover/wash retention (.32,.35), and severe carryover (.7,.2); all declared before evaluation.",
+      "Corrected target-assay classification to nominal composition equality, and added deterministic affordable routine fallback to history_fixed.",
+      "Clarified fixed final-volume semantics, known initial residual, approximation used for utility, and hypothetical first-crossing interpretation."
+    ],
+    "primary_budget": 16,
+    "planned_campaigns_per_regime": 400,
+    "primary_evaluation": "Fixed budget cap of 16 assumed cost units. Evaluate the final decision after the policy completes its affordable actions. Equal caps do not imply equal realized spend: wash-only and fresh-only policies may retain a remainder smaller than their next scheduled action; history_fixed falls back to affordable routine candidate repetition. No early termination.",
+    "outcomes": [
+      "acceptance per campaign",
+      "false confirmation per campaign",
+      "false fraction among accepted (undefined if no accepts)",
+      "false acceptance conditional on invalid candidate",
+      "correct-acceptance yield per campaign",
+      "acceptance conditional on valid candidate",
+      "false rejection per campaign and conditional on valid candidate",
+      "unresolved per campaign",
+      "clean-response absolute estimation error",
+      "realized cost",
+      "assay/wash/fresh/conditioning counts"
+    ],
+    "uncertainty": "Regime-specific Wilson 95% intervals for rates; 5000 percentile campaign-seed bootstrap replicates for means and paired differences. Same bootstrap seed indices for active/control within each regime. No multiplicity-adjusted confirmatory significance claim.",
+    "limitations": [
+      "The study uses synthetic dimensionless objectives; no material-specific data or laboratory validation.",
+      "The primary smooth quadratic response family is contained in the inference model; nonlinear and long-memory regimes deliberately violate assumptions.",
+      "Known observation noise and initial residual state simplify inference; unknown calibration/noise and arbitrary hidden apparatus effects are not addressed.",
+      "Model probabilities are not universal reliability certificates and no finite-sample frequentist coverage guarantee is claimed.",
+      "Carryover magnitudes and costs are controlled assumed scenarios, not measured prevalence or experimental time.",
+      "Repeated candidate dispensing can flush carryover; adaptive controls may provide no benefit or may underperform.",
+      "Fixed-cost actions can leave different budget remainders; budgets are caps, not equal realized expenditure.",
+      "One-step covariance utility ignores look-ahead value and exact Bayesian model-discrimination information.",
+      "Same seeded surface is reused across regimes; do not treat regime rows as independent for pooled inference."
+    ],
+    "initial_condition": "A known priming mixture h0=[1,0,0] initializes the shared line and every inference particle. Known initialization and known observation sigma=0.03 are favorable assumptions.",
+    "inference_parameters": {
+      "rho_grid": [
+        0.0,
+        0.1,
+        0.25,
+        0.4,
+        0.55,
+        0.7
+      ],
+      "eta_grid": [
+        0.05,
+        0.2,
+        0.5,
+        0.8
+      ],
+      "prior_mean": [
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6
+      ],
+      "prior_covariance": ".25 I6",
+      "particle_prior": "uniform over 24 rho/eta pairs",
+      "response_basis": [
+        "a^2",
+        "b^2",
+        "c^2",
+        "2ab",
+        "2ac",
+        "2bc"
+      ],
+      "assumed_memory_lambda": 1.0
+    },
+    "evaluation_seed_start": 10000,
+    "target_assay_rule": "A target assay is any observation whose commanded nominal recipe equals the frozen candidate, including a conditioning vertex if that vertex equals the candidate.",
+    "illustrations": "Development seed 7 in strong_carryover, ineffective_wash and nonlinear_response_stress, declared before evaluation. Full discovery and all-policy trajectories exported. No evaluation example is selected for the main mechanism figure.",
+    "surface_definition": "Abstract dimensionless response: peak - .35*sum_j weight_j*(x_j-center_j)^2; center~Dirichlet(1.5,1.5,1.5), peak~Uniform(.80,1.02), each weight~Uniform(.5,1.1). Nonlinear stress adds .10 sin(8x0+phase0) sin(7x1+phase1)+.12 exp(-||x-bumpcenter||^2/.025)-.03. Phases uniform [0,2pi], bumpcenter~Dirichlet(1.2,1.2,1.2).",
+    "primary_comparison": "active_confirmation versus history_repeat, controlling the inference model and discovery evidence while changing action selection.",
+    "secondary_comparisons": [
+      "candidate_repeat",
+      "fresh_only",
+      "history_fixed",
+      "active_no_cost"
+    ],
+    "secondary_stopping_outcome": "First non-unresolved threshold crossing and its cost are hypothetical descriptive outputs. Runs continue to the fixed budget cap, so these are not results of an executed early-stopping policy.",
+    "frozen_utc": "2026-11-03T07:36:58.771366+00:00",
+    "frozen_code_sha256": {
+      "lab_memory.py": "9df060c60a7fc082eb31fa0afae6a42c76a32b5c77d49962817f0c14da9879ac",
+      "run_study.py": "f4cce3edca990510493b0625ddedea9d43b0ba09eb0ae97833d213ffd3f02e9a",
+      "test_lab_memory.py": "080d066a5d821cc731bfec525a4c7bbdca9cf389febb02382fd55d89c5cb1d9a"
+    },
+    "audit": "Independent read-only algebra, latent-boundary, utility and aggregation checks completed before evaluation. Nine deterministic scientific unit tests passed."
+  },
+  "frozen_v2_protocol": {
+    "title": "Bound-aware preplanned confirmation on measured-OPV-informed response emulators",
+    "status": "frozen before evaluation",
+    "version": 2,
+    "motivation": "The frozen v1 benchmark did not show an advantage for the adaptive covariance policy over history-model repetition. This extension tests stronger repetition controls and a conditional confidence construction, using measured formulation data to define explicitly labeled emulators.",
+    "v1_preservation": "All v1 core code, protocol and report-seed outputs remain unchanged. New source, development and evaluation outputs are stored in this directory.",
+    "measured_data": {
+      "source": "Langner et al., Beyond Ternary OPV: High-Throughput Experimentation and Self-Driving Laboratories Optimize Multicomponent Systems, DOI 10.1002/adma.201907801",
+      "systems": [
+        "pbq_qf",
+        "ptb7_th"
+      ],
+      "raw_rows_per_system": 1041,
+      "unique_compositions_per_system": 1021,
+      "features": [
+        "p3ht_fraction",
+        "second_donor_fraction",
+        "pcbm_fraction",
+        "oidtbr_fraction"
+      ],
+      "response": "degradation_mean from grouped HTE repeated compositions; lower is better. Internally score=1-degradation to preserve a maximize-response convention. Negative measured degradation values are retained; no clipping.",
+      "scope": "Measured degradation supports the response emulator only. No measured carryover, wash efficacy, memory update law, initial residual calibration or Gaussian noise calibration is available.",
+      "shared_rows": "The two systems share constituent measurements on their zero-second-donor face; they are two application cases, not fully independent external replications.",
+      "eligibility": "Nominal candidate recipes satisfy 1/6 <= total donor fraction x0+x1 <= 5/6, matching the source study's donor:acceptor ratio 1:5 to 5:1. On a 0.1 grid this is donor fraction 0.2 to 0.8. Conditioning and residual states may be any simplex mixture.",
+      "criterion": "Fresh nominal degradation <= 0.10, equivalently score >= 0.90; this is an illustrative benchmark criterion, not a claimed universal materials standard."
+    },
+    "primary_emulator": {
+      "family": "Prespecified cubic standard multinomial Bernstein polynomial on the four-component simplex, 20 coefficients.",
+      "split": "Unique composition groups, common deterministic split seed 880001 across the two systems; force the four pure vertices into training; remaining groups randomly partitioned 70% train, 15% validation, 15% test. Every replicate stays with its composition group.",
+      "ridge_candidates": [
+        1e-06,
+        0.0001,
+        0.01,
+        0.1,
+        1.0,
+        10.0
+      ],
+      "selection": "Choose ridge strength by validation MAE; ties choose larger ridge. Refit on train+validation, compute the global Lipschitz certificate from that final fit, then evaluate held-out test once. Report test MAE, RMSE, R2, group counts and coefficient/certificate values.",
+      "lipschitz_norm": "L1 on the full composition simplex.",
+      "certificate": "For degree p and Bernstein coefficients beta, L=(p/2)*max_{|gamma|=p-1,i,j}|beta_(gamma+e_i)-beta_(gamma+e_j)|. Proof from tangent gradient range. Certificate applies to this fitted emulator only, not to the true material.",
+      "policy_boundary": "Only scalar L is supplied to a bounded policy. Coefficients and emulator evaluation are private to simulator/scorer. The policy never receives the fitted response function or clean candidate value."
+    },
+    "secondary_emulator": {
+      "family": "Predeclared full-data piecewise-affine Delaunay interpolation of grouped measured means, supplied by application/opv_piecewise_affine.py.",
+      "selection_rule": "Use as an emulator sensitivity case regardless of whether its outcomes favor any method; do not choose between emulators based on policy performance.",
+      "certificate": "The independent data module supplies an exactly derived, upward-rounded full-simplex L1 gradient bound; large constants and resulting conservatism are retained.",
+      "fidelity": "Report its separate composition-group holdout coverage and prediction errors; its full-data interpolation is not held-out materials validation."
+    },
+    "physical_model": {
+      "dimension": 4,
+      "mass_balance": "Fixed final mass: actual=(1-r)*nominal+r*residual, r=rho*eta^wash_count. Shared-line residual updates as (1-lambda)*residual+lambda*actual.",
+      "fresh": "Independent nominal preparation and assay, leaves shared-line residual unchanged.",
+      "initial_residual": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "noise": "Independent Gaussian with known sigma=0.03 in score units, added after evaluating the latent emulator without clipping. This is an explicit simulation assumption, not calibrated from the measured OPV replicate distribution.",
+      "costs": {
+        "routine_or_conditioning_assay": 1.0,
+        "per_wash": 0.5,
+        "independent_fresh_assay": 4.0
+      },
+      "bounds": "The declared rho upper bound, eta upper bound and lambda lower bound are assumed externally supplied instrument-calibration information. The benchmark supplies these hypothetical envelopes; the OPV source does not verify them. All bounded methods receive identical bounds and scalar L."
+    },
+    "main_scenarios": [
+      {
+        "name": "no_carryover",
+        "rho": 0.0,
+        "eta": 0.2,
+        "lambda": 1.0,
+        "rho_upper": 0.002,
+        "eta_upper": 0.3,
+        "lambda_lower": 1.0
+      },
+      {
+        "name": "trace_carryover",
+        "rho": 0.001,
+        "eta": 0.2,
+        "lambda": 1.0,
+        "rho_upper": 0.002,
+        "eta_upper": 0.3,
+        "lambda_lower": 1.0
+      },
+      {
+        "name": "low_carryover",
+        "rho": 0.01,
+        "eta": 0.2,
+        "lambda": 1.0,
+        "rho_upper": 0.02,
+        "eta_upper": 0.3,
+        "lambda_lower": 1.0
+      },
+      {
+        "name": "moderate_carryover",
+        "rho": 0.1,
+        "eta": 0.2,
+        "lambda": 1.0,
+        "rho_upper": 0.2,
+        "eta_upper": 0.3,
+        "lambda_lower": 1.0
+      },
+      {
+        "name": "high_carryover",
+        "rho": 0.4,
+        "eta": 0.2,
+        "lambda": 1.0,
+        "rho_upper": 0.5,
+        "eta_upper": 0.3,
+        "lambda_lower": 1.0
+      },
+      {
+        "name": "ineffective_wash",
+        "rho": 0.4,
+        "eta": 0.8,
+        "lambda": 1.0,
+        "rho_upper": 0.5,
+        "eta_upper": 0.9,
+        "lambda_lower": 1.0
+      },
+      {
+        "name": "persistent_memory",
+        "rho": 0.4,
+        "eta": 0.2,
+        "lambda": 0.45,
+        "rho_upper": 0.5,
+        "eta_upper": 0.3,
+        "lambda_lower": 0.4
+      },
+      {
+        "name": "strongly_persistent_stress",
+        "rho": 0.4,
+        "eta": 0.2,
+        "lambda": 0.05,
+        "rho_upper": 0.5,
+        "eta_upper": 0.3,
+        "lambda_lower": 0.04
+      }
+    ],
+    "discovery": {
+      "candidate_pool": "Four-component simplex grid in increments of0.1, restricted by the donor:acceptor eligibility rule.",
+      "initial_random": 12,
+      "total_assays": 32,
+      "optimizer": "Stateless Bayesian quadratic Bernstein UCB with weight1.5; no repeated nominal grid points during discovery.",
+      "selection": "Highest final stateless posterior-mean tested nominal recipe. Freeze once before all confirmation methods. No apparent-hit filtering.",
+      "common_evidence": "Same discovery actions, observed outcomes, frozen candidate and private shared-line starting state for every policy in a seed/system/scenario."
+    },
+    "history_model": {
+      "family": "Quadratic four-component Bernstein basis,10 coefficients; Gaussian coefficient prior mean0.6 and covariance0.25I; known sigma0.03; last-actual-mixture memory assumption.",
+      "rho_grid": [
+        0.0,
+        0.001,
+        0.01,
+        0.05,
+        0.1,
+        0.25,
+        0.4,
+        0.7
+      ],
+      "eta_grid": [
+        0.05,
+        0.2,
+        0.5,
+        0.8
+      ],
+      "prior_bounds": "Retain only particles consistent with the declared rho/eta upper bounds, so the model controls may use the same available calibration envelope. Model probabilities are not guaranteed under cubic-response or long-memory misspecification.",
+      "active": "Original moment-matched covariance-squared/observation-variance/cost utility; conditioning actions are pure-component assays. A no-conditioning ablation uses the same utility over routine/wash1/wash3/fresh candidate actions only."
+    },
+    "bounded_inference": {
+      "alpha": 0.05,
+      "initial_distance_bound": 2.0,
+      "recursion": "For a candidate shared-line action with k washes, rbar=rho_upper*eta_upper^k, q=1-lambda_lower*(1-rbar), B=L*rbar*D_before, D_after=q*D_before. Fresh B=0 and D unchanged.",
+      "fixed_final_interval": "mean(Y_selected) +/- [mean(B_selected)+1.959963984540054*sigma/sqrt(n_selected)]. Every bounded primary schedule and discard rule is fixed before confirmation outcomes; conditional Gaussian coverage >=0.95 for the frozen candidate when the supplied bounds hold.",
+      "decision": "Accept if lower endpoint>=0.90; reject if upper endpoint<0.90; otherwise unresolved. At least2 included measurements.",
+      "early_stopping": "Primary runs never stop early. If an anytime display is supplied, use separately labeled sigma*sqrt(2*log(2*T/alpha)/n) and averaged predictable bias; do not attach the fixed-final guarantee to optional stopping.",
+      "tail_control": "Discard the first4 candidate routine assays, fixed in advance. Subsequent residual/bias bounds still propagate through discarded assays; use only retained observations and their bounds in the interval."
+    },
+    "preplanned_method": {
+      "menu": "Routine candidate, one-wash candidate, three-wash candidate, independent fresh candidate.",
+      "optimization": "Enumerate every feasible integer count tuple with at least2 total assays and cost<=budget. For each tuple, put stronger washes before weaker washes/routine; place fresh actions last (fresh placement does not affect this objective). Minimize averaged total deterministic bias bound plus the fixed-final Gaussian radius.",
+      "block_formula": "n shared actions with retained bound r and q=1-lambda_lower*(1-r) contribute L*r*D*(1-q^n)/(1-q) to summed bias and leave distance D*q^n. Fresh actions contribute zero summed bias and leaveD unchanged.",
+      "ordering_proof": "Adjacent r_a<=r_b: summed-bound difference S_ab-S_ba=L*D*lambda_lower*(r_a-r_b)<=0; the final distance product q_a*q_b is invariant. Thus strongest washes first minimize summed bounds for fixed counts.",
+      "optimality_scope": "Exact only within this finite menu of fixed candidate-only count schedules that use all their observations equally. No optimality claim over adaptive, tail-discarding, weighted or model-based policies.",
+      "ties": "Smallest half-width, then smallest realized cost, then fewest fresh assays, then fewest washes, then more routine assays."
+    },
+    "methods": [
+      "sequence_repeat",
+      "candidate_repeat",
+      "tail_repeat4",
+      "wash_once",
+      "fresh_only",
+      "history_repeat",
+      "active_confirmation",
+      "active_no_conditioning",
+      "bounded_repeat",
+      "bounded_tail4",
+      "bounded_wash_once",
+      "bounded_fresh",
+      "bounded_planner"
+    ],
+    "primary_design": {
+      "campaigns_per_system_scenario": 200,
+      "systems": 2,
+      "physical_scenarios": 8,
+      "budget": 32.0,
+      "development_seeds": "100000 through100019; no development results included in primary estimates.",
+      "evaluation_seeds": "200000 through200199, disjoint from v1 and development. Same seed reused across systems/scenarios for controlled comparisons; uncertainty is per case and no independent pooled rate is claimed.",
+      "noise_coupling": "Confirmation methods share the same independent standard-normal draw at assay indext (common random numbers), while commanded actions may differ. Routine, tail and bounded-repeat controls therefore share exactly the same raw confirmation observations.",
+      "primary_comparisons": [
+        "bounded_planner versus bounded_fresh",
+        "bounded_planner versus bounded_tail4",
+        "active_confirmation versus history_repeat"
+      ],
+      "outcomes": [
+        "false acceptance per campaign",
+        "correct-acceptance yield",
+        "false rejection",
+        "unresolved",
+        "false fraction among accepts",
+        "conditional sensitivity and invalid-candidate false acceptance",
+        "interval coverage for bounded methods",
+        "interval width",
+        "clean-response error",
+        "cost and action counts"
+      ],
+      "uncertainty": "Per-case Wilson95% intervals for binary rates;5000 campaign-paired bootstrap replicates for differences and means. Report true-good prevalence. Preserve zero-event and null results."
+    },
+    "predeclared_sensitivities": {
+      "seeds": "First100 primary report seeds,200000 through200099, allowing paired comparisons when the underlying emulator and candidate are unchanged.",
+      "scenarios": [
+        "low_carryover",
+        "high_carryover"
+      ],
+      "systems": [
+        "pbq_qf",
+        "ptb7_th"
+      ],
+      "emulator": "Repeat these four cases with the independently fixed Delaunay emulator and its own scalarL certificate.",
+      "broad_bounds": "Repeat the same four primary-emulator cases with rho_upper0.8,eta_upper0.9,lambda_lower0.4; all actual parameters remain within these bounds.",
+      "empirical_contrast_noise": "Repeat the same four primary-emulator cases with confirmation noise resampled from symmetric +/- half-differences of the system's measured SDA replicate pairs, preserving outliers. Discovery noise remains Gaussian so the candidate is unchanged. Still using sigma0.03 deliberately violates the main Gaussian/noise-bound assumption; report as an assumption stress, never as covered by the theorem or an empirical noise calibration.",
+      "budget_diagnostics": "Without additional stochastic claims, enumerate planner radius/counts for budgets8,16,32,64 and fresh costs1,2,4,8 for selected primary/broad-bound cases. These show required margins and planning behavior, not empirical success probabilities.",
+      "equal_fresh_cost": "Repeat the same four primary-emulator low/high-carryover cases with fresh_cost=1. At positive sensitivity/carryover bounds, all-fresh maximizes affordable sample count and has zero bias bound, so it should minimize the certified width. This is a physical-cost boundary, not an OPV cost calibration."
+    },
+    "pre_evaluation_changes": [
+      "Before any v2 report seeds, replaced rho0.7 scenario (already tested in v1) with strongly persistent lambda0.05/lower-bound0.04 stress. The moderate-persistence lambda0.45 case is retained. Rationale: test slow natural flushing directly while reducing reliance on extreme carryover fractions. These memory rates are uncalibrated controlled stresses, not measured OPV behavior.",
+      "Added equal fresh/routine cost1 sensitivity because OPV fresh-preparation marginal costs are not measured; all-fresh must weakly dominate biased routines in the certified-width objective at equal cost.",
+      "Capped deterministic budget diagnostics at64 rather than128 to keep computation proportionate; this does not remove any primary stochastic scenario."
+    ],
+    "remaining_gates": [
+      "Independent protocol and code review",
+      "Deterministic bound/order/enumeration and latent-information tests",
+      "Lock selected primary emulator before opening held-out fidelity outcomes",
+      "Freeze this protocol before any report-seed campaign"
+    ],
+    "frozen_utc": "2026-11-03T08:19:31.239066+00:00",
+    "independent_review": "Protocol, fixed-count exchange argument, exhaustive planner, scalar-only information boundary, cubic train/validation/test split, Lipschitz certificates, core confidence/bias logic and result denominators independently cleared before report evaluation.",
+    "scientific_tests": {
+      "count": 8,
+      "result": "passed",
+      "development_campaign_seed": 100007,
+      "report_seeds_run_before_freeze": false
+    },
+    "frozen_code_sha256": {
+      "confirmation_planner.py": "6c9aa59f3f4137ed45e592e043c9d89e5e2cb51d0aa2301b87a8257f233ef28b",
+      "opv_bernstein.py": "2ebba69d995a2852c55152d6ca8f35767cc1be230470424041cffb5dac2e7b22",
+      "opv_confirmation.py": "bbb6762f5a45276db639e7bc7f309d1b711dbf019c20a929d4381e8e2e474c8e",
+      "run_v2.py": "3ffb3b4891042039f69deead0414324f4686a3944d889c08c2455f67bc19a3a7",
+      "test_v2.py": "3426cd6b4fec55072c177d9b49e522fe1a50b2d66473574552ae023171b0ad34",
+      "emulator_models.json": "d485398d02fb8e77d5a4eae823334d40620d271551f6f09ed77a66f4149cd5d5",
+      "emulator_validation.json": "cd1dfffb6e7df4ee9ee4eef69f412815bc8c50fd5d506f187b60d559b1d9049e"
+    },
+    "measured_input_sha256": {
+      "pbq_qf_hte_composition_means.csv": "28bd23c7b28a852b31dba9092a70c269a8c138237bbf642d20162b13358d449c",
+      "ptb7_th_hte_composition_means.csv": "92550afe2f0d7a0d00d114176f97fdf2c301eed04e251f868dcb271ccda91b15",
+      "measured_sda_replicate_pairs.csv": "2abf9c1b031880e3bc27c89fa7cfce0b8dfca18a1f424e390ef21002a52f964c",
+      "opv_piecewise_affine.py": "8f70aef540a33fde25f54e66674fc297e1555271f1ab147e9579a9bcec0e0372"
+    }
+  },
+  "run_logs": [
+    {
+      "script": "research/test_lab_memory.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/test_lab_memory.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 0.4152599119988736,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__test_lab_memory.log",
+      "log_sha256": "f2b7cdf24bb38094da8d1374d60e290ad23eb5733cbf544eb7e390233f1417cc"
+    },
+    {
+      "script": "research/v2/test_v2.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/test_v2.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 0.585199396002281,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__test_v2.log",
+      "log_sha256": "3c35ff79cfe046848525a270efcc9e0531ddce778324701dd827770a7d601f82"
+    },
+    {
+      "script": "application/extract_measured_data.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/application/extract_measured_data.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 0.6924642509984551,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/application__extract_measured_data.log",
+      "log_sha256": "f99a594dc8d9b388b3257ac07f5f0399018a122715c8d5a74bba214e6afaca88"
+    },
+    {
+      "script": "application/reconfirmation_analysis.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/application/reconfirmation_analysis.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 0.9929991629978758,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/application__reconfirmation_analysis.log",
+      "log_sha256": "fa8629488a3592be7777feac9f61a3cb8d0c6127b840820fb352c384e85a972d"
+    },
+    {
+      "script": "research/v2/opv_bernstein.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/opv_bernstein.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 0.37247315300191985,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__opv_bernstein.log",
+      "log_sha256": "cd1dfffb6e7df4ee9ee4eef69f412815bc8c50fd5d506f187b60d559b1d9049e"
+    },
+    {
+      "script": "application/validate_piecewise_affine.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/application/validate_piecewise_affine.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 3.9817414909994113,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/application__validate_piecewise_affine.log",
+      "log_sha256": "0f8bf401d538d99e512a670fdd566319bbec9ac90b15f2addaf7104b89b04ad8"
+    },
+    {
+      "script": "research/run_study.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/run_study.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 269.9851052949962,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__run_study.log",
+      "log_sha256": "219a66d33215a103e5c2f3b7612125986752db19f9e39c95693cdb6b05ccc5bd"
+    },
+    {
+      "script": "research/v2/run_v2.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/run_v2.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 490.27443144000426,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__run_v2.log",
+      "log_sha256": "a1556c599c74760afd10a5ea237e0e9035ab69747f7e3d6de5a717861c6ce472"
+    },
+    {
+      "script": "research/make_figures.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/make_figures.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 4.185307942003419,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__make_figures.log",
+      "log_sha256": "031845389d5d0d44ae7451632bce69e81779c196679ad4082093b8278283cbaf"
+    },
+    {
+      "script": "research/write_results.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/write_results.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 0.5052994380021119,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__write_results.log",
+      "log_sha256": "3aff99e19448542ca191a52fc8b9f4789b9f15dfec47df973267ecbaa53baaf9"
+    },
+    {
+      "script": "research/v2/make_v2_figures.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/make_v2_figures.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 2.1443797440006165,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__make_v2_figures.log",
+      "log_sha256": "fbabcc9d092259c44fc371419a0706ce6206859fd7afc35e949c5bfea7c6944b"
+    },
+    {
+      "script": "research/v2/audit_noise_coverage.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/audit_noise_coverage.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 1.027766826999141,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__audit_noise_coverage.log",
+      "log_sha256": "26b59935cdadf02743e53ff970d25f54b4a86ab2e37574218a94fca3bcf9d9eb"
+    },
+    {
+      "script": "research/v2/write_v2_results.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/write_v2_results.py"
+      ],
+      "return_code": 0,
+      "elapsed_seconds": 0.9066447250006604,
+      "log": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__write_v2_results.log",
+      "log_sha256": "84321d8e5685e7c664aef20d9e97e3f7cea53c0064406d839daa579dec095f55"
+    }
+  ],
+  "comparisons": [
+    {
+      "artifact": "research/trial_results.csv",
+      "rows": 48000,
+      "all_values_exactly_equal": true,
+      "sha256_equal": true,
+      "rerun_sha256": "f885b35f215e7a9a2ac1e14f9163d847fe32bbaacee961ee42d5f7882e20c60a"
+    },
+    {
+      "artifact": "research/v2/trial_results.csv",
+      "rows": 62400,
+      "all_values_exactly_equal": true,
+      "sha256_equal": true,
+      "rerun_sha256": "adacc2ad86bd9be12f1047189928877a449993707e9ddfd7c41cf542ff34120e"
+    },
+    {
+      "artifact": "research/all_results_with_intervals.csv",
+      "rows": 120,
+      "all_values_exactly_equal": true,
+      "sha256_equal": true,
+      "rerun_sha256": "a2dafb12e3c26aac7c009d0a45c7aefd94cf8ef9ecf1c4ae8db5953de0e937d6"
+    },
+    {
+      "artifact": "research/v2/all_results_with_intervals.csv",
+      "rows": 416,
+      "all_values_exactly_equal": true,
+      "sha256_equal": true,
+      "rerun_sha256": "e113f20d9a15954ef4b50209c754715c0dcb6e2df37fdd546acf5936a763373e"
+    },
+    {
+      "artifact": "research/paired_comparisons.csv",
+      "rows": 480,
+      "all_values_exactly_equal": true,
+      "sha256_equal": true,
+      "rerun_sha256": "c7a01f1300f8f8fa77345d0afceaa986c8e8480194306026974d83a8e438f9cb"
+    },
+    {
+      "artifact": "research/v2/paired_comparisons.csv",
+      "rows": 1248,
+      "all_values_exactly_equal": true,
+      "sha256_equal": true,
+      "rerun_sha256": "f90bc2f50295390387d9ffd61f846398cd7e0183f695796ad57fdacbefa8fe72"
+    }
+  ],
+  "elapsed_seconds": 507.10679317299946,
+  "original_inputs_unchanged": true,
+  "all_commands_successful": true,
+  "all_raw_and_summary_values_exactly_reproduced": true,
+  "result_artifacts": [
+    "application/opv_resource_provenance.json",
+    "application/pbq_qf_hte_composition_means.csv",
+    "application/olympus_photo_wf3_data.csv",
+    "application/original_repository_commit.json",
+    "application/olympus_photo_pce10_data.csv",
+    "application/measured_reconfirmation_labelled_pairs.csv",
+    "application/piecewise_affine_validation.json",
+    "application/measured_reconfirmation_summary.json",
+    "application/pbq_qf_hte_measured.csv",
+    "application/physical_validation_plan.json",
+    "application/reconfirmation_protocol.json",
+    "application/piecewise_affine_protocol.json",
+    "application/measured_observations_tidy.csv",
+    "application/piecewise_affine_heldout_predictions.csv",
+    "application/measured_data_profile.json",
+    "application/ptb7_th_hte_measured.csv",
+    "application/measured_sda_replicate_pairs.csv",
+    "application/original_repository_metadata.json",
+    "application/ptb7_th_hte_composition_means.csv",
+    "application/measured_reconfirmation_counts.csv",
+    "application/original_README.md",
+    "application/extraction_log.json",
+    "application/crossref_metadata.json",
+    "application/olympus_repository_commit.json",
+    "application/independent_measured_analysis_audit.md",
+    "application/olympus_tree.json",
+    "application/opv_reported_resource_times.csv",
+    "application/original_download_manifest.json",
+    "application/olympus_photo_pce10_config.json",
+    "application/olympus_download_manifest.json",
+    "application/olympus_photo_wf3_config.json",
+    "research/all_results_with_intervals.csv",
+    "research/examples.json",
+    "research/trial_results.csv",
+    "research/validation.json",
+    "research/theory_note.md",
+    "research/parity_fixture.json",
+    "research/paired_comparisons.csv",
+    "research/summary_table.csv",
+    "research/RESULTS.md",
+    "research/summary.json",
+    "research/protocol.json",
+    "application/figures/paired_measured_responses.png",
+    "application/figures/paired_measured_responses.svg",
+    "application/autofsp/provenance.json",
+    "application/autofsp/carryover_measurements.csv",
+    "application/autofsp/reported_resource_times.csv",
+    "research/v2/all_results_with_intervals.csv",
+    "research/v2/planning_diagnostics.csv",
+    "research/v2/examples.json",
+    "research/v2/trial_results.csv",
+    "research/v2/validation.json",
+    "research/v2/emulator_validation.json",
+    "research/v2/paired_comparisons.csv",
+    "research/v2/emulator_models.json",
+    "research/v2/ptb7_th_grouped_split.csv",
+    "research/v2/coverage_noise_audit.json",
+    "research/v2/RESULTS.md",
+    "research/v2/protocol_draft.json",
+    "research/v2/pbq_qf_grouped_split.csv",
+    "research/v2/summary.json",
+    "research/v2/coverage_noise_reconstruction.csv",
+    "research/v2/protocol.json",
+    "research/v2/emulator_heldout_predictions.csv",
+    "research/figures/figure_estimation_error.svg",
+    "research/figures/figure_estimation_error.png",
+    "research/figures/figure_primary_rates.svg",
+    "research/figures/figure_cost_sensitivity.png",
+    "research/figures/figure_paired_effects.png",
+    "research/figures/figure_resource_mix.svg",
+    "research/figures/figure_resource_mix.png",
+    "research/figures/figure_mechanism.png",
+    "research/figures/figure_paired_effects.svg",
+    "research/figures/figure_mechanism.svg",
+    "research/figures/figure_primary_rates.png",
+    "research/figures/figure_cost_sensitivity.svg",
+    "research/figures/figure_development_trajectory.png",
+    "research/figures/figure_development_trajectory.svg",
+    "research/v2/figures/figure_v2_robustness.png",
+    "research/v2/figures/figure_v2_emulator_fidelity.svg",
+    "research/v2/figures/figure_v2_radius_frontier.png",
+    "research/v2/figures/figure_v2_robustness.svg",
+    "research/v2/figures/figure_v2_policy_yield.svg",
+    "research/v2/figures/figure_v2_emulator_fidelity.png",
+    "research/v2/figures/figure_v2_policy_yield.png",
+    "research/v2/figures/figure_v2_radius_frontier.svg"
+  ]
+}

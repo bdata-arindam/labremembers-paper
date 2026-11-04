@@ -1,0 +1,51 @@
+{
+  "status": "Proposed physical validation; no experiments have been performed for this project",
+  "purpose": "Measure the preparation-history effect, confirm nominal-recipe performance under independent preparation and replace assumed resource costs with platform-specific measurements.",
+  "materials_scope": "The two OPV blend systems in Langner et al. provide recorded compositions and measured photostability outcomes. They do not provide the carryover, wash-response or independent-preparation cost calibration required here.",
+  "before_execution": [
+    "Use an established platform-specific preparation and assay procedure approved by the laboratory.",
+    "Freeze candidate recipe, performance threshold, measurement endpoint and analysis before collecting confirmation outcomes.",
+    "Choose one validated composition-sensitive measurement for residual transfer. A performance shift alone cannot identify chemical carryover.",
+    "Record the detection and quantification limits and the calibration uncertainty of the composition measurement.",
+    "Specify what independent fresh preparation means for the apparatus, including which shared components are replaced or isolated."
+  ],
+  "initial_design": {
+    "candidate_recipes": "Two previously measured recipes: one near the chosen threshold and one separated from it. Select and record exact source-row identifiers before the run.",
+    "predecessor_conditions": "Three recorded, chemically compatible recipes with contrasting compositions in the eligible donor/acceptor domain.",
+    "line_preparation_conditions": [
+      "No additional wash",
+      "One additional platform-standard wash",
+      "Three additional platform-standard washes"
+    ],
+    "fresh_reference": "An independently prepared reference for each candidate; the target assay and aging protocol match the shared-line samples.",
+    "pilot_replications_per_cell": 6,
+    "pilot_target_assay_count": 120,
+    "count_derivation": "2 candidates × [3 predecessor recipes × 3 wash conditions + 1 fresh-reference condition] × 6 replicates.",
+    "conditioning_count": "Predecessor preparations and their material/time use are additional charged operations. Their number and reuse must be fixed in the execution plan.",
+    "blocking": "Distribute cells across run days and substrate/plate positions. Randomize order within blocks while preserving the intentional predecessor-to-candidate sequence.",
+    "power_status": "Six replicates per cell is an initial calibration design, not a claim of adequate confirmatory power. Use its variance and quantification limits to size a separate confirmation stage for a scientifically chosen error tolerance."
+  },
+  "record_for_every_operation": [
+    "Run, day, apparatus, substrate and cell identifiers",
+    "Nominal composition, component amounts and actual dispensing resolution",
+    "Immediate and earlier predecessor history",
+    "Wash command, measured duration and consumed solvent/reagents",
+    "Composition-sensitive assay value with analytical uncertainty",
+    "Target photostability endpoint and replicate identifier",
+    "Elapsed critical-path time and operator-attendance time separately",
+    "Material, consumables and waste quantities",
+    "Deviations and missing observations with reasons"
+  ],
+  "analysis": [
+    "Estimate history contrasts against the independently prepared reference, with day/substrate blocks retained.",
+    "Fit and challenge a retained-fraction or multi-reservoir model using composition measurements, not target-response fits alone.",
+    "Use a reserved calibration set to form conservative rho, eta, memory and noise bounds with explicit uncertainty.",
+    "Acknowledge that finite sampled slopes do not give a global physical Lipschitz upper bound; obtain an independently justified regularity envelope or restrict the claim.",
+    "Evaluate the frozen confirmation plans on new runs, including simple candidate repetition, prespecified burn-in, fixed washing and fresh-only preparation.",
+    "Report erroneous decisions, unresolved claims and useful confirmations together, with all resource quantities and exclusions.",
+    "Separate extra operator effort from extra campaign time because preparation and aging/assay operations may run in parallel."
+  ],
+  "completion_boundary": "This plan is an executable study design to adapt with a laboratory. It is not a substitute for measured platform bounds or physical validation of the paper's confirmation method.",
+  "replication_definition": "Each pilot replicate is an independently prepared specimen with its own target assay; technical re-readings alone do not supply preparation replication.",
+  "candidate_selection_refinement": "Seek candidates on opposite sides of the photostability criterion using separate preliminary fresh measurements; this addresses the many all-valid simulation cases. Selection calibration is additional to the120target-assay grid and must be costed. This is a proposed refinement after the simulation results, not an executed analysis."
+}

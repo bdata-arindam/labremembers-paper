@@ -1,0 +1,391 @@
+{
+  "audit_id": "AUDIT-MANUSCRIPT-NUMBERS",
+  "generated_utc": "2026-11-03T08:46:41.533446+00:00",
+  "status": "PASS",
+  "command": "python audit/check_manuscript_numbers.py",
+  "manuscript_sha256": "731612ad548da9fe073ccf348fac150643b6b166729a54471a4ceaf9599c6342",
+  "checks": [
+    {
+      "id": "T02-pbq_qf",
+      "status": "PASS",
+      "scope": "Every numerical count in measured-agreement table"
+    },
+    {
+      "id": "T02-ptb7_th",
+      "status": "PASS",
+      "scope": "Every numerical count in measured-agreement table"
+    },
+    {
+      "id": "T03-sequence_repeat",
+      "status": "PASS",
+      "scope": "All counts and displayed MAE"
+    },
+    {
+      "id": "T03-candidate_repeat",
+      "status": "PASS",
+      "scope": "All counts and displayed MAE"
+    },
+    {
+      "id": "T03-fresh_only",
+      "status": "PASS",
+      "scope": "All counts and displayed MAE"
+    },
+    {
+      "id": "T03-history_repeat",
+      "status": "PASS",
+      "scope": "All counts and displayed MAE"
+    },
+    {
+      "id": "T03-active_confirmation",
+      "status": "PASS",
+      "scope": "All counts and displayed MAE"
+    },
+    {
+      "id": "T03-VALID",
+      "status": "PASS",
+      "scope": "Valid-candidate count in table note"
+    },
+    {
+      "id": "T04-pbq_qf",
+      "status": "PASS",
+      "scope": "All displayed held-out error and certificate values"
+    },
+    {
+      "id": "T04-ptb7_th",
+      "status": "PASS",
+      "scope": "All displayed held-out error and certificate values"
+    },
+    {
+      "id": "T05-pbq_qf__main__no_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-pbq_qf__main__no_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-pbq_qf__main__trace_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-pbq_qf__main__trace_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-pbq_qf__main__low_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-pbq_qf__main__low_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-pbq_qf__main__moderate_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-pbq_qf__main__moderate_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-pbq_qf__main__high_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-pbq_qf__main__high_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-pbq_qf__main__ineffective_wash",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-pbq_qf__main__ineffective_wash",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-pbq_qf__main__persistent_memory",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-pbq_qf__main__persistent_memory",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-pbq_qf__main__strongly_persistent_stress",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-pbq_qf__main__strongly_persistent_stress",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-ptb7_th__main__no_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-ptb7_th__main__no_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-ptb7_th__main__trace_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-ptb7_th__main__trace_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-ptb7_th__main__low_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-ptb7_th__main__low_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-ptb7_th__main__moderate_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-ptb7_th__main__moderate_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-ptb7_th__main__high_carryover",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-ptb7_th__main__high_carryover",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-ptb7_th__main__ineffective_wash",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-ptb7_th__main__ineffective_wash",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-ptb7_th__main__persistent_memory",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-ptb7_th__main__persistent_memory",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T05-ptb7_th__main__strongly_persistent_stress",
+      "status": "PASS",
+      "scope": "All valid-count, true-acceptance and radius cells"
+    },
+    {
+      "id": "T05-ZERO-FA-ptb7_th__main__strongly_persistent_stress",
+      "status": "PASS",
+      "scope": "Zero observed errors in table note; no zero-risk inference"
+    },
+    {
+      "id": "T06-pbq_qf__main__high_carryover-bounded_fresh",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-pbq_qf__main__high_carryover-bounded_tail4",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-pbq_qf__main__ineffective_wash-bounded_fresh",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-pbq_qf__main__ineffective_wash-bounded_tail4",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-pbq_qf__main__persistent_memory-bounded_fresh",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-pbq_qf__main__persistent_memory-bounded_tail4",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-ptb7_th__main__high_carryover-bounded_fresh",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-ptb7_th__main__high_carryover-bounded_tail4",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-ptb7_th__main__ineffective_wash-bounded_fresh",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-ptb7_th__main__ineffective_wash-bounded_tail4",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-ptb7_th__main__persistent_memory-bounded_fresh",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T06-ptb7_th__main__persistent_memory-bounded_tail4",
+      "status": "PASS",
+      "scope": "Displayed paired percentage-point effect and both interval endpoints; copied from saved bootstrap summary, not reestimated"
+    },
+    {
+      "id": "T07-bounded_planner",
+      "status": "PASS",
+      "scope": "Coverage count, rate and both Wilson endpoints"
+    },
+    {
+      "id": "T07-bounded_tail4",
+      "status": "PASS",
+      "scope": "Coverage count, rate and both Wilson endpoints"
+    },
+    {
+      "id": "T07-bounded_fresh",
+      "status": "PASS",
+      "scope": "Coverage count, rate and both Wilson endpoints"
+    },
+    {
+      "id": "P047-ALL-VALID",
+      "status": "PASS",
+      "scope": "Nine of sixteen primary cases have all-valid candidates"
+    },
+    {
+      "id": "P047-RUN-COUNTS",
+      "status": "PASS",
+      "scope": "Main, sensitivity and total policy-run counts"
+    },
+    {
+      "id": "P047b-NEGATIVE-pbq_qf-no_carryover",
+      "status": "PASS",
+      "scope": "Post-run count of negative fitted mean loss; not measured physical stability"
+    },
+    {
+      "id": "P047b-NEGATIVE-pbq_qf-trace_carryover",
+      "status": "PASS",
+      "scope": "Post-run count of negative fitted mean loss; not measured physical stability"
+    },
+    {
+      "id": "P047b-NEGATIVE-pbq_qf-low_carryover",
+      "status": "PASS",
+      "scope": "Post-run count of negative fitted mean loss; not measured physical stability"
+    },
+    {
+      "id": "P047b-NEGATIVE-ptb7_th-no_carryover",
+      "status": "PASS",
+      "scope": "Post-run count of negative fitted mean loss; not measured physical stability"
+    },
+    {
+      "id": "P047b-MEASURED-NEGATIVES",
+      "status": "PASS",
+      "scope": "Two retained source observations have negative measured degradation; no sign-based impossibility claim"
+    },
+    {
+      "id": "P048-PLAN-pbq_qf",
+      "status": "PASS",
+      "scope": "Two three-wash assays followed by 27 routine assays"
+    },
+    {
+      "id": "P048-PLAN-ptb7_th",
+      "status": "PASS",
+      "scope": "Two three-wash assays followed by 27 routine assays"
+    },
+    {
+      "id": "P049-COUNTS",
+      "status": "PASS",
+      "scope": "Severe-memory prevalence and reported false/true acceptances"
+    },
+    {
+      "id": "P049c-BROAD",
+      "status": "PASS",
+      "scope": "All four broad-bound tails unresolved"
+    },
+    {
+      "id": "P049c-EQUAL-FRESH",
+      "status": "PASS",
+      "scope": "Declared equal-cost planner uses 32 fresh assays"
+    },
+    {
+      "id": "P049c-DELAUNAY",
+      "status": "PASS",
+      "scope": "Reported Delaunay high-carryover false acceptance"
+    },
+    {
+      "id": "F04-BROAD-OVERLAP",
+      "status": "PASS",
+      "scope": "Broad-bound planner and fresh-only curves coincide for all four displayed budgets"
+    },
+    {
+      "id": "P054-PILOT-ARITHMETIC",
+      "status": "PASS",
+      "scope": "120 target assays exclude charged predecessor and candidate-selection calibration work"
+    },
+    {
+      "id": "FIGURE-EXISTS-F01",
+      "status": "PASS",
+      "scope": "Referenced image file exists; visual QA is a separate root check"
+    },
+    {
+      "id": "FIGURE-EXISTS-F02",
+      "status": "PASS",
+      "scope": "Referenced image file exists; visual QA is a separate root check"
+    },
+    {
+      "id": "FIGURE-EXISTS-F03",
+      "status": "PASS",
+      "scope": "Referenced image file exists; visual QA is a separate root check"
+    },
+    {
+      "id": "FIGURE-EXISTS-F04",
+      "status": "PASS",
+      "scope": "Referenced image file exists; visual QA is a separate root check"
+    }
+  ],
+  "scope": "All numerical cells in T02–T07, key textual/count/sensitivity assertions and the final F04 overlap note. Source-output arithmetic is separately audited. T01 is a literature comparison, not a numerical result table.",
+  "limits": "Rounded table values are reconciled to independently audited saved outputs. Bootstrap intervals are copied consistently from frozen summary records; this script does not independently rerun all bootstrap resamples. No new campaigns or seed changes."
+}

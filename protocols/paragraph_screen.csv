@@ -1,0 +1,79 @@
+paragraph_id,baseline_rating,final_rating,research_severity_remaining,remaining_evidence_status,final_rationale
+P001,LOW,LOW,NONE,SUPPORTED,Concrete nominal-versus-actual preparation problem and frozen-target motivation.
+P002,LOW,LOW,NONE,SUPPORTED,Published carryover precedents are cited without transferring their apparatus calibration.
+P003,LOW,LOW,NONE,SUPPORTED,Contribution scope includes the preserved negative finding and excludes a new-material claim.
+P004,LOW,LOW,NONE,SUPPORTED,"Measured pairs, emulators and external physical context remain distinct evidence types."
+P005,LOW,LOW,NONE,SUPPORTED,Prior history/carryover theory and post-selection conditioning limits are explicit.
+P006,LOW,LOW,NONE,SUPPORTED,Neighboring methods are conceptual comparators rather than unperformed numerical reproductions.
+P007,LOW,LOW,NONE,SUPPORTED,Established mathematical ideas receive attribution and the novelty claim is bounded.
+P008,LOW,LOW,NONE,SUPPORTED,The optimization claim is restricted to a declared certified-width objective.
+P009,MEDIUM,LOW,NONE,SUPPORTED,"Observed loss, modeled mean loss and the fresh score target are now distinct."
+P010,LOW,LOW,NONE,SUPPORTED,Mixture state and retained fraction have a stated fixed-final-mass meaning.
+P011,LOW,LOW,NONE,SUPPORTED,Retention law and composition-only history mechanism are explicitly assumptions.
+P012,LOW,LOW,NONE,SUPPORTED,Sharp-envelope statement includes known actual locations and Lipschitz consistency.
+P013,LOW,LOW,NONE,SUPPORTED,Sharpness proof is supplied; hidden-location relaxation is explicitly nonsharp.
+P014,LOW,LOW,NONE,SUPPORTED,Smooth-bump argument is limited to a finite transcript and distinguishes global statistical identification.
+P015,LOW,LOW,NONE,SUPPORTED,Contraction and bias recursion are linked to the stated state model.
+P016,LOW,LOW,NONE,SUPPORTED,"Simplex diameter, fresh-state behavior and external validity of bounds are explicit."
+P017,LOW,LOW,NONE,SUPPORTED,The geometric-sum bound distinguishes discarded and retained measurements.
+P018,LOW,LOW,NONE,SUPPORTED,Natural flushing explains the strong repeat control; post hoc tails need correction.
+P019,LOW,LOW,NONE,SUPPORTED,"Fixed schedule, independent Gaussian errors and known noise scale are stated."
+P020,LOW,LOW,NONE,SUPPORTED,Wrong-decision probability is separated from false fraction among accepted candidates.
+P021,LOW,LOW,NONE,SUPPORTED,Fixed-final inference and optional-stopping correction are distinguished.
+P022,LOW,LOW,NONE,SUPPORTED,Calibration error and emulator discrepancy are not absorbed into a nominal interval.
+P023,LOW,LOW,NONE,SUPPORTED,The scheduling class and common-memory exchange assumptions are explicit.
+P024,LOW,LOW,NONE,SUPPORTED,"Ordering proof, fresh-state isolation, block formula and tie rules describe the implementation."
+P025,LOW,LOW,NONE,SUPPORTED,"Restricted optimality excludes tail discarding, adaptive choices and general empirical superiority."
+P026,MEDIUM,LOW,NONE,SUPPORTED,The polynomial family and explicit basis definition are identifiable.
+P027,LOW,LOW,NONE,SUPPORTED,The sensitivity certificate is limited to the constructed emulator and policy information boundary.
+P028,LOW,LOW,NONE,SUPPORTED,Source conditions and extracted measured-record counts are independently checked.
+P029,LOW,LOW,NONE,SUPPORTED,"Fraction units, negative values, shared source observations and metadata discrepancies are retained."
+P030,LOW,LOW,NONE,SUPPORTED,Descriptive paired disagreements are not causal carryover or false-acceptance estimates.
+P031,LOW,LOW,NONE,SUPPORTED,"Grouped split, forced vertices, validation selection and one test assessment are traceable."
+P032,LOW,LOW,NONE,SUPPORTED,Alternative interpolation and unmatched validation coverage have explicit limits.
+P033,LOW,LOW,NONE,SUPPORTED,"The preserved benchmark's synthetic target, grid, discovery and resource scale are stated."
+P034,MEDIUM,LOW,NONE,SUPPORTED,Cost caps and realized spending are separated; the heuristic is not exact information gain.
+P035,LOW,LOW,NONE,SUPPORTED,"Counts, shared seeds and the chronology of the later extension are not exaggerated."
+P036,LOW,LOW,NONE,SUPPORTED,Observable policy inputs and hidden simulator initialization are separately described.
+P037,LOW,LOW,NONE,SUPPORTED,Scenario parameters and supplied external envelopes remain simulation assumptions.
+P038,LOW,LOW,NONE,SUPPORTED,"Thirteen controls, fixed-final counts and per-case pairing are explicit."
+P039,LOW,LOW,NONE,SUPPORTED,Sensitivity choices were declared before report execution; invalid noise is labeled a stress.
+P040,LOW,LOW,NONE,SUPPORTED,"Metric denominators, Wilson intervals, paired bootstrap and multiplicity limits are stated."
+P041,LOW,LOW,NONE,SUPPORTED,All measured-pair counts reconcile to the source export; causal overinterpretation is excluded.
+P042,MEDIUM,LOW,NONE,SUPPORTED,Extremes and heterogeneous paired variation are retained without unsupported mechanism attribution.
+P043,LOW,LOW,NONE,SUPPORTED,The v1 adaptive method's lack of advantage over same-model repetition is stated directly.
+P044,LOW,LOW,NONE,SUPPORTED,Nonlinear and severe cases retain adverse outcomes and finite uncertainty for zero events.
+P045,MEDIUM,LOW,NONE,SUPPORTED,Mechanistic interpretation is conditional and describes the actual myopic covariance utility.
+P046,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Moderate emulator test fidelity is compared with the criterion without claiming physical certainty.
+P046b,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Secondary model coverage and large sensitivity bounds are reported with comparison limits.
+P047,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,All-valid candidate cases and the resulting invalid-candidate denominator problem are explicit.
+P047b,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Post-run negative-prediction counts are exact derived emulator results; measured negative changes are retained and physical validation is not claimed.
+P048,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Improvement against costly fresh controls is quantified without claiming repeat-control dominance.
+P048b,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,A result unfavorable to the planner is retained and reconciled with restricted optimality.
+P048c,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Wide bounds and abstention are not described as successful discovery.
+P049,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Misspecified-model false acceptance is reported with all-campaign denominators and zero-event limits.
+P049b,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Finite observed coverage below nominal is retained; common-noise dependence is explained.
+P049c,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Bound and noise stresses keep their assumptions and do not retrospectively retune the study.
+P050,LOW,LOW,NONE,SUPPORTED,"Conditional cost, bias and sampling-noise tradeoffs are interpretation rather than physical advice."
+P051,LOW,LOW,NONE,SUPPORTED,Reference preparation and unresolved outcomes define the scientific claim.
+P052,LOW,LOW,NONE,SUPPORTED,Published catalyst contamination and cleaning duration remain separate from OPV parameter calibration.
+P053,LOW,LOW,NONE,SUPPORTED,Measured batch throughput and treatment durations are not equated to marginal fresh cost.
+P054,MEDIUM,LOW,NONE,SUPPORTED,The 120-assay physical grid is a proposed pilot with separate selection-calibration costs.
+P055,LOW,LOW,NONE,SUPPORTED,"Prospective logs and randomization are necessary follow-up requirements, not completed steps."
+P056,LOW,LOW,NONE,SUPPORTED,Apparatus-specific regularity and noise assumptions remain open physical questions.
+P057,LOW,LOW,NONE,SUPPORTED,"The central physical, calibration, model-discrepancy and multiple-candidate limits are stated."
+P058,LOW,LOW,NONE,SUPPORTED,"Shared source data, reused seeds, no external validation and nonexhaustive novelty search are visible."
+P059,LOW,LOW,NONE,SUPPORTED,The conclusion remains a conditional computational framework with a physical-validation gap.
+PA01,LOW,LOW,NONE,SUPPORTED,Finite Lipschitz cone-envelope proof is internally complete and attributed as classical.
+PA02,LOW,LOW,NONE,SUPPORTED,Response-band envelope proof requires nonempty feasibility; hidden locations lose sharpness.
+PA03,LOW,LOW,NONE,SUPPORTED,Smooth bump construction includes boundary and response-range qualifications.
+PA04,LOW,LOW,NONE,SUPPORTED,"State contraction, geometric sum and fresh-state semantics are algebraically consistent."
+PA05,LOW,LOW,NONE,SUPPORTED,Triangle-inequality coverage proof includes uniformity over admissible bias sequences.
+PA06,LOW,LOW,NONE,SUPPORTED,Finite-horizon and contiguous-window union bounds are separate from the implemented fixed-final experiment.
+PA07,LOW,LOW,NONE,SUPPORTED,"Exchange proof has common noise, additive costs and no additional sequence restrictions."
+PA08a,NOT_ASSESSABLE,LOW,NONE,SUPPORTED,Display equations define the standard Bernstein basis and its ambient derivative.
+PA08,MEDIUM,LOW,NONE,SUPPORTED,Tangent-gradient range proof yields an upper bound only for the mathematical emulator.
+PA09,MEDIUM,LOW,NONE,SUPPORTED,Crossover is a conservative fixed-assumption sufficient condition with explicit count and noise requirements.
+PA10,MEDIUM,LOW,NONE,SUPPORTED,Power bound conditions on fixed n and deterministic valid mean bias; it is not a physical pilot power calculation.
+PR01,LOW,LOW,NONE,SUPPORTED,Execution and demonstration claims depend on actual saved notebook/parity records; prose clarity is separate from completion.
+PR02,LOW,LOW,NONE,SUPPORTED,"Pinned data identity, unresolved workbook rights and unknown author declarations are explicit."

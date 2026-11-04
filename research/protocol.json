@@ -1,0 +1,248 @@
+{
+  "title": "When the Lab Remembers",
+  "status": "frozen before evaluation",
+  "date": "2026-11-03",
+  "claim": "The frozen nominal candidate exceeds a predeclared dimensionless fresh-preparation response threshold of 0.85.",
+  "scope": "Computational benchmark; no experimentally measured materials properties or hardware validation.",
+  "mass_balance": "Fixed final batch mass/volume. actual=(1-r)*nominal+r*residual, with r=rho*eta**wash_count the retained fraction of the final batch; nominal and residual are nonnegative ternary mass fractions summing to one. Washing reduces residual contribution; no solvent blank or unmodeled fourth component is used.",
+  "fresh_action": "An independent preparation and assay of the nominal composition is available to all methods; it leaves the shared line residual unchanged and costs four assumed cost units by default.",
+  "latent_information": "Only the simulator and scorer know true carryover, wash efficacy and clean response. Policies receive commanded compositions, wash counts, fresh flags, assumed costs and noisy observations.",
+  "inference": "Finite-grid Bayesian model averaging over carryover and wash retention; conditional Bayesian linear regression in six quadratic Bernstein mixture features. Noise standard deviation assumed known at 0.03. Primary model assumes last-actual-composition memory.",
+  "active_action_rule": "For the moment-matched joint distribution of clean-candidate latent response theta and the next observation Y, utility is Cov(theta,Y)^2 / Var(Y) / action_cost. This is linear-projection variance reduction, not exact expected Bayesian model-average posterior variance reduction or threshold entropy reduction.",
+  "discovery": {
+    "initial_random": 8,
+    "total_assays": 24,
+    "optimizer": "stateless Bayesian quadratic UCB",
+    "ucb_weight": 1.5,
+    "candidate_pool": "ternary grid in increments of 0.1",
+    "candidate_selection": "highest posterior-mean tested nominal formulation",
+    "wash_count": 0
+  },
+  "decision": {
+    "target": 0.85,
+    "posterior_accept": 0.975,
+    "posterior_reject": 0.025,
+    "minimum_target_confirmation_assays": 2,
+    "coverage_claim": "No finite-sample or arbitrary-misspecification reliability guarantee is claimed."
+  },
+  "costs": {
+    "routine_assay": 1.0,
+    "wash": 0.5,
+    "fresh_assay": 4.0,
+    "conditioning_assay": 1.0
+  },
+  "baselines": [
+    "candidate_repeat",
+    "sequence_repeat",
+    "randomized_predecessor",
+    "wash_once",
+    "wash_three",
+    "fresh_only",
+    "history_fixed",
+    "active_confirmation",
+    "history_repeat",
+    "active_no_cost"
+  ],
+  "planned_regimes": [
+    {
+      "name": "no_carryover",
+      "rho": 0.0,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "weak_carryover",
+      "rho": 0.1,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "strong_carryover",
+      "rho": 0.4,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "ineffective_wash",
+      "rho": 0.4,
+      "eta": 0.8,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "long_memory_stress",
+      "rho": 0.4,
+      "eta": 0.5,
+      "memory_lambda": 0.45,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "nonlinear_response_stress",
+      "rho": 0.4,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": true,
+      "wash_cost": 0.5,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "cheap_wash",
+      "rho": 0.4,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.1,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "expensive_wash",
+      "rho": 0.4,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 2.0,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "cheap_fresh",
+      "rho": 0.4,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 2.0
+    },
+    {
+      "name": "expensive_fresh",
+      "rho": 0.4,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 8.0
+    },
+    {
+      "name": "off_grid_stress",
+      "rho": 0.32,
+      "eta": 0.35,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 4.0
+    },
+    {
+      "name": "severe_carryover",
+      "rho": 0.7,
+      "eta": 0.2,
+      "memory_lambda": 1.0,
+      "nonlinear": false,
+      "wash_cost": 0.5,
+      "fresh_cost": 4.0
+    }
+  ],
+  "evaluation_seeds": "10000 through 10399 inclusive, disjoint from development seeds 0-19. Same seeded surface across regimes; inference is per regime and no pooled independent-campaign uncertainty is used.",
+  "pilot_changes": [
+    "Original development pilot: seeds 0-9, first six regimes, eight policies, 60 campaigns and 480 policy runs. Completed before report seeds were used. No false confirmations observed in this small pilot; washing and candidate repetition were already competitive.",
+    "Increased planned campaigns from 120 to 400 per regime to improve precision for rare false-confirmation rates; did not change response family, peak range, threshold, observation noise or prior based on performance.",
+    "Added history_repeat to separate inference from adaptive action selection, and active_no_cost to ablate cost division.",
+    "Added expensive wash and cheap/expensive fresh sensitivity, off-grid carryover/wash retention (.32,.35), and severe carryover (.7,.2); all declared before evaluation.",
+    "Corrected target-assay classification to nominal composition equality, and added deterministic affordable routine fallback to history_fixed.",
+    "Clarified fixed final-volume semantics, known initial residual, approximation used for utility, and hypothetical first-crossing interpretation."
+  ],
+  "primary_budget": 16,
+  "planned_campaigns_per_regime": 400,
+  "primary_evaluation": "Fixed budget cap of 16 assumed cost units. Evaluate the final decision after the policy completes its affordable actions. Equal caps do not imply equal realized spend: wash-only and fresh-only policies may retain a remainder smaller than their next scheduled action; history_fixed falls back to affordable routine candidate repetition. No early termination.",
+  "outcomes": [
+    "acceptance per campaign",
+    "false confirmation per campaign",
+    "false fraction among accepted (undefined if no accepts)",
+    "false acceptance conditional on invalid candidate",
+    "correct-acceptance yield per campaign",
+    "acceptance conditional on valid candidate",
+    "false rejection per campaign and conditional on valid candidate",
+    "unresolved per campaign",
+    "clean-response absolute estimation error",
+    "realized cost",
+    "assay/wash/fresh/conditioning counts"
+  ],
+  "uncertainty": "Regime-specific Wilson 95% intervals for rates; 5000 percentile campaign-seed bootstrap replicates for means and paired differences. Same bootstrap seed indices for active/control within each regime. No multiplicity-adjusted confirmatory significance claim.",
+  "limitations": [
+    "The study uses synthetic dimensionless objectives; no material-specific data or laboratory validation.",
+    "The primary smooth quadratic response family is contained in the inference model; nonlinear and long-memory regimes deliberately violate assumptions.",
+    "Known observation noise and initial residual state simplify inference; unknown calibration/noise and arbitrary hidden apparatus effects are not addressed.",
+    "Model probabilities are not universal reliability certificates and no finite-sample frequentist coverage guarantee is claimed.",
+    "Carryover magnitudes and costs are controlled assumed scenarios, not measured prevalence or experimental time.",
+    "Repeated candidate dispensing can flush carryover; adaptive controls may provide no benefit or may underperform.",
+    "Fixed-cost actions can leave different budget remainders; budgets are caps, not equal realized expenditure.",
+    "One-step covariance utility ignores look-ahead value and exact Bayesian model-discrimination information.",
+    "Same seeded surface is reused across regimes; do not treat regime rows as independent for pooled inference."
+  ],
+  "initial_condition": "A known priming mixture h0=[1,0,0] initializes the shared line and every inference particle. Known initialization and known observation sigma=0.03 are favorable assumptions.",
+  "inference_parameters": {
+    "rho_grid": [
+      0.0,
+      0.1,
+      0.25,
+      0.4,
+      0.55,
+      0.7
+    ],
+    "eta_grid": [
+      0.05,
+      0.2,
+      0.5,
+      0.8
+    ],
+    "prior_mean": [
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.6
+    ],
+    "prior_covariance": ".25 I6",
+    "particle_prior": "uniform over 24 rho/eta pairs",
+    "response_basis": [
+      "a^2",
+      "b^2",
+      "c^2",
+      "2ab",
+      "2ac",
+      "2bc"
+    ],
+    "assumed_memory_lambda": 1.0
+  },
+  "evaluation_seed_start": 10000,
+  "target_assay_rule": "A target assay is any observation whose commanded nominal recipe equals the frozen candidate, including a conditioning vertex if that vertex equals the candidate.",
+  "illustrations": "Development seed 7 in strong_carryover, ineffective_wash and nonlinear_response_stress, declared before evaluation. Full discovery and all-policy trajectories exported. No evaluation example is selected for the main mechanism figure.",
+  "surface_definition": "Abstract dimensionless response: peak - .35*sum_j weight_j*(x_j-center_j)^2; center~Dirichlet(1.5,1.5,1.5), peak~Uniform(.80,1.02), each weight~Uniform(.5,1.1). Nonlinear stress adds .10 sin(8x0+phase0) sin(7x1+phase1)+.12 exp(-||x-bumpcenter||^2/.025)-.03. Phases uniform [0,2pi], bumpcenter~Dirichlet(1.2,1.2,1.2).",
+  "primary_comparison": "active_confirmation versus history_repeat, controlling the inference model and discovery evidence while changing action selection.",
+  "secondary_comparisons": [
+    "candidate_repeat",
+    "fresh_only",
+    "history_fixed",
+    "active_no_cost"
+  ],
+  "secondary_stopping_outcome": "First non-unresolved threshold crossing and its cost are hypothetical descriptive outputs. Runs continue to the fixed budget cap, so these are not results of an executed early-stopping policy.",
+  "frozen_utc": "2026-11-03T07:36:58.771366+00:00",
+  "frozen_code_sha256": {
+    "lab_memory.py": "9df060c60a7fc082eb31fa0afae6a42c76a32b5c77d49962817f0c14da9879ac",
+    "run_study.py": "f4cce3edca990510493b0625ddedea9d43b0ba09eb0ae97833d213ffd3f02e9a",
+    "test_lab_memory.py": "080d066a5d821cc731bfec525a4c7bbdca9cf389febb02382fd55d89c5cb1d9a"
+  },
+  "audit": "Independent read-only algebra, latent-boundary, utility and aggregation checks completed before evaluation. Nine deterministic scientific unit tests passed."
+}

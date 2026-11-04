@@ -1,0 +1,74 @@
+{
+  "purpose": "Check a concrete empirical undercoverage finding using the existing report seed block only.",
+  "records": [
+    {
+      "method": "bounded_repeat",
+      "case": "pbq_qf__main__no_carryover",
+      "n_campaigns": 200,
+      "noise_indices_zero_based": [
+        0,
+        31
+      ],
+      "included_assays": 32,
+      "declared_sigma": 0.03,
+      "standard_error": 0.005303300858899106,
+      "critical_value": 1.959963984540054,
+      "standardized_mean": 0.11571829836475019,
+      "standardized_sample_sd": 1.0682363044672138,
+      "absolute_standardized_exceedances": 13,
+      "coverage_misses": 12,
+      "interval_bias_allowance": 0.0002083093143632,
+      "observed_coverage": 0.94,
+      "maximum_saved_vs_reconstructed_mean_error": 6.279698983036042e-16,
+      "unadjusted_binomial_upper_tail_at_p05": 0.30024429664578084,
+      "indexing_and_normalization_match": true
+    },
+    {
+      "method": "bounded_tail4",
+      "case": "pbq_qf__main__no_carryover",
+      "n_campaigns": 200,
+      "noise_indices_zero_based": [
+        4,
+        31
+      ],
+      "included_assays": 28,
+      "declared_sigma": 0.03,
+      "standard_error": 0.005669467095138408,
+      "critical_value": 1.959963984540054,
+      "standardized_mean": 0.10283720496222137,
+      "standardized_sample_sd": 1.0812869789113175,
+      "absolute_standardized_exceedances": 17,
+      "coverage_misses": 17,
+      "interval_bias_allowance": 3.809084605499904e-15,
+      "observed_coverage": 0.915,
+      "maximum_saved_vs_reconstructed_mean_error": 6.971148918538672e-16,
+      "unadjusted_binomial_upper_tail_at_p05": 0.023799459747172708,
+      "indexing_and_normalization_match": true
+    },
+    {
+      "method": "bounded_fresh",
+      "case": "pbq_qf__main__no_carryover",
+      "n_campaigns": 200,
+      "noise_indices_zero_based": [
+        0,
+        7
+      ],
+      "included_assays": 8,
+      "declared_sigma": 0.03,
+      "standard_error": 0.010606601717798212,
+      "critical_value": 1.959963984540054,
+      "standardized_mean": -0.01991039744478903,
+      "standardized_sample_sd": 1.0369289332919736,
+      "absolute_standardized_exceedances": 14,
+      "coverage_misses": 14,
+      "interval_bias_allowance": 0.0,
+      "observed_coverage": 0.93,
+      "maximum_saved_vs_reconstructed_mean_error": 5.689893001203927e-16,
+      "unadjusted_binomial_upper_tail_at_p05": 0.12989223370694228,
+      "indexing_and_normalization_match": true
+    }
+  ],
+  "new_report_seeds": 0,
+  "interpretation": "No indexing or normalization defect was found. The empirical coverage shortfall is retained. The same finite noise block is shared across cases and methods, so repeated case counts are not independent calibration replications. Binomial tail probabilities are descriptive, unadjusted checks of this one prespecified block, not a repair of observed coverage or empirical proof of universal calibration.",
+  "scope": "The main mathematical statement is conditional coverage under the exact noise/bias assumptions; simulation frequencies on one finite common-random-number block can differ. Real OPV noise is not established as Gaussian with known sigma0.03."
+}

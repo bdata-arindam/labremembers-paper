@@ -1,0 +1,14 @@
+{
+  "filename": "quaterny_opvs_experimental_data.xlsx",
+  "source_url": "https://raw.githubusercontent.com/the-matter-lab/quaterny_opvs/226c2f0df03a645166d793c4a4b76a4744af015e/experimental_data.xlsx",
+  "repository": "https://github.com/the-matter-lab/quaterny_opvs",
+  "repository_commit": "226c2f0df03a645166d793c4a4b76a4744af015e",
+  "original_repository_url_in_article": "http://github.com/aspuru-guzik-group/quaterny_opvs",
+  "retrieved_utc": "2026-11-03T07:52:58.315668+00:00",
+  "bytes": 138962,
+  "sha256": "69ae8917cd63fe9391278df86722c0ebc2921af92dd1b27d9b957cb030a074ad",
+  "source_doi": "10.1002/adma.201907801",
+  "article_license": "CC BY-NC 4.0",
+  "data_repository_license": "No explicit repository license found; API license field null. Article license not assumed automatically to cover separate workbook.",
+  "redistribution_note": "Research download retained with provenance. Do not relabel this workbook MIT. License clarification remains relevant before redistributing original workbook in a public research package."
+}

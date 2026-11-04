@@ -1,0 +1,35 @@
+# Linked scientific and manuscript review
+
+The authoritative study-specific record is `audit/evidence_register.json`; the CSV, settings and declaration files are views of that record. This report concerns source text, methods, saved numerical outputs and the completed execution/presentation receipts. It distinguishes every verification scope from physical validation.
+
+## Review coverage
+
+Mode: NEW. The retained first assembled draft has SHA256 `074016e63e92eed8d6efb9b11f63d775caf02e36d1c8d97c1fb4af214fd6382d`. The final reviewed manuscript source has SHA256 `731612ad548da9fe073ccf348fac150643b6b166729a54471a4ceaf9599c6342`. The whole scientific text, abstract and 13-reference bibliography were read. The final paragraph screen covers 78 substantive paragraphs; all ten displayed equations were checked. There are 33 separately assessed citation/reference relationships, including split grouped citations. No matched writing-style reference anchors were supplied, so reference-style comparison is indeterminate. Current AI assistance is known from the work record rather than inferred from prose.
+
+## Repairs recorded across both passes
+
+Pass A separated noisy measured loss from the fitted mean target, corrected equal-budget language, clarified replication units and added missing assumptions to the crossover and power statements. It also replaced an unperformed Gaussian-method implication and made the immediate covariance heuristic precise. The Bernstein basis and derivative now have explicit display equations. Pass B separated hidden simulator state from observable policy inputs, corrected retained volume to retained-mixture mass and labeled the scenario set as simulated. The detailed before/after record uses stable paragraph IDs in the register.
+
+## Mathematical and numerical result
+
+The cone-envelope proof, contraction recurrence, preparation-bias bound, fixed-final confidence interval, finite-count ordering argument and Bernstein tangent-gradient bound are internally consistent under their stated assumptions. These are applications and model-specific derivations of established ideas. The schedule minimizes the declared conservative radius in a finite equally weighted action class; it is not a general adaptive optimum. Tail averaging remains a valid competing design outside that class.
+
+The v2 independent output audit reconciled 62,400 saved rows, 97 structural/hash checks, 4,736 rate/denominator/Wilson calculations, 3,232 means and 1,248 paired point estimates. The largest continuous discrepancy was 2.22e−16. All inspected frozen source hashes matched. No evaluation seed was added or retuned by this review. The paired-bootstrap mechanism was checked; every bootstrap random realization was not independently recomputed.
+
+Observed 95% interval coverage is not uniformly 95% in the finite simulation. In the no-carryover PBQ case, the fixed tail control covers 183/200 targets: 91.5% with Wilson interval 86.81%–94.63%. Fresh-only covers 186/200. Reconstructing the already-used noise draws reproduces the tail's 17 misses with no index or mean-denominator discrepancy. Common noise across cases prevents treating repeated shortfalls as independent replications. This result remains a substantive limitation of empirical coverage validation; arithmetic PASS is not a universal coverage-validation PASS.
+
+## Source support and novelty limits
+
+All 13 reference identities are linked to the manuscript. Relevant primary text was inspected for hysteresis, VERID, Langner and bias-aware inference. Other claims use primary abstracts or indexed primary sections and are limited to what those support. The original McShane text remained inaccessible; metadata and historical attribution are checked and the current envelope proof is supplied explicitly. No uninspected theorem number is attributed to it. A comprehensive correction/retraction database check and exhaustive novelty search were not performed.
+
+VERID is a particularly close preprint: persistent laboratory state and causal diagnosis of wall-film carryover already exist. The contribution must therefore rest on the explicitly defined fresh-response task, conditional bound/planner analysis, strong controls and transparent failure findings. No first-ever general theorem or experimentally validated materials discovery is claimed.
+
+## Remaining completion and submission issues
+
+The actual fresh-kernel notebook contains 17 executed code cells with counts 1–17 and no error or unexecuted cells. Its 67 recorded inputs remain unchanged; all six compared raw/summary CSVs are byte-identical to the frozen records after 48,000 v1 and 62,400 v2 policy runs. One retained command log was initially empty. Its exact 1,254 original bytes were recovered from captured notebook stdout, matching the original manifest hash; the recovery and empty observation are preserved. The late P047b negative-prediction audit is explicitly separate post-run analysis of existing results, not an invented original notebook output.
+
+Root's final review covers all 18 manuscript pages and all 12 presentation slides. The matched manuscript outputs contain seven native tables, ten native equations, four figures and 13 references. The final source, DOCX and PDF punctuation checks are clear. Package/render checks do not assert that the PPTX was opened in native Microsoft PowerPoint.
+
+Human authorship, contributions, affiliations, funding, conflicts and final approval remain unknown. The original OPV workbook lacks an established separate redistribution license in the inspected repository. No matched OPV carryover/calibration/cost experiment or independent-team replication has been performed. These are tracked open issues, not hidden by manuscript completion.
+
+Review completion and submission readiness are separate: this is a supported computational draft with a secondary materials-data application, not a certified strong-journal submission or a physically validated autonomous laboratory method.

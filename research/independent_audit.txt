@@ -1,0 +1,99 @@
+# Independent implementation and scientific audit
+
+Date: 3 November 2026. Scope: read-only review of `lab_memory.py`, `run_study.py`, the protocol, small deterministic algebra and bookkeeping checks, and the final saved benchmark outputs. The reviewer did not run discovery campaigns, tune policies, or modify the benchmark implementation. The code and aggregation review preceded the frozen evaluation; a final output audit followed its completion. This is an implementation audit, not peer review or experimental validation.
+
+## Assessment
+
+The core implements a transparent synthetic confirmation study. No direct use of simulator truth was found in the action-selection or posterior-update calculations. The finite-grid posterior and its variance-reduction acquisition passed independent batch-versus-sequential algebra checks. The result can support claims about this specified simulator, not experimental materials discovery or universal reliability.
+
+The strongest scientific comparison is active confirmation against a fixed or repetition-based policy using the same history model. Both controls are present in the final implementation, along with a no-cost acquisition ablation. Comparisons against sample-mean baselines combine two changes: the estimator and the action schedule. The acquisition formula is a useful standard heuristic; its formula alone should not be presented as novel.
+
+## Core checks
+
+| Item | Finding |
+|---|---|
+| Candidate selection | The candidate is selected using only noisy discovery observations and a stateless Bayesian quadratic UCB model. No clean-surface ranking determines the selected recipe. |
+| Policy observations | HistoryModel uses nominal actions, wash counts, fresh flags, and observed responses. True surface parameters, true carryover, and private actual mixtures are not used by its update or acquisition. |
+| Evaluator separation | Clean truth is read to label decisions and compute errors. Those values do not feed subsequent actions. Private trace fields are for evaluation/visual explanation. |
+| Shared starting conditions | Confirmation methods clone the same discovery history and model and begin with the same underlying residual state. Confirmation noises are separately seeded. |
+| Mass fractions | Actual composition is a convex mixture of nominal and residual compositions. Both remain normalized and nonnegative under the tested actions. |
+| Fresh preparation | A paid independent fresh action returns the nominal composition and leaves the shared line's residual state unchanged. |
+| Bayesian update | Sequential coefficient updates and grid weights agree with independent batch Gaussian calculations to numerical precision. |
+| Decision target | Probability refers to the latent fresh response exceeding 0.85, not the noisy next assay. The threshold is fixed before confirmation. |
+| Costs | Assays, washes and measured predecessor conditioning are charged. Cost parameters are assumed units, not measured laboratory time. |
+| Primary endpoint | The primary decision is computed at the budget cap; an earlier threshold crossing is retained as a descriptive hypothetical stopping outcome. |
+
+## Acquisition calculation
+
+Let F be the fresh response of the frozen candidate and Y the next measurement under an action. The implementation uses the mixture posterior to compute covariance c = Cov(F,Y) and predictive variance v = Var(Y), including assay noise, then ranks actions by `c*c/(v*cost)`.
+
+This is the expected variance reduction of a linear projection under the moment-matched joint distribution. It equals the Gaussian one-step formula when that approximation is appropriate. It is not the exact expected posterior variance reduction of the non-Gaussian finite mixture, and it does not anticipate the downstream value of changing residual state. A conditioning action can be selected for its immediate information, but the policy does not solve a multistep control problem. These are limitations, not implementation errors.
+
+## Repetition mechanism: algebra check
+
+For repeated fixed recipe x without washing, the actual mixture is `a_t = (1-rho)*x + rho*h_t` and the memory update is `h_(t+1) = (1-lambda)*h_t + lambda*a_t`. Subtracting x gives
+
+`h_(t+1) - x = [1 - lambda*(1-rho)] * (h_t - x)`.
+
+Thus memory error contracts by q = rho in the matched lambda = 1 model. At rho = 0.40 and lambda = 0.45, q = 0.73. After t repetitions the memory error is `q**t * (h_0-x)` and the actual-mixture error is `rho*q**t * (h_0-x)`. This is a direct identity of the chosen simulator, not a novel theorem or general physical law. Averaging all repeated responses retains the early transient: for a linear response its mean bias contains `rho*(1-q**n)/(n*(1-q))`; the quadratic family adds a geometric term involving q squared. Final-mixture convergence therefore does not imply that an average of every earlier contaminated observation is unbiased.
+
+## Deterministic numerical verification
+
+Five predefined actions included an ordinary mixture assay, a one-wash assay, an independent fresh assay, a vertex-conditioning assay, and a three-wash assay. Fixed additive errors were used; no campaigns were executed.
+
+| Check | Result |
+|---|---:|
+| Sequential vs batch posterior coefficient mean, maximum absolute discrepancy | 6.95 × 10^-14 |
+| Sequential vs batch posterior covariance, maximum absolute discrepancy | 1.14 × 10^-15 |
+| Sequential vs batch normalized grid weights, maximum absolute discrepancy | 2.50 × 10^-16 |
+| Smallest posterior covariance eigenvalue in this fixture | 6.95 × 10^-4 |
+| Conservation/nonnegativity of tested actual mixtures | Passed |
+| Independent fresh action leaves shared state unchanged | Passed |
+| Candidate action gains nonnegative and bounded by current target variance | Passed |
+| Nominal candidate pool | 66 compositions |
+| Benchmark campaigns run by reviewer | 0 |
+
+These checks verify algebra and a small set of invariants. They are not empirical evidence for the policy's performance or exhaustive proof of the implementation.
+
+## Issues resolved before evaluation
+
+1. **Target identification:** target assays now use equality of nominal composition to the candidate, including any conditioning action that physically matches a vertex candidate.
+2. **Budget wording and fallback:** the fixed history policy now substitutes an affordable routine candidate assay when its scheduled action cannot fit. Single-action wash and fresh policies retain their stated actions and may leave a remainder. The shared constraint is a maximum budget; realized cost is reported.
+3. **Estimator/action separation:** same-model candidate repetition and a no-cost acquisition ablation were added. The former is a particularly important strong comparator.
+4. **Grid robustness:** an off-grid case with true carryover 0.32 and wash-retention multiplier 0.35 was added. A 0.70 carryover case is explicitly a severe stress, not a measured contamination prevalence.
+5. **Outcome denominators:** unconditional and conditional errors, useful acceptance, and abstention are separate. Undefined ratios are represented as null/NA.
+
+## Assumptions that must remain visible
+
+- The initial residual composition is known and fixed at `[1,0,0]` for every campaign.
+- Gaussian assay-noise standard deviation is known as 0.03, constant and correctly specified in the initial regimes.
+- The primary response surface is exactly quadratic in the six Bernstein mixture features used by inference.
+- Initial matched carryover and wash-retention values are included in the finite inference grid.
+- Residue is represented by one normalized ternary vector; the primary model updates it to the latest actual mixture. Longer-memory behavior is a deliberate misspecification test.
+- The mixture equation assumes a fixed final mass or volume. The retained fraction is part of the final batch; it is not an unnormalized added mass. Washing removes retained material that is replaced by fresh recipe.
+- Carryover magnitudes, analytical response surfaces, and action costs are synthetic design choices, not fitted laboratory measurements.
+- Fresh preparation is a separate independent path with a declared cost. Its availability is an identification assumption, not a free oracle available only to one method.
+- Posterior threshold decisions have no demonstrated frequentist finite-sample guarantee under adaptive design or model misspecification. The independent-fresh fixed-sample special case has stronger assumptions than the general policy.
+- A low false-acceptance rate can result from abstention or conservative rejection. Performance claims require the accompanying true-acceptance and unresolved rates.
+
+## Aggregation review
+
+`run_study.py` computes each method's outcome rates over independent campaign seeds within each regime. It aligns paired methods by seed and verifies their identical clean candidate values. The same seeds are reused across regimes, so the implementation correctly avoids a pooled independence-based interval. Rate intervals use Wilson's formula; means and paired method differences use a campaign-seed percentile bootstrap.
+
+A separate four-campaign bookkeeping fixture was constructed for all 12 regimes and 10 methods; it did not execute the simulator. The fixture verified false acceptance per campaign of 1/4, false fraction among accepted claims of 1/2, invalid-candidate error of 1/2, and sensitivity of 1/2. A method with no accepted claims returned null for its false fraction, and identical paired methods returned zero difference. These checks passed.
+
+The first threshold crossing is explicitly labeled hypothetical because the primary simulation continues to its budget cap. Development illustrations use fixed seed 7; a display-only step can be selected for maximum composition discrepancy but is labeled as such and is not a performance estimate.
+
+For 400 independent campaigns with no observed false acceptance, the Wilson 95% upper bound is approximately 0.00951. Zero observed events therefore do not establish zero risk. Paired percentile intervals can collapse to [0,0] when no discordant binary events are observed; that should not be used to claim equivalence. Keep counts and individual-rate intervals visible.
+
+## Final saved-result verification
+
+The independent output audit read all 48,000 saved policy rows: 12 regimes, 10 methods and 400 seeds per regime. The 400 base seed identities recur across regimes. No duplicate regime/seed/method row was found, and every group contained its expected 400 records.
+
+The following checks passed: identical candidate truth within each method comparison; truth labels consistent with the fixed threshold; mutually exclusive and exhaustive accept/reject/unresolved states; correct false-accept, true-accept, and false-reject labels; all realized costs within the 16-unit cap; decisions consistent with their probability threshold and two-target-assay minimum; no missing estimation errors; every summary rate and mean reproduced from CSV; conditional false-fraction denominators equal accepted counts; and saved source/frozen-code SHA256 values match the actual files.
+
+The audit confirms the reported negative result against the strongest comparator. Under strong carryover, active confirmation correctly accepts 229/400 candidates versus 235/400 for same-model repetition; their paired difference is -1.5 percentage points with a 95% percentile interval [-3.25, 0.25]. Under the nonlinear stress, both correctly accept 245/400, but active MAE is 0.011674 versus 0.008954, a difference of +0.002720 [0.001739, 0.003763]. These results do not support a superiority claim for the active policy. The separate journal-readiness memo explains the scientific implications.
+
+## Remaining scope limitations
+
+No full benchmark was run by this reviewer; the completed outputs were independently audited without changing or rerunning the experiments. The algebra tests remain small deterministic fixtures. A prespecified burn-in/tail-average repetition baseline is absent from the frozen baseline; naive candidate repetition averages both early contaminated and later flushed observations. Conclusions should therefore emphasize the comparison against same-model history repetition and the stress regimes, rather than only improvement over naive averaging. Additional laboratories, unknown assay noise, unmodeled preparation chemistry, and empirical cost calibration remain future work. No blocking implementation or aggregation error was identified. Any new theoretical or measured-data extension must be labeled separately and must not alter these frozen baseline results.

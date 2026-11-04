@@ -1,0 +1,27 @@
+{
+  "source": {
+    "authors": "Konstantin M. Engel; Patrik O. Willi; Robert N. Grass; Wendelin J. Stark",
+    "title": "An automated platform for ‘on-demand’ high-speed catalyst synthesis by flame spray pyrolysis",
+    "journal": "Digital Discovery",
+    "year": 2025,
+    "doi": "10.1039/D5DD00042D",
+    "url": "https://pubs.rsc.org/en/content/articlehtml/2025/dd/d5dd00042d",
+    "alternate_publisher_url": "https://pubs.rsc.org/fr-ca/content/articlehtml/2025/dd/d5dd00042d",
+    "article_license_reported": "Creative Commons Attribution 3.0 Unported",
+    "article_dataset_doi": "10.5281/zenodo.14721618"
+  },
+  "retrieved_date": "2026-11-03",
+  "extraction": "Manual transcription of six numeric contaminant measurements in four rows of publisher Table 1, verified in indexed primary-publisher text. Resource durations are transcribed from indexed Sections 3.2 and 4.3. No measurements were digitized from a figure or estimated from a chart.",
+  "verification_scope": "Publisher full-page fetch and direct supplementary PDF download were blocked or unavailable in this environment. Indexed publisher article text exposes the complete Table 1 and the stated timing sentences. The underlying Zenodo experimental files and clocked supplementary run traces were not retrieved. Do not imply that those raw traces were inspected.",
+  "limits": [
+    "The authors state that the contaminant concentrations are close to analytical limits of quantification and require cautious interpretation.",
+    "Unreported table cells are missing, not measured zero.",
+    "The reported contaminant mol% is relative to the main phase. It is not the same quantity as the benchmark's retained fraction rho, and is not converted into rho here.",
+    "These oxide-synthesis measurements do not calibrate carryover in the separate photovoltaic formulation dataset.",
+    "The article reports one standard cleaning sequence, not a wash-response curve from which eta or a worst-case carryover bound can be estimated.",
+    "The two to three-minute handling range and campaign times are not a fully itemized cost of an assay, fresh preparation or additional wash.",
+    "AutoFSP parallelizes operations. Additive action costs are not automatically equivalent to marginal elapsed campaign time.",
+    "The Zn trace in C4-S3 is not present in the listed immediately preceding recipe. This motivates caution about a single-predecessor explanation, but near-LOQ measurement and other contamination sources prevent a firm causal attribution."
+  ],
+  "appropriate_use": "Empirical materials context and a constraint on how simulation scales are described; not validation of the proposed policy, not a fitted wash-retention law, and not a physical guarantee."
+}

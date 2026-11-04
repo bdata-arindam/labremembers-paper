@@ -1,0 +1,27 @@
+{
+  "data_checks": {
+    "expected_row_count": true,
+    "unique_regime_seed_method": true,
+    "four_hundred_rows_per_regime_method": true,
+    "evaluation_seeds_match": true,
+    "candidate_mass_balance": true,
+    "budget_caps_respected": true,
+    "decision_partition": true,
+    "false_accept_definition": true,
+    "true_accept_definition": true,
+    "truth_label_definition": true,
+    "same_frozen_truth_within_campaign": true,
+    "frozen_sources_unchanged": true,
+    "summary_sources_match": true,
+    "resource_cost_reconciles": true,
+    "aggregates_match_raw_counts": true
+  },
+  "all_data_checks_passed": true,
+  "pre_evaluation_unit_tests": {
+    "count": 9,
+    "status": "passed",
+    "command": "python -m unittest -v test_lab_memory.py"
+  },
+  "independent_review": "Latent-data boundary, conditional BLR algebra, mixture utility covariance and aggregation denominators independently audited before evaluation.",
+  "scope": "This checks computational integrity; it does not establish experimental validity or novelty."
+}

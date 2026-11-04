@@ -1,0 +1,90 @@
+P001: replace - tightened
+P002: replace - three sentences merged; citations and the limiting statement kept
+P003: replace - tightened; negative finding and scope kept
+P004: replace - tightened; both citations kept
+P005: replace - novelty disclaimer carried by Table 1; both citations kept
+P006: replace - condensed; four citations and the not-a-baseline qualification kept
+P007: replace - condensed; citations and the no-new-theorem disclaimer kept
+P008: replace - one restating sentence removed; claim and conditions kept
+T01: drop - closest-work table merged into the condensed Section 2 prose, which carries every boundary statement and citation; restore by deleting this entry
+P009: replace - tightened; every definition and caveat kept
+P010: replace - lead-in tightened
+P011: replace - tightened; every assumption and limitation kept
+P012: replace - lead-in tightened
+P013: replace - tightened; citation and both caveats kept; comma before and/or removed by the portfolio rule
+P014: replace - tightened; scope caveat and the benchmark warning kept; comma before and/or removed by the portfolio rule
+P015: replace - lead-in tightened
+P016: replace - tightened; every condition kept
+P018: replace - tightened; both rates and both caveats kept; comma before and/or removed by the portfolio rule
+P019: replace - lead-in tightened
+P020: replace - tightened; decision rule and the prevalence caveat kept
+P021: replace - tightened; citation and scope kept; comma before and/or removed by the portfolio rule
+P022: replace - tightened; every restriction kept; comma before and/or removed by the portfolio rule
+P023: replace - tightened
+P024: replace - tightened; formula and tie rule kept
+P025: replace - tightened; every exclusion and the equal-cost result kept; comma before and/or removed by the portfolio rule
+P026: replace - pointer re-targeted to the master; no address, valid in the blinded file
+P027: replace - tightened; proof steps, information barrier and disclaimer kept; comma before and/or removed by the portfolio rule
+P028: replace - tightened; every count and the provenance kept
+P029: replace - tightened; every handling decision kept
+P030: replace - tightened; every caveat kept; comma before and/or removed by the portfolio rule
+P031: replace - tightened; every split, grid and rule kept; comma before and/or removed by the portfolio rule
+P032: replace - tightened; every caveat kept; comma before and/or removed by the portfolio rule
+P033: replace - tightened; every setting kept; comma before and/or removed by the portfolio rule
+P034: replace - condensed; every control and both caveats kept
+P035: replace - tightened; every count and the chronology kept
+P036: replace - tightened; every setting and the noise caveat kept
+P037: replace - tightened; every parameter kept; comma before and/or removed by the portfolio rule
+P038: replace - tightened; all thirteen methods and counts kept
+P039: replace - tightened; every sensitivity, the stress caveat and the diagnostic grid kept
+P040: replace - tightened; every metric and rule kept; comma before and/or removed by the portfolio rule
+P041: replace - tightened; every number kept
+P042: replace - tightened; every number kept
+F01: replace - caption tightened; every element and the attribution kept
+T03: note - 'full results are supplied' pointer removed; the availability statement covers it
+P043: replace - tightened; every number kept; comma before and/or removed by the portfolio rule
+P044: replace - tightened; every number kept
+P045: replace - tightened; mechanism and the limiting sentence kept; comma before and/or removed by the portfolio rule
+P046: replace - tightened; every number kept
+P046b: replace - tightened; every number kept; comma before and/or removed by the portfolio rule
+P047: replace - tightened; every count kept
+P047b: replace - tightened; every number kept; comma before and/or removed by the portfolio rule
+T05: note - pointer to the notebook and CSV removed; the availability statement covers it; every qualification kept
+P048: replace - tightened; every number kept; comma before and/or removed by the portfolio rule
+P048b: replace - tightened; every number kept
+P048c: replace - tightened; every number and the interpretation kept; comma before and/or removed by the portfolio rule
+P049: replace - tightened; every number kept; comma before and/or removed by the portfolio rule
+P049b: replace - tightened; every number and caveat kept
+P049c: replace - tightened; every result kept
+F04: replace - caption tightened; every qualification kept
+P050: replace - tightened; all four regimes and the caveat kept
+P051: replace - tightened; comma before and/or removed by the portfolio rule
+P052: replace - tightened; every reported quantity and the transfer limit kept; comma before and/or removed by the portfolio rule
+P053: replace - tightened; citation, quantities and evidence-gap statement kept
+P054: replace - 7.3 folded to one paragraph; arithmetic, recorded quantities and both disclaimers kept; full plan in application/physical_validation_plan.json
+P055: drop - merged into P054
+P056: replace - tightened; every caveat kept; comma before and/or removed by the portfolio rule
+P057: replace - tightened; every limitation kept
+P058: replace - tightened; every limitation kept
+P059: replace - tightened; every conclusion and its qualification kept; comma before and/or removed by the portfolio rule
+A1: appendix subheading dropped; its sketch carries the label
+PA01: replace - statement and sketch; full derivation in the master; citation kept; comma before and/or removed by the portfolio rule
+PA02: replace - statement and sketch
+A2: appendix subheading dropped; its sketch carries the label
+PA03: replace - statement and sketch
+A3: appendix subheading dropped; its sketch carries the label
+PA04: replace - statement and sketch; failure boundary kept
+PA05: replace - statement and sketch; citation kept
+PA06: replace - statement and sketch; citation kept; comma before and/or removed by the portfolio rule
+A4: appendix subheading dropped; its sketch carries the label
+PA07: replace - statement and sketch; assumptions kept
+PA08a: drop - lead-in to the relocated equations
+E09: drop - basis equation relocated with the proofs; not cited by number in the body
+E10: drop - derivative equation relocated with the proofs; not cited by number in the body
+PA08: replace - statement and sketch; caveats kept
+A5: appendix subheading dropped; its sketch carries the label
+PA09: replace - statement and sketch; scope caveat kept; comma before and/or removed by the portfolio rule
+PA10: replace - statement and sketch; caveat kept
+REP: section folded into the journal availability declaration
+PR01: folded into the availability declaration
+PR02: folded into the availability declaration

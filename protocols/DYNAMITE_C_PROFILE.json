@@ -1,0 +1,89 @@
+{
+  "profile_name": "DYNAMITE_C_PROFILE",
+  "version": 1,
+  "purpose": "Reusable review rules only; study facts live in evidence_register.json.",
+  "modes": [
+    "NEW",
+    "REVISE",
+    "FINAL"
+  ],
+  "required_records": [
+    "SCOPE_RECORD",
+    "stable IDs",
+    "claims/equations/results/citations",
+    "Pass A and Pass B",
+    "paragraph screen",
+    "open issues"
+  ],
+  "claim_states": [
+    "SUPPORTED",
+    "CONFLICTING",
+    "MISSING",
+    "NOT_ASSESSED",
+    "NOT_APPLICABLE"
+  ],
+  "check_states": [
+    "PASS",
+    "FAIL",
+    "PARTIAL",
+    "BLOCKED",
+    "NOT_CHECKED",
+    "NOT_APPLICABLE"
+  ],
+  "verification_levels": [
+    "INTERNAL",
+    "ARITHMETIC",
+    "SOURCE",
+    "METHOD",
+    "EXECUTION",
+    "EXTERNAL_VALIDATION",
+    "PRESENTATION"
+  ],
+  "guardrails": [
+    {
+      "id": "G01",
+      "rule": "NO UNDOCUMENTED FACTUAL ASSUMPTIONS"
+    },
+    {
+      "id": "G02",
+      "rule": "KEEP SCIENTIFIC ASSUMPTIONS EXPLICIT"
+    },
+    {
+      "id": "G03",
+      "rule": "PRESERVE THE RESEARCH SCOPE"
+    },
+    {
+      "id": "G04",
+      "rule": "EXCLUDE OFF-TOPIC AND DISPROPORTIONATE CONTENT"
+    },
+    {
+      "id": "G05",
+      "rule": "TRACE ADDITIONS AND LABEL INFERENCES"
+    },
+    {
+      "id": "G06",
+      "rule": "DO NOT INVENT OR REWRITE STUDY HISTORY"
+    },
+    {
+      "id": "G07",
+      "rule": "MATCH CLAIM STRENGTH TO EVIDENCE"
+    },
+    {
+      "id": "G08",
+      "rule": "KEEP CONTRADICTIONS AND LIMITATIONS VISIBLE"
+    },
+    {
+      "id": "G09",
+      "rule": "PREVENT PROJECT AND SOURCE CONTAMINATION"
+    },
+    {
+      "id": "G10",
+      "rule": "REPORT ONLY DEMONSTRATED WORK"
+    }
+  ],
+  "citation_rules": "Verify each occurrence; separate metadata, access and support; preserve preprint status and limitations.",
+  "provenance_rule": "Known assistance records do not classify authorship or predict detector scores.",
+  "punctuation_rule": "Remove literal comma-before-and/or patterns by grammatical restructuring; protect math, code, exact identifiers, URLs and official titles.",
+  "completion_rule": "Report only actually executed or inspected work; submission readiness is distinct from review completion.",
+  "adapter_status": "A JSON manuscript register adapter was executed on this study. No universal conversion adapter is claimed."
+}

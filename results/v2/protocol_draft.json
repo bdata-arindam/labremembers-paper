@@ -1,0 +1,256 @@
+{
+  "title": "Bound-aware preplanned confirmation on measured-OPV-informed response emulators",
+  "status": "draft awaiting independent pre-evaluation review",
+  "version": 2,
+  "motivation": "The frozen v1 benchmark did not show an advantage for the adaptive covariance policy over history-model repetition. This extension tests stronger repetition controls and a conditional confidence construction, using measured formulation data to define explicitly labeled emulators.",
+  "v1_preservation": "All v1 core code, protocol and report-seed outputs remain unchanged. New source, development and evaluation outputs are stored in this directory.",
+  "measured_data": {
+    "source": "Langner et al., Beyond Ternary OPV: High-Throughput Experimentation and Self-Driving Laboratories Optimize Multicomponent Systems, DOI 10.1002/adma.201907801",
+    "systems": [
+      "pbq_qf",
+      "ptb7_th"
+    ],
+    "raw_rows_per_system": 1041,
+    "unique_compositions_per_system": 1021,
+    "features": [
+      "p3ht_fraction",
+      "second_donor_fraction",
+      "pcbm_fraction",
+      "oidtbr_fraction"
+    ],
+    "response": "degradation_mean from grouped HTE repeated compositions; lower is better. Internally score=1-degradation to preserve a maximize-response convention. Negative measured degradation values are retained; no clipping.",
+    "scope": "Measured degradation supports the response emulator only. No measured carryover, wash efficacy, memory update law, initial residual calibration or Gaussian noise calibration is available.",
+    "shared_rows": "The two systems share constituent measurements on their zero-second-donor face; they are two application cases, not fully independent external replications.",
+    "eligibility": "Nominal candidate recipes satisfy 1/6 <= total donor fraction x0+x1 <= 5/6, matching the source study's donor:acceptor ratio 1:5 to 5:1. On a 0.1 grid this is donor fraction 0.2 to 0.8. Conditioning and residual states may be any simplex mixture.",
+    "criterion": "Fresh nominal degradation <= 0.10, equivalently score >= 0.90; this is an illustrative benchmark criterion, not a claimed universal materials standard."
+  },
+  "primary_emulator": {
+    "family": "Prespecified cubic standard multinomial Bernstein polynomial on the four-component simplex, 20 coefficients.",
+    "split": "Unique composition groups, common deterministic split seed 880001 across the two systems; force the four pure vertices into training; remaining groups randomly partitioned 70% train, 15% validation, 15% test. Every replicate stays with its composition group.",
+    "ridge_candidates": [
+      1e-06,
+      0.0001,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "selection": "Choose ridge strength by validation MAE; ties choose larger ridge. Refit on train+validation, compute the global Lipschitz certificate from that final fit, then evaluate held-out test once. Report test MAE, RMSE, R2, group counts and coefficient/certificate values.",
+    "lipschitz_norm": "L1 on the full composition simplex.",
+    "certificate": "For degree p and Bernstein coefficients beta, L=(p/2)*max_{|gamma|=p-1,i,j}|beta_(gamma+e_i)-beta_(gamma+e_j)|. Proof from tangent gradient range. Certificate applies to this fitted emulator only, not to the true material.",
+    "policy_boundary": "Only scalar L is supplied to a bounded policy. Coefficients and emulator evaluation are private to simulator/scorer. The policy never receives the fitted response function or clean candidate value."
+  },
+  "secondary_emulator": {
+    "family": "Predeclared full-data piecewise-affine Delaunay interpolation of grouped measured means, supplied by application/opv_piecewise_affine.py.",
+    "selection_rule": "Use as an emulator sensitivity case regardless of whether its outcomes favor any method; do not choose between emulators based on policy performance.",
+    "certificate": "The independent data module supplies an exactly derived, upward-rounded full-simplex L1 gradient bound; large constants and resulting conservatism are retained.",
+    "fidelity": "Report its separate composition-group holdout coverage and prediction errors; its full-data interpolation is not held-out materials validation."
+  },
+  "physical_model": {
+    "dimension": 4,
+    "mass_balance": "Fixed final mass: actual=(1-r)*nominal+r*residual, r=rho*eta^wash_count. Shared-line residual updates as (1-lambda)*residual+lambda*actual.",
+    "fresh": "Independent nominal preparation and assay, leaves shared-line residual unchanged.",
+    "initial_residual": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "noise": "Independent Gaussian with known sigma=0.03 in score units, added after evaluating the latent emulator without clipping. This is an explicit simulation assumption, not calibrated from the measured OPV replicate distribution.",
+    "costs": {
+      "routine_or_conditioning_assay": 1.0,
+      "per_wash": 0.5,
+      "independent_fresh_assay": 4.0
+    },
+    "bounds": "The declared rho upper bound, eta upper bound and lambda lower bound are assumed externally supplied instrument-calibration information. The benchmark supplies these hypothetical envelopes; the OPV source does not verify them. All bounded methods receive identical bounds and scalar L."
+  },
+  "main_scenarios": [
+    {
+      "name": "no_carryover",
+      "rho": 0.0,
+      "eta": 0.2,
+      "lambda": 1.0,
+      "rho_upper": 0.002,
+      "eta_upper": 0.3,
+      "lambda_lower": 1.0
+    },
+    {
+      "name": "trace_carryover",
+      "rho": 0.001,
+      "eta": 0.2,
+      "lambda": 1.0,
+      "rho_upper": 0.002,
+      "eta_upper": 0.3,
+      "lambda_lower": 1.0
+    },
+    {
+      "name": "low_carryover",
+      "rho": 0.01,
+      "eta": 0.2,
+      "lambda": 1.0,
+      "rho_upper": 0.02,
+      "eta_upper": 0.3,
+      "lambda_lower": 1.0
+    },
+    {
+      "name": "moderate_carryover",
+      "rho": 0.1,
+      "eta": 0.2,
+      "lambda": 1.0,
+      "rho_upper": 0.2,
+      "eta_upper": 0.3,
+      "lambda_lower": 1.0
+    },
+    {
+      "name": "high_carryover",
+      "rho": 0.4,
+      "eta": 0.2,
+      "lambda": 1.0,
+      "rho_upper": 0.5,
+      "eta_upper": 0.3,
+      "lambda_lower": 1.0
+    },
+    {
+      "name": "ineffective_wash",
+      "rho": 0.4,
+      "eta": 0.8,
+      "lambda": 1.0,
+      "rho_upper": 0.5,
+      "eta_upper": 0.9,
+      "lambda_lower": 1.0
+    },
+    {
+      "name": "persistent_memory",
+      "rho": 0.4,
+      "eta": 0.2,
+      "lambda": 0.45,
+      "rho_upper": 0.5,
+      "eta_upper": 0.3,
+      "lambda_lower": 0.4
+    },
+    {
+      "name": "strongly_persistent_stress",
+      "rho": 0.4,
+      "eta": 0.2,
+      "lambda": 0.05,
+      "rho_upper": 0.5,
+      "eta_upper": 0.3,
+      "lambda_lower": 0.04
+    }
+  ],
+  "discovery": {
+    "candidate_pool": "Four-component simplex grid in increments of0.1, restricted by the donor:acceptor eligibility rule.",
+    "initial_random": 12,
+    "total_assays": 32,
+    "optimizer": "Stateless Bayesian quadratic Bernstein UCB with weight1.5; no repeated nominal grid points during discovery.",
+    "selection": "Highest final stateless posterior-mean tested nominal recipe. Freeze once before all confirmation methods. No apparent-hit filtering.",
+    "common_evidence": "Same discovery actions, observed outcomes, frozen candidate and private shared-line starting state for every policy in a seed/system/scenario."
+  },
+  "history_model": {
+    "family": "Quadratic four-component Bernstein basis,10 coefficients; Gaussian coefficient prior mean0.6 and covariance0.25I; known sigma0.03; last-actual-mixture memory assumption.",
+    "rho_grid": [
+      0.0,
+      0.001,
+      0.01,
+      0.05,
+      0.1,
+      0.25,
+      0.4,
+      0.7
+    ],
+    "eta_grid": [
+      0.05,
+      0.2,
+      0.5,
+      0.8
+    ],
+    "prior_bounds": "Retain only particles consistent with the declared rho/eta upper bounds, so the model controls may use the same available calibration envelope. Model probabilities are not guaranteed under cubic-response or long-memory misspecification.",
+    "active": "Original moment-matched covariance-squared/observation-variance/cost utility; conditioning actions are pure-component assays. A no-conditioning ablation uses the same utility over routine/wash1/wash3/fresh candidate actions only."
+  },
+  "bounded_inference": {
+    "alpha": 0.05,
+    "initial_distance_bound": 2.0,
+    "recursion": "For a candidate shared-line action with k washes, rbar=rho_upper*eta_upper^k, q=1-lambda_lower*(1-rbar), B=L*rbar*D_before, D_after=q*D_before. Fresh B=0 and D unchanged.",
+    "fixed_final_interval": "mean(Y_selected) +/- [mean(B_selected)+1.959963984540054*sigma/sqrt(n_selected)]. Every bounded primary schedule and discard rule is fixed before confirmation outcomes; conditional Gaussian coverage >=0.95 for the frozen candidate when the supplied bounds hold.",
+    "decision": "Accept if lower endpoint>=0.90; reject if upper endpoint<0.90; otherwise unresolved. At least2 included measurements.",
+    "early_stopping": "Primary runs never stop early. If an anytime display is supplied, use separately labeled sigma*sqrt(2*log(2*T/alpha)/n) and averaged predictable bias; do not attach the fixed-final guarantee to optional stopping.",
+    "tail_control": "Discard the first4 candidate routine assays, fixed in advance. Subsequent residual/bias bounds still propagate through discarded assays; use only retained observations and their bounds in the interval."
+  },
+  "preplanned_method": {
+    "menu": "Routine candidate, one-wash candidate, three-wash candidate, independent fresh candidate.",
+    "optimization": "Enumerate every feasible integer count tuple with at least2 total assays and cost<=budget. For each tuple, put stronger washes before weaker washes/routine; place fresh actions last (fresh placement does not affect this objective). Minimize averaged total deterministic bias bound plus the fixed-final Gaussian radius.",
+    "block_formula": "n shared actions with retained bound r and q=1-lambda_lower*(1-r) contribute L*r*D*(1-q^n)/(1-q) to summed bias and leave distance D*q^n. Fresh actions contribute zero summed bias and leaveD unchanged.",
+    "ordering_proof": "Adjacent r_a<=r_b: summed-bound difference S_ab-S_ba=L*D*lambda_lower*(r_a-r_b)<=0; the final distance product q_a*q_b is invariant. Thus strongest washes first minimize summed bounds for fixed counts.",
+    "optimality_scope": "Exact only within this finite menu of fixed candidate-only count schedules that use all their observations equally. No optimality claim over adaptive, tail-discarding, weighted or model-based policies.",
+    "ties": "Smallest half-width, then smallest realized cost, then fewest fresh assays, then fewest washes, then more routine assays."
+  },
+  "methods": [
+    "sequence_repeat",
+    "candidate_repeat",
+    "tail_repeat4",
+    "wash_once",
+    "fresh_only",
+    "history_repeat",
+    "active_confirmation",
+    "active_no_conditioning",
+    "bounded_repeat",
+    "bounded_tail4",
+    "bounded_wash_once",
+    "bounded_fresh",
+    "bounded_planner"
+  ],
+  "primary_design": {
+    "campaigns_per_system_scenario": 200,
+    "systems": 2,
+    "physical_scenarios": 8,
+    "budget": 32.0,
+    "development_seeds": "100000 through100019; no development results included in primary estimates.",
+    "evaluation_seeds": "200000 through200199, disjoint from v1 and development. Same seed reused across systems/scenarios for controlled comparisons; uncertainty is per case and no independent pooled rate is claimed.",
+    "noise_coupling": "Confirmation methods share the same independent standard-normal draw at assay indext (common random numbers), while commanded actions may differ. Routine, tail and bounded-repeat controls therefore share exactly the same raw confirmation observations.",
+    "primary_comparisons": [
+      "bounded_planner versus bounded_fresh",
+      "bounded_planner versus bounded_tail4",
+      "active_confirmation versus history_repeat"
+    ],
+    "outcomes": [
+      "false acceptance per campaign",
+      "correct-acceptance yield",
+      "false rejection",
+      "unresolved",
+      "false fraction among accepts",
+      "conditional sensitivity and invalid-candidate false acceptance",
+      "interval coverage for bounded methods",
+      "interval width",
+      "clean-response error",
+      "cost and action counts"
+    ],
+    "uncertainty": "Per-case Wilson95% intervals for binary rates;5000 campaign-paired bootstrap replicates for differences and means. Report true-good prevalence. Preserve zero-event and null results."
+  },
+  "predeclared_sensitivities": {
+    "seeds": "First100 primary report seeds,200000 through200099, allowing paired comparisons when the underlying emulator and candidate are unchanged.",
+    "scenarios": [
+      "low_carryover",
+      "high_carryover"
+    ],
+    "systems": [
+      "pbq_qf",
+      "ptb7_th"
+    ],
+    "emulator": "Repeat these four cases with the independently fixed Delaunay emulator and its own scalarL certificate.",
+    "broad_bounds": "Repeat the same four primary-emulator cases with rho_upper0.8,eta_upper0.9,lambda_lower0.4; all actual parameters remain within these bounds.",
+    "empirical_contrast_noise": "Repeat the same four primary-emulator cases with confirmation noise resampled from symmetric +/- half-differences of the system's measured SDA replicate pairs, preserving outliers. Discovery noise remains Gaussian so the candidate is unchanged. Still using sigma0.03 deliberately violates the main Gaussian/noise-bound assumption; report as an assumption stress, never as covered by the theorem or an empirical noise calibration.",
+    "budget_diagnostics": "Without additional stochastic claims, enumerate planner radius/counts for budgets8,16,32,64 and fresh costs1,2,4,8 for selected primary/broad-bound cases. These show required margins and planning behavior, not empirical success probabilities.",
+    "equal_fresh_cost": "Repeat the same four primary-emulator low/high-carryover cases with fresh_cost=1. At positive sensitivity/carryover bounds, all-fresh maximizes affordable sample count and has zero bias bound, so it should minimize the certified width. This is a physical-cost boundary, not an OPV cost calibration."
+  },
+  "pre_evaluation_changes": [
+    "Before any v2 report seeds, replaced rho0.7 scenario (already tested in v1) with strongly persistent lambda0.05/lower-bound0.04 stress. The moderate-persistence lambda0.45 case is retained. Rationale: test slow natural flushing directly while reducing reliance on extreme carryover fractions. These memory rates are uncalibrated controlled stresses, not measured OPV behavior.",
+    "Added equal fresh/routine cost1 sensitivity because OPV fresh-preparation marginal costs are not measured; all-fresh must weakly dominate biased routines in the certified-width objective at equal cost.",
+    "Capped deterministic budget diagnostics at64 rather than128 to keep computation proportionate; this does not remove any primary stochastic scenario."
+  ],
+  "remaining_gates": [
+    "Independent protocol and code review",
+    "Deterministic bound/order/enumeration and latent-information tests",
+    "Lock selected primary emulator before opening held-out fidelity outcomes",
+    "Freeze this protocol before any report-seed campaign"
+  ]
+}

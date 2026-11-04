@@ -1,0 +1,206 @@
+{
+  "source_sha256": "69ae8917cd63fe9391278df86722c0ebc2921af92dd1b27d9b957cb030a074ad",
+  "source_units": "Four component mass fractions in [0,1], sum one. Header wt.-% is interpreted using actual numbers and supporting-information Table S1 weight-fraction definition.",
+  "response": "Measured relative spectral absorbance loss after 18 h light treatment; source labels arbitrary units. Lower is more photostable. Negative PCBM observation retained.",
+  "systems": {
+    "pbq_qf": {
+      "hte": {
+        "formulation_rows": 1041,
+        "response_measurements": 1041,
+        "unique_exact_compositions": 1021,
+        "composition_sum_min": 0.9999999999999999,
+        "composition_sum_max": 1.0000000000000002,
+        "minimum_measured_degradation": -0.025721015222783444,
+        "maximum_measured_degradation": 0.7430701574837337,
+        "negative_measurements": 1,
+        "cycles": null
+      },
+      "sda_merit1": {
+        "formulation_rows": 60,
+        "response_measurements": 120,
+        "unique_exact_compositions": 60,
+        "composition_sum_min": 0.9999999999999999,
+        "composition_sum_max": 1.0,
+        "minimum_measured_degradation": 0.014942927793562747,
+        "maximum_measured_degradation": 0.6771299008788474,
+        "negative_measurements": 0,
+        "cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "sda_merit2": {
+        "formulation_rows": 60,
+        "response_measurements": 120,
+        "unique_exact_compositions": 60,
+        "composition_sum_min": 0.9999999999999999,
+        "composition_sum_max": 1.0,
+        "minimum_measured_degradation": 0.022437865399503612,
+        "maximum_measured_degradation": 0.5636416839775292,
+        "negative_measurements": 0,
+        "cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "replicate_disagreement": {
+        "hte_duplicate_composition_groups": 19,
+        "hte_extra_measurements": 20,
+        "hte_largest_within_composition_range": 0.11914007593709189,
+        "sda_pairs": 120,
+        "sda_mean_difference_2_minus_1": 0.001368750216501279,
+        "sda_rms_difference": 0.01911102704669928,
+        "sda_median_absolute_difference": 0.006178168918861693,
+        "sda_max_absolute_difference": 0.13870560500967777,
+        "sda_pooled_within_pair_sd": 0.01351353682016058,
+        "noise_note": "Descriptive replicate disagreement; pooled within-pair SD assumes independent equal-variance replicate errors, not verified here."
+      }
+    },
+    "ptb7_th": {
+      "hte": {
+        "formulation_rows": 1041,
+        "response_measurements": 1041,
+        "unique_exact_compositions": 1021,
+        "composition_sum_min": 0.9999999999999999,
+        "composition_sum_max": 1.0000000000000002,
+        "minimum_measured_degradation": -0.025721015222783444,
+        "maximum_measured_degradation": 0.7430701574837337,
+        "negative_measurements": 1,
+        "cycles": null
+      },
+      "sda_merit1": {
+        "formulation_rows": 60,
+        "response_measurements": 120,
+        "unique_exact_compositions": 60,
+        "composition_sum_min": 0.9999999999999999,
+        "composition_sum_max": 1.0000000000000002,
+        "minimum_measured_degradation": 0.015990424274316576,
+        "maximum_measured_degradation": 0.49071774208386176,
+        "negative_measurements": 0,
+        "cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "sda_merit2": {
+        "formulation_rows": 60,
+        "response_measurements": 120,
+        "unique_exact_compositions": 60,
+        "composition_sum_min": 0.9999999999999999,
+        "composition_sum_max": 1.0,
+        "minimum_measured_degradation": 0.02317297974540745,
+        "maximum_measured_degradation": 0.4957208052859957,
+        "negative_measurements": 0,
+        "cycles": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "replicate_disagreement": {
+        "hte_duplicate_composition_groups": 19,
+        "hte_extra_measurements": 20,
+        "hte_largest_within_composition_range": 0.11533383414729562,
+        "sda_pairs": 120,
+        "sda_mean_difference_2_minus_1": -0.0022836535558123207,
+        "sda_rms_difference": 0.04019156783013939,
+        "sda_median_absolute_difference": 0.005591093047210033,
+        "sda_max_absolute_difference": 0.36165178552664007,
+        "sda_pooled_within_pair_sd": 0.028419730159210656,
+        "noise_note": "Descriptive replicate disagreement; pooled within-pair SD assumes independent equal-variance replicate errors, not verified here."
+      }
+    }
+  },
+  "total_measurements": 2562,
+  "olympus_numeric_audit": [
+    {
+      "olympus_alias": "photo_pce10",
+      "original_sheet": "System 01",
+      "original_second_donor": "PBQ-QF",
+      "comparison": "Rows in original order; exclude negative outcome only, no feature permutation.",
+      "rows": 1040,
+      "shape_matches": true,
+      "max_abs_difference": 4.99890823180138e-10
+    },
+    {
+      "olympus_alias": "photo_pce10",
+      "original_sheet": "System 02",
+      "original_second_donor": "PTB7-Th",
+      "comparison": "Rows in original order; exclude negative outcome only, no feature permutation.",
+      "rows": 1040,
+      "shape_matches": true,
+      "max_abs_difference": 0.5703045868150266
+    },
+    {
+      "olympus_alias": "photo_wf3",
+      "original_sheet": "System 01",
+      "original_second_donor": "PBQ-QF",
+      "comparison": "Rows in original order; exclude negative outcome only, no feature permutation.",
+      "rows": 1040,
+      "shape_matches": true,
+      "max_abs_difference": 0.570304587234507
+    },
+    {
+      "olympus_alias": "photo_wf3",
+      "original_sheet": "System 02",
+      "original_second_donor": "PTB7-Th",
+      "comparison": "Rows in original order; exclude negative outcome only, no feature permutation.",
+      "rows": 1040,
+      "shape_matches": true,
+      "max_abs_difference": 4.994858970874816e-10
+    }
+  ],
+  "chronology_note": "Source spreadsheet row order is retained for provenance, not asserted to be experimental order. SDA cycle labels are explicit; blank cycle cells forward-filled within each four-formulation batch. Within-batch execution order and carryover/reset logs are absent.",
+  "pooling_note": "Systems share compositions on the zero-second-donor face and some identical measurements. Do not claim the two data tables are fully statistically independent."
+}

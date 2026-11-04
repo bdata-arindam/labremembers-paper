@@ -1,0 +1,28 @@
+# Author-facing declarations and settings
+
+This view is generated from `audit/evidence_register.json`. It is a completion record, not a declaration that unknown facts have been confirmed.
+
+## Known assistance
+
+ChatGPT, GPT-6 Astra Pro, in this session assisted concept/method development, code, analysis, prose, visuals and review. Executed code and AI review do not constitute human scientific approval, independent laboratory validation or independent-team replication. No external similarity or AI-detector service was run. No detector score or authorship probability is asserted.
+
+## Information requiring the human authors
+
+- **Author names and order:** UNKNOWN.
+- **Affiliations:** UNKNOWN.
+- **Corresponding author:** UNKNOWN.
+- **Orcids:** UNKNOWN.
+- **Human author contributions:** UNKNOWN.
+- **Funding:** UNKNOWN.
+- **Conflicts:** UNKNOWN.
+- **Author approval:** NOT_PROVIDED.
+- **Venue and submission requirements:** UNKNOWN.
+- **Permissions for public redistribution of original workbook:** NOT_ESTABLISHED.
+
+## Manuscript settings
+
+The manuscript is a new publisher-neutral draft. No page target or venue format was supplied. Numeric citations retain stable IDs 1–13. Editable prose removes comma-before-and/or patterns while protecting equations, code, official titles, identifiers and exact provenance strings. Source-author affiliations, funding and acknowledgments are not this study's declarations.
+
+## Readiness
+
+The computational findings and manuscript can be reviewed now. Submission readiness remains incomplete because author declarations and approval are missing, the target venue is unknown and the proposed physical validation has not occurred. The original workbook's separate redistribution status also requires clarification before including it in a public release. A guaranteed journal acceptance or an extremely uncommon first-ever contribution is not established by this review.

@@ -1,0 +1,412 @@
+{
+ "P002": {
+  "action": "replace",
+  "text": "Carryover is an established concern in automated laboratories: AutoFSP reports chemical measurements of batch contamination and discusses flushing in catalyst synthesis [1], PANDA includes fluid-handling validation and cross-contamination control for electrodeposited polymer films [2] and the VERID preprint diagnoses a wall-film carryover artifact from laboratory state and targeted experiments [5]. None calibrates the composition-retention parameters used here, so the research opportunity cannot rest on observing that laboratories remember previous experiments.",
+  "reason": "three sentences merged; citations and the limiting statement kept"
+ },
+ "P005": {
+  "action": "replace",
+  "text": "History-aware modeling and carryover-aware design are established: Roussel and Hanuka represent hysteresis jointly with response in Bayesian regression and optimization [3] and switchback designs address causal estimation when earlier treatments influence later outcomes [4]. Our target is narrower, the mean fresh-preparation response of one recipe frozen after a discovery campaign. Conditioning on the discovery record separates that target from confirmation noise but does not remove selection bias from reused discovery observations, which is why the bounded intervals use newly collected confirmation measurements only.",
+  "reason": "novelty disclaimer carried by Table 1; both citations kept"
+ },
+ "P006": {
+  "action": "replace",
+  "text": "Stateful laboratory infrastructure and quality-aware optimization also precede this study: persistent laboratory state with trace-based diagnosis in the VERID preprint [5], finite-automaton workflow formalization in GEMS [6], data-quality oversight of Bayesian optimization [7] and process-knowledge allocation of limited runs [8]. These are conceptual comparators; their complete methods were not reproduced, so they are not numerical baselines here.",
+  "reason": "condensed; four citations and the not-a-baseline qualification kept"
+ },
+ "P007": {
+  "action": "replace",
+  "text": "Our inference uses established ideas: Lipschitz extension bounds an unobserved value from nearby values [12], bias-aware intervals incorporate deterministic approximation error [13] and confidence sequences handle observation-dependent stopping [10]. We give elementary proofs for the preparation-state model and distinguish fixed-final inference from optional stopping; the scheduling contribution is an exchange argument plus exhaustive enumeration in a restricted action class. No new concentration inequality, extension theorem or universally optimal design algorithm is claimed.",
+  "reason": "condensed; citations and the no-new-theorem disclaimer kept"
+ },
+ "P008": {
+  "action": "replace",
+  "text": "Experiment-planner benchmarking on synthetic and experimentally derived surfaces is established by Olympus [9]. Our evaluation adds a frozen-candidate confirmation task, explicit charges for preparation interventions, controls that exploit natural flushing and sensitivities to invalid model or noise assumptions. The principal claim is conditional and falsifiable: under the stated contraction and response bounds, a finite preparation plan minimizes a certified final interval width within its declared menu; whether that certificate is useful depends on its tightness, the response margin and the cost of fresh measurements.",
+  "reason": "one restating sentence removed; claim and conditions kept"
+ },
+ "P034": {
+  "action": "replace",
+  "text": "A history model averages 24 retained-fraction and wash-retention particles with Gaussian Bayesian linear regression in six quadratic Bernstein features. The adaptive policy scores each action by the squared posterior covariance between the fresh target and the prospective observation, divided by observation variance and action cost: a moment-based heuristic, not exact information gain. A history-repeat control uses the same posterior while repeatedly preparing the frozen candidate; other controls are candidate repetition, sequence repetition, random predecessors, one or three washes, fixed history-model interventions, fresh-only measurement and a cost-blind adaptive ablation. Every policy has the same budget cap; discrete costs can produce different realized spending and first posterior-threshold crossings are descriptive, not a tested stopping guarantee.",
+  "reason": "condensed; every control and both caveats kept"
+ },
+ "P039": {
+  "action": "replace",
+  "text": "The protocol separately declares sensitivities on the first 100 evaluation seeds for low and high carryover in both systems: the piecewise-affine emulator, broad but valid preparation bounds, resampled empirical replicate contrasts and equal fresh/routine costs. Empirical contrast noise uses symmetric signed half-differences of measured pairs while retaining large deviations; it is an assumption stress rather than a validated noise law, with the Gaussian cutoff kept deliberately so its theorem does not apply. Deterministic budget diagnostics vary budgets 8, 16, 32 and 64 and fresh costs 1, 2, 4 and 8. Scenario parameters, code hashes, chronology and run logs accompany the notebook.",
+  "reason": "tightened; every sensitivity, the stress caveat and the diagnostic grid kept"
+ },
+ "P050": {
+  "action": "replace",
+  "text": "An intervention is useful when it reduces preparation ambiguity by more than the measurements it displaces. Equations (4)–(6) separate preparation bias from sampling noise: at low retention or rapid replacement, repetition makes the bias negligible while preserving sample count; with persistent memory, washing can reduce the retained fraction early; with broad bounds, weak cleaning or a highly sensitive response model, a direct fresh measurement may be the only tight guarantee; at equal marginal cost the certificate favors fresh-only. These are model-conditional statements with explicit countercases, not recommendations for an uncalibrated laboratory.",
+  "reason": "tightened; all four regimes and the caveat kept"
+ },
+ "P053": {
+  "action": "replace",
+  "text": "Element contamination in a catalyst is not interchangeable with a residual-mixture fraction in a photovoltaic formulation; converting between them needs the predecessor composition, assay calibration, transfer mechanism and mass balance, while summed cleaning durations need not equal marginal delay when steps run in parallel. For the OPV platform the source reports 96 films formed in 22 minutes and separate drying, annealing and 18-hour aging durations [11]; batch throughput does not identify the incremental cost of an independent fresh preparation. These quantities are transcribed with units and source locations but kept outside the simulation's calibration. The absence of matched OPV preparation-history and cost records remains a material evidence gap.",
+  "reason": "tightened; citation, quantities and evidence-gap statement kept"
+ },
+ "P054": {
+  "action": "replace",
+  "text": "A proposed validation design selects two candidate compositions whose preliminary independent fresh measurements lie on opposite sides of the photostability criterion, crosses each with three contrasting predecessors and three washing conditions (zero, one and three washes) plus an independent fresh condition, with six specimens per cell and their own target assays: 2 × (3 × 3 + 1) × 6 = 120 target assays, plus charged predecessor preparations and separate candidate-selection calibration. The pilot should record commanded and, where a validated assay exists, chemically measured composition with its quantification limits, keep chronology, shared-line identity, wash operations, day, substrate and aging block linked to each outcome, randomize within feasible blocks while preserving the predecessor relationship and record operator time, elapsed preparation time, material consumption and waste separately, without charging fresh preparation the full aging time when aging is parallelized. This is a calibration pilot, not a completed experiment or a justified power calculation; the full plan is in the repository.",
+  "reason": "7.3 folded to one paragraph; arithmetic, recorded quantities and both disclaimers kept; full plan in application/physical_validation_plan.json"
+ },
+ "P055": {
+  "action": "drop",
+  "reason": "merged into P054"
+ },
+ "PA01": {
+  "action": "replace",
+  "text": "Full derivations of every statement in this appendix are given in the master manuscript held in the repository described in the data and code availability statement. A.1. Under the pairwise Lipschitz condition the lower and upper cone envelopes are L-Lipschitz, interpolate the data and bound every compatible f and their convex combinations attain every value between the endpoints at x*, which proves Equation (2) sharp; this applies established extension theory [12] and claims no new theorem.",
+  "reason": "statement and sketch; full derivation in the master; citation kept; comma before and/or removed by the portfolio rule"
+ },
+ "PA02": {
+  "action": "replace",
+  "text": "With simultaneous feasible response bands the analogous envelopes attain the endpoints; incompatible bands cannot be repaired by a point estimate and hidden-position bounds are valid but generally not sharp.",
+  "reason": "statement and sketch"
+ },
+ "PA03": {
+  "action": "replace",
+  "text": "A.2. A smooth bump supported near a target x* not in the finite query set changes the fresh-target value while leaving every queried response unchanged, which establishes finite-transcript underdetermination in the unrestricted smooth class, conditional on feasibility of the offsets under any response-range constraint.",
+  "reason": "statement and sketch"
+ },
+ "PA04": {
+  "action": "replace",
+  "text": "A.3. Substituting zₜ − x* = rₜ(hₜ₋₁ − x*) into the state update gives Equation (3); induction under the supplied bounds gives Equation (4) and the geometric sum gives Equation (5), with the failure boundary at worst-case contraction one, where the bound need not shrink.",
+  "reason": "statement and sketch; failure boundary kept"
+ },
+ "PA06": {
+  "action": "replace",
+  "text": "Under conditionally σ-sub-Gaussian errors a union bound over sample counts n = 1,…,T with radius σ√{2 log(2T/α)/n} gives simultaneous coverage and M = T(T + 1)/2 contiguous windows are covered by replacing T with M; these corrections are not attached to the fixed-final primary experiment [10].",
+  "reason": "statement and sketch; citation kept; comma before and/or removed by the portfolio rule"
+ },
+ "PA07": {
+  "action": "replace",
+  "text": "A.4. Swapping two adjacent shared actions changes the summed bias-bound contribution by LDλmin(rₐ − rᵦ) while leaving the final distance bound unchanged, so ascending retention is optimal for fixed counts and exhaustive feasible-count enumeration proves restricted optimality, assuming a common noise scale, additive costs and no sequence-dependent feasibility restrictions.",
+  "reason": "statement and sketch; assumptions kept"
+ },
+ "PA09": {
+  "action": "replace",
+  "text": "A.5. For valid bounds with q̄ < 1 the all-repeat radius is at most C/n + z₁₋α/₂σ/√n with C = Lρ̄D₀/(1 − q̄) and it is smaller than the fresh-only radius whenever √n > C/[z₁₋α/₂σ(√c − 1)] for fresh cost c > 1: a conservative sufficient condition, not an asymptotic claim, that persistent memory or broad sensitivity can push impractically far.",
+  "reason": "statement and sketch; scope caveat kept; comma before and/or removed by the portfolio rule"
+ },
+ "PA10": {
+  "action": "replace",
+  "text": "Worst-case acceptance power for a passing target with margin Δ under a valid bias bound B̄ is at least Φ[(Δ − 2B̄)√n/σ − z₁₋α/₂], so reducing a bias bound can help power while an intervention that removes too many observations can offset the gain, under the assumptions of Equation (6).",
+  "reason": "statement and sketch; caveat kept"
+ },
+ "F01": {
+  "action": "replace",
+  "text": "Published paired OPV measurements and the illustrative threshold: one point per source formulation pair, orange points on opposite sides of loss 0.10, all 240 pairs retained; the diagonal is equality, not an inferred fresh-preparation relationship. Data: the original workbook accompanying Langner et al. [11]; analysis and plot generated for this study.",
+  "reason": "caption tightened; every element and the attribution kept"
+ },
+ "F04": {
+  "action": "replace",
+  "text": "Deterministic radius versus assumed budget, PBQ-QF high-carryover case, fresh cost four routine units. Narrow and broad apparatus bounds give different plans; planner and fresh-only coincide in the broad-bound panel. Curves are analytic interval calculations, not empirical success probabilities; the bounded tail comparator lies outside the planner's restricted all-observation menu.",
+  "reason": "caption tightened; every qualification kept"
+ },
+ "P001": {
+  "action": "replace",
+  "text": "An autonomous materials campaign can optimize a written recipe while measuring a different preparation, because residual material in shared fluid-handling equipment mixes with the commanded formulation; a real and useful response does not establish that the nominal recipe reproduces it when prepared independently. That motivates a separate confirmation problem after discovery: hold the selected composition fixed and determine whether its mean response under a specified fresh preparation meets a target.",
+  "reason": "tightened"
+ },
+ "P003": {
+  "action": "replace",
+  "text": "We investigate when preparation history prevents a fresh-response conclusion, when repetition removes the ambiguity and when washing or independent preparation can improve confirmation under a cost cap, combining an explicit target, finite-data identifiability analysis, a conditional confidence construction and a finite-menu preparation planner evaluated against strong simple controls. A preceding synthetic benchmark is preserved for its consequential negative finding: its adaptive information-per-cost heuristic did not demonstrate superiority over repetition using the same history model. This is a methods and failure-analysis study with a real-data application, not a report of a newly synthesized material.",
+  "reason": "tightened; negative finding and scope kept"
+ },
+ "P004": {
+  "action": "replace",
+  "text": "The application uses original measured organic-photovoltaic blend data from Langner et al. [11]: paired measurements are analyzed first without assigning an unobserved cause to their disagreement, then explicitly identified response emulators are fitted and synthetic preparation history is added for controlled experiments; published catalyst carryover and cleaning times give a separate physical example [1]. No single retrieved dataset supplies the OPV response, preparation chronology, carryover calibration and marginal preparation costs together, a separation retained throughout.",
+  "reason": "tightened; both citations kept"
+ },
+ "P009": {
+  "action": "replace",
+  "text": "Let x* be a composition on a K-component unit simplex, selected and frozen after discovery, f(x) the mean response to an independently prepared composition x and θ = f(x*) the confirmation target, decided as θ ≥ τ with larger response preferred. For the measured OPV pairs the criterion is observed relative absorbance loss d_obs ≤ 0.10; in the simulation g(x) is the fitted mean-loss emulator and f(x) = 1 − g(x), so g(x*) ≤ 0.10 is equivalent to θ ≥ 0.90. A noisy published measurement is not the true mean response, the threshold is an illustrative benchmark choice rather than a device qualification standard and fresh preparation means an independent nominal preparation in the model, not vanishing physical preparation variability.",
+  "reason": "tightened; every definition and caveat kept"
+ },
+ "P011": {
+  "action": "replace",
+  "text": "Here 0 ≤ rₜ < 1 and 0 < λₜ ≤ 1; λₜ = 1 makes the new state the mixture just prepared and smaller λₜ represents persistent residual memory. Washing k times is modeled by rₜ = ρηᵏ, an assumption about retention rather than a universal cleaning law. A fresh action measures x* directly and leaves the shared-line state unchanged; outcomes satisfy Yₜ = f(zₜ) + εₜ. The model assumes history affects the mean through composition alone; history-dependent morphology, chemical reactions, adsorption selectivity and instrument drift require additional modeling or bias bounds.",
+  "reason": "tightened; every assumption and limitation kept"
+ },
+ "P013": {
+  "action": "replace",
+  "text": "The envelopes interpolate the data, are L-Lipschitz and their convex combinations attain every intermediate value: a direct application of the classical extension construction [12], with proof in Appendix A. If the interval crosses τ, a passing and a failing fresh response are both compatible with the data and assumptions and a fitted point prediction does not remove that ambiguity. With hidden compositions, valid upper bounds on the distances give a conservative interval that generally loses sharpness by discarding joint restrictions on the hidden trajectory.",
+  "reason": "tightened; citation and both caveats kept; comma before and/or removed by the portfolio rule"
+ },
+ "P014": {
+  "action": "replace",
+  "text": "Smoothness without a quantitative bound is insufficient for a finite transcript that never queries x*: a smooth bump supported near x* changes f(x*) while leaving every sampled response unchanged and for a fixed adaptive noiseless transcript the same path follows because earlier responses are unchanged. This is finite-transcript underdetermination, not global nonidentifiability for every randomized design; direct fresh measurements, a restrictive response family or defensible quantitative regularity can supply the missing information. The initial quadratic benchmark uses a strong parametric restriction that should not be mistaken for identification from data alone.",
+  "reason": "tightened; scope caveat and the benchmark warning kept; comma before and/or removed by the portfolio rule"
+ },
+ "P016": {
+  "action": "replace",
+  "text": "Then |f(zₜ) − θ| ≤ Bₜ. On the simplex D₀ = 2 is always valid in L1 distance; a fresh action has Bₜ = 0 and leaves D unchanged; for a washed action r̄ₜ = ρ̄η̄ᵏ is used only when an externally justified wash-retention bound η̄ exists, since a posterior estimate of low carryover is not a certified upper bound. Without a positive replacement lower bound or a retained-fraction upper bound below one, a guaranteed geometric reduction need not follow.",
+  "reason": "tightened; every condition kept"
+ },
+ "P018": {
+  "action": "replace",
+  "text": "Equation (5) explains why an ordinary baseline can be strong: repeating the same composition physically flushes earlier residue and the final mixture approaches the nominal recipe geometrically when q̄ < 1. Averaging all assays retains some early bias whose bound decreases as 1/m, while Gaussian averaging noise decreases more slowly as 1/√m; a fixed burn-in followed by a tail average removes much of the transient without fitting a complex model, though discarded assays still consume resources and change the state and choosing the discarded prefix after inspecting outcomes would require a separate inference correction.",
+  "reason": "tightened; both rates and both caveats kept; comma before and/or removed by the portfolio rule"
+ },
+ "P020": {
+  "action": "replace",
+  "text": "The proof separates mean preparation bias, at most B̄ₙ in absolute value, from mean measurement noise, centered Gaussian with standard deviation σ/√n. Accept when the lower endpoint is at least τ, reject when the upper endpoint is below τ, otherwise report unresolved. For one frozen candidate the probability of a wrong threshold conclusion is at most α under these assumptions; this is not a bound on the fraction of accepted claims that are false, which also depends on the prevalence of valid candidates and on decision power.",
+  "reason": "tightened; decision rule and the prevalence caveat kept"
+ },
+ "P021": {
+  "action": "replace",
+  "text": "The interval is fixed-final: repeatedly applying the Gaussian cutoff and stopping at a favorable conclusion is not covered. For a predeclared maximum T and conditionally mean-zero σ-sub-Gaussian errors, replacing the noise term by σ√{2 log(2T/α)/n} gives simultaneous coverage for n = 1,…,T by a union bound and an analogous correction covers all predeclared contiguous windows. These elementary extensions are conservative and no substitute for the confidence-sequence literature [10]; the primary extension benchmark uses the fixed-final interval and never stops early.",
+  "reason": "tightened; citation and scope kept; comma before and/or removed by the portfolio rule"
+ },
+ "P022": {
+  "action": "replace",
+  "text": "Physical calibration and statistical coverage are separate: if joint physical bounds hold with probability at least 1 − δ, combining calibration and confirmation errors gives a coverage lower bound of 1 − α − δ, which requires an actual calibration statement. A global L proved for a fitted emulator does not bound its difference from the true material and the largest observed slope in a finite dataset does not bound unseen material sensitivity. These restrictions set the scope of every guarantee reported here.",
+  "reason": "tightened; every restriction kept; comma before and/or removed by the portfolio rule"
+ },
+ "P024": {
+  "action": "replace",
+  "text": "The final state-distance bound is the same product in either order, so later terms do not change and repeated adjacent swaps establish the optimal order for fixed counts. Fresh actions have zero preparation bias and do not change the shared state, so their placement is irrelevant to this objective; the code places them last. A block of n identical shared actions contributes LrD(1 − qⁿ)/(1 − q) with q = 1 − λmin(1 − r), enumeration selects the count tuple minimizing Equation (6) and ties favor lower cost, fewer fresh assays, fewer washes and more routine assays in that order.",
+  "reason": "tightened; formula and tie rule kept"
+ },
+ "P025": {
+  "action": "replace",
+  "text": "This is an exact optimum within the declared finite class of fixed, candidate-only, equally weighted schedules; it does not optimize over outcome-adaptive policies, unequal weighting, discarded burn-in or arbitrary interventions and minimum worst-case width need not imply minimum realized error or maximum acceptance yield, which are separate empirical outcomes. The fixed tail-average control is therefore retained although it lies outside the planner's optimality class. At equal routine and fresh costs, all-fresh measurement weakly dominates the menu in certified width: it maximizes affordable sample count with zero preparation bias.",
+  "reason": "tightened; every exclusion and the equal-cost result kept; comma before and/or removed by the portfolio rule"
+ },
+ "P027": {
+  "action": "replace",
+  "text": "The factor one half follows because composition changes sum to zero, so the dual norm on simplex tangent directions is half the range of gradient components; Bernstein weights are nonnegative and sum to one, so the largest adjacent coefficient difference bounds the gradient range everywhere and integrating along a simplex segment proves Equation (8). The certificate is recomputed from the final fitted coefficients and rounded conservatively; only the scalar Lcert is exposed to the bounded policies, while coefficients, clean response and simulator state stay private to the simulator and scoring code. It establishes mathematical regularity of the emulator, not physical validation of an OPV formulation.",
+  "reason": "tightened; proof steps, information barrier and disclaimer kept; comma before and/or removed by the portfolio rule"
+ },
+ "P028": {
+  "action": "replace",
+  "text": "Langner et al. measured photostability of four-component organic-photovoltaic blends after 18 hours of approximately one-sun illumination in ambient air [11]; the response is relative spectral absorbance loss of films, not device power-conversion efficiency. We retrieved the original authors' workbook at a pinned repository commit and retained its exact bytes and SHA256. System 01 contains P3HT, PBQ-QF, PCBM and oIDTBR; System 02 contains P3HT, PTB7-Th, PCBM and oIDTBR. Each sheet holds 1,041 high-throughput measurements over 1,021 unique composition groups plus two self-driving campaigns of 60 formulations with two measured samples each, giving 2,562 measured responses including 240 paired formulations.",
+  "reason": "tightened; every count and the provenance kept"
+ },
+ "P029": {
+  "action": "replace",
+  "text": "Composition values are mass fractions summing to one despite the workbook's wt.-% headings and are not divided by 100 again; repeated compositions are grouped only for emulator fitting, all original responses are retained separately and negative measured losses are retained. The two systems share observations on the zero-second-donor face and are not independent replications. A cross-check against processed Olympus copies found differences between descriptive metadata and original numeric column and system identity; we use the original workbook headers corroborated by the source supporting information, preserve the cross-check and do not substitute repository aliases for chemical identities.",
+  "reason": "tightened; every handling decision kept"
+ },
+ "P030": {
+  "action": "replace",
+  "text": "The paired analysis includes all 240 pairs at the illustrative loss threshold 0.10 and tabulates both-pass, each direction of disagreement and both-fail. Sample 1 and Sample 2 are source labels establishing neither temporal order, independent fresh preparation nor a controlled carryover intervention. The analysis is descriptive for this finite dataset: no population interval is attached, because adaptive selection, shared compositions and undocumented preparation dependence prevent a random-sample interpretation and a disagreement is not a known false acceptance because the true mean response is unobserved.",
+  "reason": "tightened; every caveat kept; comma before and/or removed by the portfolio rule"
+ },
+ "P031": {
+  "action": "replace",
+  "text": "For each system the 1,021 composition groups are partitioned with fixed seed 880001 into 715 training, 152 validation and 154 test groups, all replicates staying within one group and the four pure vertices assigned to training first, so the test assessment does not evaluate extrapolation to unseen pure vertices. The cubic Bernstein family is fixed before evaluation; ridge strengths 10⁻⁶, 10⁻⁴, 0.01, 0.1, 1 and 10 are compared by validation mean absolute error with ties preferring stronger regularization and 0.01 is selected in both systems. A train-plus-validation refit is followed by one held-out assessment, with no retuning after viewing test errors.",
+  "reason": "tightened; every split, grid and rule kept; comma before and/or removed by the portfolio rule"
+ },
+ "P032": {
+  "action": "replace",
+  "text": "A separately fixed continuous piecewise-affine Delaunay interpolant provides an emulator sensitivity: it uses composition-group means, retains sharp local variation and in fivefold group validation excludes and counts held-out points outside each training hull rather than extrapolating; the full-data interpolant covers the simplex because all pure vertices are present and each cell's gradient yields a global sensitivity certificate. Its validation partition and coverage differ from the cubic model's held-out test, so raw errors do not support a matched superiority claim. Both emulators approximate published measurements and artificial carryover added to either is a controlled simulation, not an observed OPV process.",
+  "reason": "tightened; every caveat kept; comma before and/or removed by the portfolio rule"
+ },
+ "P036": {
+  "action": "replace",
+  "text": "The extension uses four-component 0.1-grid nominal candidates whose total donor fraction lies between 1/6 and 5/6, matching the source study's donor-to-acceptor eligibility range [11]. Discovery uses 12 random starts and 32 stateless quadratic UCB assays; for each system, scenario and seed every method receives the same discovery record and frozen candidate, starting from the same hidden state, with no filtering for apparently successful discoveries. The score threshold is 0.90, the confirmation budget 32 and independent Gaussian observation noise has assumed σ = 0.03, not estimated from the source paired measurements.",
+  "reason": "tightened; every setting and the noise caveat kept"
+ },
+ "P038": {
+  "action": "replace",
+  "text": "Thirteen methods are compared: sequence repeat, candidate repeat, a fixed four-assay burn-in/tail average, one wash per assay, fresh-only, history-model repeat, the original adaptive heuristic, an adaptive ablation without conditioning actions and five bounded variants comprising repeat, tail average, one-wash, fresh-only and the finite-menu planner, the bounded variants using Equation (6) at the final planned sample count. The primary design has 200 seeds per system and scenario over two systems and eight scenarios: 3,200 campaigns and 41,600 policy runs. Paired uncertainty respects the shared campaign design; pooled rows are not independent replications.",
+  "reason": "tightened; all thirteen methods and counts kept"
+ },
+ "P040": {
+  "action": "replace",
+  "text": "For each case we report true candidate prevalence, false acceptance per campaign, true acceptance yield, false rejection, unresolved outcomes, error among accepted candidates, estimation error and cost, with interval coverage and width for bounded methods. Binary rates use Wilson 95% intervals and differences use 5,000 paired campaign bootstrap resamples, quantifying simulation uncertainty within a case without multiplicity adjustment or cross-platform generalization. Zero observed errors carry finite uncertainty rather than zero risk and equal counts or intervals spanning zero are not read as equivalence.",
+  "reason": "tightened; every metric and rule kept; comma before and/or removed by the portfolio rule"
+ },
+ "P042": {
+  "action": "replace",
+  "text": "Variation is heterogeneous: the median absolute paired difference is 0.00618 for PBQ-QF and 0.00559 for PTB7-Th, while the largest differences are 0.13871 and 0.36165; the large PTB7-Th difference is retained in both the descriptive analysis and the empirical-contrast sensitivity. The source does not identify which contributions arise from preparation, measurement, aging or other variation, so the paired analysis motivates confirmation without assigning its mechanism.",
+  "reason": "tightened; every number kept"
+ },
+ "P045": {
+  "action": "replace",
+  "text": "These results support a mechanism-based explanation rather than a universal ranking: repeated candidate assays that quickly remove residue both improve physical preparation and collect inexpensive information about the target, whereas conditioning actions can reintroduce a noncandidate predecessor while consuming budget and the original covariance utility values immediate predictive covariance rather than future state changes and can be affected by misspecification. The same-model comparison isolates the value of intervention choice from the value of a history-aware response model; it does not establish that every sophisticated policy must fail.",
+  "reason": "tightened; mechanism and the limiting sentence kept; comma before and/or removed by the portfolio rule"
+ },
+ "P047": {
+  "action": "replace",
+  "text": "The completed extension contains 62,400 policy runs, 41,600 primary and 20,800 predefined sensitivity runs. In 9 of the 16 system–scenario combinations all 200 frozen candidates qualify under the cubic emulator; these easy cases can compare precision and cost but cannot estimate false acceptance conditional on an invalid recipe. Valid-candidate counts range from 26 to 200 of 200 across primary cases. The fixed criterion and every campaign are retained; no outcome-dependent threshold is introduced.",
+  "reason": "tightened; every count kept"
+ },
+ "P048c": {
+  "action": "replace",
+  "text": "With replacement fraction λ = 0.45 the planner again selects fresh-only; the bounded tail control accepts 64 of 200 PBQ-QF and nine of 200 PTB7-Th campaigns against 175 and 192 for planner/fresh-only, a gain that reflects avoiding an overly conservative shared-line tail bound rather than an advantage over the fresh-only baseline. At λ = 0.05 the bounded tail rule is unresolved in all 200 campaigns for each system: a valid bound can be practically uninformative and the correct response is to report that lack of resolution rather than read abstention as successful discovery.",
+  "reason": "tightened; every number and the interpretation kept; comma before and/or removed by the portfolio rule"
+ },
+ "P049b": {
+  "action": "replace",
+  "text": "Observed coverage does not uniformly reach nominal in the finite simulation: fixed tail averaging covers 183 of 200 targets (91.5%, Wilson 95% interval 86.81–94.63%, upper limit below 95%) in the no-carryover case and fresh-only covers 186 of 200 (93.0%, 88.59–95.78%), with the same common Gaussian draws producing repeated fluctuations in several cases. These results are preserved rather than erased by changing seeds or enlarging the sample after inspection. The conditional guarantee follows from the stated Gaussian model and bias envelope; the simulation is not a universal empirical coverage validation. The accompanying audit checks noise normalization and discarded-prefix indexing directly.",
+  "reason": "tightened; every number and caveat kept"
+ },
+ "P052": {
+  "action": "replace",
+  "text": "AutoFSP provides a separate physical example [1]: its contamination table reports six element-specific measurements across four batches, from 0.016 to 0.122 mol% relative to the main phase, described by the authors as near analytical quantification limits; one cleaning cycle is reported at approximately 30 seconds and the standard sequence uses three, so 90 seconds is an arithmetic duration for that sequence and campaign preparation and processing times and parallel operations are also reported. These observations support the practical relevance of carryover and cleaning burden; they do not establish the OPV emulator's retained-mixture mass fraction ρ, wash factor η or marginal fresh-preparation cost.",
+  "reason": "tightened; every reported quantity and the transfer limit kept; comma before and/or removed by the portfolio rule"
+ },
+ "P056": {
+  "action": "replace",
+  "text": "The design still needs apparatus-specific chemical and statistical decisions: a physical sensitivity bound may be local to a candidate neighborhood rather than global over the simplex, a largest observed slope is not an upper bound and composition-dependent noise, systematic assay drift and morphology-mediated history may invalidate the simple model and should be tested or represented in expanded bias bounds. The computational package supplies an executable method and a falsifiable measurement plan; it does not report that these laboratory steps have occurred.",
+  "reason": "tightened; every caveat kept; comma before and/or removed by the portfolio rule"
+ },
+ "P010": {
+  "action": "replace",
+  "text": "For a shared preparation line, zₜ is the actual mixture and hₜ₋₁ the residual composition before assay t, with the retained fraction rₜ defined relative to a fixed final batch mass; the state update permits memory beyond the immediately preceding sample:",
+  "reason": "lead-in tightened"
+ },
+ "P012": {
+  "action": "replace",
+  "text": "If the sampled compositions zᵢ and their noiseless responses yᵢ are known, f is L-Lipschitz in a specified norm and the observations are consistent with that bound, the possible values at x* form the sharp interval:",
+  "reason": "lead-in tightened"
+ },
+ "P015": {
+  "action": "replace",
+  "text": "Subtracting x* from Equation (1) gives an exact contraction identity. With r̄ₜ an upper bound on retained fraction, λmin a positive lower bound on memory replacement and Dₜ₋₁ a bound on the distance between residual state and x*, an observable recursion bounds the current response error and the next state distance:",
+  "reason": "lead-in tightened"
+ },
+ "P019": {
+  "action": "replace",
+  "text": "Choose the confirmation schedule and retained observations before their outcomes are observed, assume independent Gaussian errors with known σ and valid pathwise bias bounds Bₜ; conditional on the discovery record and frozen candidate, a conservative 1 − α interval is:",
+  "reason": "lead-in tightened"
+ },
+ "P023": {
+  "action": "replace",
+  "text": "The planner considers routine candidate assays, candidate assays after one or three washes and independent fresh candidate assays, enumerating feasible nonnegative action counts under a fixed budget with at least two measurements and equal weight on every included observation. For fixed counts, stronger washes should precede weaker washes and routine repeats; comparing two adjacent shared-line actions with retained-fraction bounds rₐ ≤ rᵦ and common replacement lower bound λmin, the summed bias-bound difference after swapping is:",
+  "reason": "tightened"
+ },
+ "P026": {
+  "action": "replace",
+  "text": "The primary OPV emulator is a degree-three standard Bernstein polynomial on the four-component simplex, whose coefficient vector holds every multi-index of total degree p; the basis and its derivative are given in the master manuscript held in the repository described in the availability statement. A global L1 Lipschitz upper bound for this polynomial is:",
+  "reason": "pointer re-targeted to the master; no address, valid in the blinded file"
+ },
+ "P033": {
+  "action": "replace",
+  "text": "The first benchmark uses a ternary mixture response with a randomly generated quadratic surface and controlled nonlinear stresses. A stateless Bayesian quadratic upper-confidence-bound optimizer starts from eight random untested recipes and performs 24 discovery assays on a 0.1 simplex grid; the tested nominal recipe with the highest final posterior mean is frozen. The confirmation budget is 16 units, routine or conditioning assays cost 1, each wash 0.5 and a fresh assay 4 in the principal setting and the primary target is a dimensionless fresh response of at least 0.85. These response and cost scales are synthetic.",
+  "reason": "tightened; every setting kept; comma before and/or removed by the portfolio rule"
+ },
+ "P035": {
+  "action": "replace",
+  "text": "The frozen design has 400 campaign seeds per scenario across 12 scenarios and 10 policies, 4,800 scenario–seed campaigns and 48,000 policy runs; seeds are reused across scenarios for controlled comparison, so they are not 4,800 independent response surfaces, although each scenario has 400 independent draws. Scenarios cover no or weak carryover, ineffective washing, persistent memory, nonlinear response, changed intervention costs, off-grid parameters and severe retention. These results are preserved unchanged; the later OPV extension was designed after this negative finding and is described with that chronology, not as an externally preregistered study.",
+  "reason": "tightened; every count and the chronology kept"
+ },
+ "P037": {
+  "action": "replace",
+  "text": "Eight simulated preparation scenarios cover zero, trace, low, moderate and high carryover, ineffective washing, moderate persistent memory and a strongly persistent stress, with retained fractions 0, 0.001, 0.01, 0.10 and 0.40 and persistent replacement fractions 0.45 and 0.05, all specified simulation parameters. Bounded methods receive the same externally assumed envelopes for retention, wash efficacy and replacement plus the scalar emulator certificate and no clean-response or latent-state oracle; model-based controls may restrict their particles with the same envelopes, but their quadratic and immediate-memory assumptions can still be misspecified.",
+  "reason": "tightened; every parameter kept; comma before and/or removed by the portfolio rule"
+ },
+ "P041": {
+  "action": "replace",
+  "text": "The original paired measurements contain 10 threshold disagreements among 240 pairs (4.17%): six among 120 PBQ-QF pairs and four among 120 PTB7-Th pairs; of 100 Sample 1 measurements meeting the criterion, six paired Sample 2 measurements do not. These establish decision-boundary disagreement in the retrieved data; they do not estimate a carryover effect, a false-discovery rate or the probability that an independently prepared recipe will fail.",
+  "reason": "tightened; every number kept"
+ },
+ "P043": {
+  "action": "replace",
+  "text": "In the strong-carryover synthetic case, adaptive confirmation accepts 229 truly valid recipes against 235 for history-model repetition, a paired yield difference of −1.5 percentage points with 95% bootstrap interval −3.25 to +0.25: no advantage for the adaptive policy. Ordinary candidate repetition also performs well because the repeated composition flushes the line and comparing the adaptive method only against sequence repetition would have overstated the contribution by omitting the more informative simple controls.",
+  "reason": "tightened; every number kept; comma before and/or removed by the portfolio rule"
+ },
+ "P044": {
+  "action": "replace",
+  "text": "Under the nonlinear stress, sequence repetition makes 36 false acceptances in 400 campaigns, 9.0% (Wilson 95% interval 6.57–12.21%); adaptive confirmation and history-model repetition each make zero, but the adaptive method makes two false rejections and has mean absolute error 0.01167 against 0.00895, a paired difference of +0.00272 (0.00174–0.00376) favoring the simpler method. Zero false acceptances in 400 trials still permits an approximate 0.95% Wilson upper limit. In the severe-retention case sequence repetition makes 37 false acceptances and ordinary candidate repetition six; history-model repetition and the adaptive method make none in the observed campaigns.",
+  "reason": "tightened; every number kept"
+ },
+ "P046": {
+  "action": "replace",
+  "text": "Held-out mean absolute errors are 0.04390 and 0.05097 for PBQ-QF and PTB7-Th, with R² 0.6062 and 0.4849: moderate fidelity relative to a loss criterion of 0.10, so a mathematically valid emulator interval can be uninformative about the real formulation without an additional model-discrepancy bound. The primary L1 certificates are 1.66314 and 1.88188 and are not fitted from subsequent policy outcomes.",
+  "reason": "tightened; every number kept"
+ },
+ "P046b": {
+  "action": "replace",
+  "text": "The piecewise-affine model has fivefold validation coverage of 1,008 of 1,021 composition groups per system, with 13 points outside the training hull explicitly excluded; on covered points MAE is 0.02880 for PBQ-QF and 0.03714 for PTB7-Th, while its full-model L1 bounds are much larger, 65.66965 and 50.64746 and are retained in the sensitivity rather than reduced to obtain favorable confirmation. The different holdout schemes preclude a matched predictive-superiority claim.",
+  "reason": "tightened; every number kept; comma before and/or removed by the portfolio rule"
+ },
+ "P047b": {
+  "action": "replace",
+  "text": "A post-run audit finds negative predicted mean loss for all 200 selected candidates in each PBQ-QF no-, trace- and low-carryover case and for 180 of 200 in the PTB7-Th no-carryover case; these unclipped cubic-model predictions help explain the easy-case prevalence without establishing physical stability and negative observed changes also exist in the source data, so sign alone does not identify an impossible measurement.",
+  "reason": "tightened; every number kept; comma before and/or removed by the portfolio rule"
+ },
+ "P048": {
+  "action": "replace",
+  "text": "With high carryover and effective washing, the planner selects two three-wash assays followed by 27 routine candidate assays; its radius is 0.01251 for PBQ-QF and 0.01272 for PTB7-Th against 0.02079 for eight fresh-only assays at the same budget and it accepts 190 and 194 truly valid candidates against 183 and 186, paired yield gains of +3.5 percentage points (95% interval +1.0 to +6.5) and +4.0 points (+1.0 to +7.0). Against fixed burn-in/tail repetition the gains are only +0.5 points (0 to +1.5) and +1.0 points (0 to +2.5): a conditional efficiency benefit against costly fresh-only measurement, not dominance over strong repetition.",
+  "reason": "tightened; every number kept; comma before and/or removed by the portfolio rule"
+ },
+ "P048b": {
+  "action": "replace",
+  "text": "Ineffective washing reverses the ranking: the planner selects fresh-only while the fixed tail control accepts six more valid recipes in each system, a planner-minus-tail difference of −3.0 percentage points with paired 95% intervals −6.0 to −0.5. Tail averaging lies outside the planner's equally weighted all-observation class and can have a smaller interval; the counterexample is retained because it identifies a concrete limit of the restricted optimization claim.",
+  "reason": "tightened; every number kept"
+ },
+ "P049": {
+  "action": "replace",
+  "text": "The strongly persistent PTB7-Th stress has 26 truly valid candidates among 200 and the quadratic immediate-memory model is misspecified for it: history-model repetition makes 10 false acceptances and the adaptive heuristic 12, 5.0% and 6.0% of campaigns, while the planner and fresh-only rule each make zero observed false acceptances and accept 17 valid candidates. Zero of 200 has a Wilson 95% upper limit of about 1.88%, so it is not evidence of zero error probability; the stress supports distinguishing posterior confidence from a conditional frequentist decision guarantee.",
+  "reason": "tightened; every number kept; comma before and/or removed by the portfolio rule"
+ },
+ "P049c": {
+  "action": "replace",
+  "text": "The predefined sensitivities expose different limitations: broad but valid apparatus bounds make the planner use fresh-only and leave the bounded tail rule unresolved in all four 100-campaign cases; with the less smooth Delaunay emulator and high carryover the planner again chooses fresh-only and one false acceptance occurs in the PBQ-QF case; at equal fresh/routine cost the planner selects 32 fresh assays and exactly matches the fresh-only interval in all four cases, as the width objective requires; the empirical-contrast-noise stress retains observed extreme pair differences and its fixed Gaussian interval has no theorem-backed coverage under that noise law, whatever its observed coverage. No parameter, family or scenario was changed to improve these results.",
+  "reason": "tightened; every result kept"
+ },
+ "P051": {
+  "action": "replace",
+  "text": "The preparation reference is part of the scientific claim: a mixture that benefits from residue may reveal a useful composition, but it should be recorded and independently prepared as that composition before being credited to the nominal recipe and an unresolved confirmation is informative when the evidence cannot separate a near-threshold target from preparation or measurement variation. Reporting only accepted candidates would conceal this tradeoff; the method makes uncertainty and resource assumptions explicit without replacing chemical characterization or experimental replication.",
+  "reason": "tightened; comma before and/or removed by the portfolio rule"
+ },
+ "PA05": {
+  "action": "replace",
+  "text": "Separating mean preparation bias, bounded by B̄ₙ, from Gaussian mean noise and applying the triangle inequality proves Equation (6), so the conditional wrong-decision probability is at most α for every bias sequence satisfying the envelope; bias-aware inference has established precedents [13].",
+  "reason": "statement and sketch; citation kept"
+ },
+ "PA08": {
+  "action": "replace",
+  "text": "Half the range of the gradient components bounds |∇f · v| for tangent vectors v, each derivative difference is a convex combination of p times adjacent coefficient differences and integrating along a simplex segment gives Equation (8); the constant need not be smallest and upward rounding addresses the computed certificate without transferring regularity to the unknown material.",
+  "reason": "statement and sketch; caveats kept"
+ },
+ "P057": {
+  "action": "replace",
+  "text": "The primary limitations are substantive: the real dataset lacks the preparation histories needed for causal carryover estimation; the fitted emulators have moderate held-out fidelity and their certificates do not certify actual materials; the assumed physical bounds are supplied to the policies, which favors calibrated methods relative to an uninstrumented laboratory; the principal noise model is independent Gaussian with known scale; only one frozen candidate is confirmed per campaign, so repeated searches for a favorable candidate would need a separate multiple-candidate error budget; and the simplex mass-balance model omits selective adsorption, chemical transformation and morphology-dependent effects.",
+  "reason": "tightened; every limitation kept"
+ },
+ "P058": {
+  "action": "replace",
+  "text": "The evaluation is also limited by design: the two OPV systems share some source observations; reused seeds give controlled comparisons rather than independent evidence across scenarios; the finite-menu planner is not a general adaptive optimum; the initial active heuristic is one model-based strategy, so its failure cannot establish the impossibility of useful active confirmation; and the broad-bound and empirical-noise sensitivities belong to a declared extension, not external validation. No physical laboratory trials, independent-team replication, exhaustive novelty search or journal acceptance assessment has been completed. These limits are compatible with a useful computational contribution but prevent a claim of validated autonomous materials discovery.",
+  "reason": "tightened; every limitation kept"
+ },
+ "P059": {
+  "action": "replace",
+  "text": "Preparation history changes which response a nominal recipe can support: a finite transcript away from the fresh target can leave its performance ambiguous and quantitative response and residual-state bounds make that ambiguity explicit. Under a stated contraction model repetition naturally reduces history effects, which explains why strong simple controls can outperform an intervention heuristic, while a restricted preparation planner minimizes a conditional final interval width by placing stronger washes first and enumerating feasible action counts. Published OPV measurements anchor the application and reveal real decision-boundary disagreement; their missing history records prevent a causal carryover interpretation. The completed computations support a transparent confirmation framework and a scoped failure analysis; physical usefulness requires measured preparation history, credible calibration bounds and actual marginal costs on a materials platform.",
+  "reason": "tightened; every conclusion and its qualification kept; comma before and/or removed by the portfolio rule"
+ },
+ "PA08a": {
+  "action": "drop",
+  "reason": "lead-in to the relocated equations"
+ },
+ "E09": {
+  "action": "drop",
+  "reason": "basis equation relocated with the proofs; not cited by number in the body"
+ },
+ "E10": {
+  "action": "drop",
+  "reason": "derivative equation relocated with the proofs; not cited by number in the body"
+ },
+ "T03": {
+  "action": "note",
+  "text": "All counts use the 400 campaigns as denominator; 264 frozen candidates are truly valid in this case. Other outcomes are correct rejections or false rejections. These are simulator outcomes, not physical measurements.",
+  "reason": "'full results are supplied' pointer removed; the availability statement covers it"
+ },
+ "T05": {
+  "action": "note",
+  "text": "Each row contains 200 campaigns with budget 32. Planner, Tail-4 and Fresh denote bounded inference; Tail-4 spends four routine assays on a fixed burn-in then averages the remaining 28. True acceptance counts are not conditional sensitivity percentages. All three methods have zero observed false acceptances in these primary cases; zero events do not establish zero risk.",
+  "reason": "pointer to the notebook and CSV removed; the availability statement covers it; every qualification kept"
+ },
+ "__abstract__": {
+  "action": "replace",
+  "text": "Preparation history can make the material measured in an autonomous campaign differ from its recorded recipe. We study confirmation of one frozen recipe under independent fresh preparation. A finite-data analysis distinguishes underdetermination without quantitative regularity from sharp response envelopes under a known Lipschitz bound; a mass-balance memory model yields a contraction-based preparation-bias bound and a conditional fixed-final confidence interval; an exchange argument establishes stronger-wash-first ordering for fixed action counts and enumeration minimizes interval width within a restricted equally weighted preparation menu. Reanalysing original organic-photovoltaic measurements finds 10 threshold disagreements among 240 paired formulations at an illustrative absorbance-loss criterion, without establishing carryover causality. A preserved synthetic benchmark of 48,000 policy runs does not demonstrate superiority of an adaptive heuristic over same-model repetition. A separate extension of 62,400 runs with two measured-data-informed response emulators shows the planner improving true-acceptance yield over costly fresh-only measurement by 3.5 and 4.0 percentage points in high-carryover cases but losing 3.0 points to fixed burn-in/tail repetition when washing is ineffective; strong persistent-memory stress produces 12 false acceptances in 200 campaigns for the misspecified adaptive model and finite observed coverage falls below nominal 95% in some controls. Emulator test errors are moderate and its certificates do not certify physical materials. The contribution is a reproducible conditional confirmation framework with explicit efficiency and failure boundaries; platform-specific carryover, response bounds and marginal costs still require experimental validation.",
+  "reason": "abstract tightened; every number and claim kept; comma before and/or removed by the portfolio rule"
+ },
+ "T01": {
+  "action": "drop",
+  "reason": "closest-work table merged into the condensed Section 2 prose, which carries every boundary statement and citation; restore by deleting this entry"
+ }
+}

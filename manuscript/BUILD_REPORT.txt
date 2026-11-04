@@ -1,0 +1,7 @@
+JICT_LAB_anonymous.docx: 17 pages, 8,249 words as extracted, 7,994 without the running header (JICT band 5,000-8,000 incl. all sections): PASS
+   ", and"/", or": 0 unresolved, 1 PROTECTED
+   anonymity: CLEAN
+JICT_LAB_with_author_details.docx: 18 pages, 8,348 words as extracted, 8,078 without the running header (JICT band 5,000-8,000 incl. all sections): FAIL, over by 78
+   ", and"/", or": 0 unresolved, 1 PROTECTED
+abstract 227 words (JICT 150-250): PASS; keywords 5 (max 5): PASS
+references 13 APA 7th entries, alphabetical; in-text author-date; tables 7; figures 4

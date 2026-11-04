@@ -1,0 +1,5 @@
+SUBSTITUTIONS MADE IN THIS PUBLISHED COPY
+
+Retained records referred to files by their path on the build machine. A path naming the account on that machine is replaced by ~/ and a path naming an assistant by the role the file plays. No finding was removed and no record deleted. The list is complete.
+
+manuscript/source/build_jict.py  1x  [absolute import path to the portfolio module]  now reads: __import__('os').path.expanduser('~/Downloads/all_projects')

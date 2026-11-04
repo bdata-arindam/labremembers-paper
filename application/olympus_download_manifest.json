@@ -1,0 +1,59 @@
+[
+  {
+    "path": "src/olympus/datasets/dataset_photo_pce10/description.txt",
+    "filename": "olympus_photo_pce10_description.txt",
+    "url": "https://raw.githubusercontent.com/the-matter-lab/olympus/440b6b58ebfcaa2391cff7e94b570fb4fda98d68/src/olympus/datasets/dataset_photo_pce10/description.txt",
+    "bytes": 1303,
+    "sha256": "d355073280600ca196509018a911793032b5225007c71f6370dc9295e7b16202"
+  },
+  {
+    "path": "src/olympus/datasets/dataset_photo_pce10/config.json",
+    "filename": "olympus_photo_pce10_config.json",
+    "url": "https://raw.githubusercontent.com/the-matter-lab/olympus/440b6b58ebfcaa2391cff7e94b570fb4fda98d68/src/olympus/datasets/dataset_photo_pce10/config.json",
+    "bytes": 506,
+    "sha256": "89c45acb702c5489bc8669c5f454126ebda4e3c843e5a29cded9b004b93c3b31"
+  },
+  {
+    "path": "src/olympus/datasets/dataset_photo_pce10/data.csv",
+    "filename": "olympus_photo_pce10_data.csv",
+    "url": "https://raw.githubusercontent.com/the-matter-lab/olympus/440b6b58ebfcaa2391cff7e94b570fb4fda98d68/src/olympus/datasets/dataset_photo_pce10/data.csv",
+    "bytes": 31752,
+    "sha256": "b41c72b8e38e73a5ddd175db19e62f1bbd51da75e040fe6bd08afbdf87f0c4cf"
+  },
+  {
+    "path": "src/olympus/datasets/dataset_photo_pce10/raw_data.csv",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "src/olympus/datasets/dataset_photo_wf3/description.txt",
+    "filename": "olympus_photo_wf3_description.txt",
+    "url": "https://raw.githubusercontent.com/the-matter-lab/olympus/440b6b58ebfcaa2391cff7e94b570fb4fda98d68/src/olympus/datasets/dataset_photo_wf3/description.txt",
+    "bytes": 1084,
+    "sha256": "6acb8de8711611814726876b87dba90e6444f7ed53c9c1b8a367c52a84ee4cc5"
+  },
+  {
+    "path": "src/olympus/datasets/dataset_photo_wf3/config.json",
+    "filename": "olympus_photo_wf3_config.json",
+    "url": "https://raw.githubusercontent.com/the-matter-lab/olympus/440b6b58ebfcaa2391cff7e94b570fb4fda98d68/src/olympus/datasets/dataset_photo_wf3/config.json",
+    "bytes": 509,
+    "sha256": "ea67b8cb572b812b87e79fb6318addf26952932a5100047005adfadcf168ce61"
+  },
+  {
+    "path": "src/olympus/datasets/dataset_photo_wf3/data.csv",
+    "filename": "olympus_photo_wf3_data.csv",
+    "url": "https://raw.githubusercontent.com/the-matter-lab/olympus/440b6b58ebfcaa2391cff7e94b570fb4fda98d68/src/olympus/datasets/dataset_photo_wf3/data.csv",
+    "bytes": 31750,
+    "sha256": "e9a26f291a85692fb6322ebae93d285b0a4fe212b2cf2a067c479e0e591fb64f"
+  },
+  {
+    "path": "src/olympus/datasets/dataset_photo_wf3/raw_data.csv",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "LICENSE",
+    "filename": "olympus_LICENSE",
+    "url": "https://raw.githubusercontent.com/the-matter-lab/olympus/440b6b58ebfcaa2391cff7e94b570fb4fda98d68/LICENSE",
+    "bytes": 1080,
+    "sha256": "954c5cce3c2e24556ac14b940dfb071bc15947b03e9eb62acf4c7e7d1946f3f1"
+  }
+]

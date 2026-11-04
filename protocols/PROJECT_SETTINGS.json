@@ -1,0 +1,12 @@
+{
+  "source_register": "evidence_register.json",
+  "mode": "NEW",
+  "journal_style": "publisher-neutral",
+  "page_target": "not supplied",
+  "numeric_citations": "Stable source-catalog IDs 1–13; not renumbered by first appearance because no venue-specific rule was supplied.",
+  "editable_prose_punctuation": "Remove literal comma-before-and/or patterns by grammatical restructuring; protect math, code, exact identifiers, URLs and official titles.",
+  "external_similarity_report": "NOT_RUN; no service or report was authorized/provided",
+  "external_AI_detector": "NOT_RUN; no detector score or authorship classification claimed",
+  "reference_style_anchors": "NONE_SUPPLIED; comparison INDETERMINATE",
+  "review_independence": "Separate AI review agent using shared project records, with independent algebra/arithmetic checks. Not external human peer review."
+}

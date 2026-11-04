@@ -1,0 +1,16 @@
+{
+  "status": "Declared before fitting or inspecting piecewise-affine validation outcomes",
+  "role": "Alternative emulator sensitivity; cubic Bernstein is the separate primary model chosen by the research team",
+  "source_sha256": "69ae8917cd63fe9391278df86722c0ebc2921af92dd1b27d9b957cb030a074ad",
+  "systems": ["pbq_qf", "ptb7_th"],
+  "observations": "Original HTE measured responses only; negative measurements retained",
+  "aggregation": "Group exact duplicate compositions; arithmetic mean within each group; retain all source observations separately",
+  "input_geometry": "Four mass fractions on the simplex; three orthonormal coordinates for Euclidean Delaunay triangulation",
+  "input_grid": "Verify the source 0.02 mass-fraction grid to floating-point tolerance and retain integer grid coordinates for exact zero-volume tests",
+  "model": "Continuous piecewise affine barycentric interpolant; no response clipping, smoothing, jitter, tuning, or extrapolation",
+  "holdout": {"kind": "5-fold shuffled composition-group cross-validation", "seed": 20261103, "report": ["coverage", "outside-hull count", "MAE", "RMSE", "R-squared"]},
+  "holdout_integrity": "All repeated observations of a composition stay within one group. Fit each fold only on its training groups. Exclude and count held-out points outside the training convex hull. Never move held-out hull vertices into training.",
+  "final_emulator": "Refit on all HTE composition means after validation for simulation use; validation scores refer only to held-out predictions",
+  "bounds": "Report maximum L2 norm of affine tangent gradients and maximum (max(g4)-min(g4))/2 for L1 distance; these bound the emulator only, not an unknown physical material response",
+  "failure_policy": "Report degeneracy, hull gaps, large bounds, or poor prediction; do not tune the model to improve downstream policy outcomes"
+}

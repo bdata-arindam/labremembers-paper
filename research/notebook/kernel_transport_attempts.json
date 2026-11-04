@@ -1,0 +1,39 @@
+{
+  "record_type": "Concise record of actual kernel transport attempts",
+  "provenance": "Error excerpts below are copied verbatim from the actual execution-tool output. Complete original startup transcripts were not retained as separate files; no stack traces have been reconstructed or fabricated.",
+  "attempts": [
+    {
+      "order": 1,
+      "transport": "normal Jupyter TCP kernel",
+      "execution_session_id": 93618,
+      "outcome": "failed during kernel startup before any research notebook code cell executed",
+      "observed_error_excerpts": [
+        "UserWarning: Unexpected error discovering local network interfaces: [Errno 1] Operation not permitted",
+        "Operation not permitted (src/ip_resolver.cpp:542)",
+        "RuntimeError: Kernel died before replying to kernel_info"
+      ]
+    },
+    {
+      "order": 2,
+      "transport": "Jupyter Unix-domain IPC kernel",
+      "execution_session_id": 6480,
+      "outcome": "environment-only startup check failed before the test cell or any research notebook cell executed",
+      "observed_error_excerpts": [
+        "zmq.error.ZMQError: Operation not permitted (addr='ipc:///tmp/labremembers-5-1')",
+        "RuntimeError: Kernel died before replying to kernel_info"
+      ]
+    },
+    {
+      "order": 3,
+      "transport": "actual IPython InProcessKernel hosted in a newly launched Python interpreter; in-process Jupyter messages",
+      "execution_session_id": 81619,
+      "outcome": "successful full nbclient execution after small API/stream-routing compatibility checks",
+      "code_cells_executed": 17,
+      "error_outputs": 0,
+      "unexecuted_code_cells": 0,
+      "validation_artifact": "notebook_execution_validation.json",
+      "scientific_execution_manifest": "latest_execution_manifest.json"
+    }
+  ],
+  "scope": "The successful alternative starts a new kernel/user namespace and executes real code through nbclient without opening prohibited sockets. It does not substitute cached experiment outputs, bypass an access control or fabricate kernel outputs/counters. The failed environment starts are not represented as research-notebook error outputs."
+}

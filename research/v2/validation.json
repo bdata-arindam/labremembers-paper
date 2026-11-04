@@ -1,0 +1,26 @@
+{
+  "all_checks_passed": true,
+  "checks": {
+    "expected_policy_rows": true,
+    "unique_case_seed_method": true,
+    "thirteen_policies_per_campaign": true,
+    "candidate_mass_balance": true,
+    "candidate_donor_eligibility": true,
+    "budget_caps": true,
+    "decision_partition": true,
+    "false_accept_definition": true,
+    "true_accept_definition": true,
+    "same_frozen_truth_per_campaign": true,
+    "frozen_sources_unchanged": true,
+    "measured_inputs_unchanged": true,
+    "aggregate_counts_match": true,
+    "resource_costs_reconcile": true,
+    "routine_tail_fresh_observation_coupling": true,
+    "planner_predicted_width_matches_observed_schedule": true
+  },
+  "scientific_tests": {
+    "count": 8,
+    "result": "passed before evaluation"
+  },
+  "interpretation": "Computational integrity, not experimental verification of carryover or confidence assumptions."
+}

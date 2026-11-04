@@ -1,0 +1,66 @@
+# Executed benchmark results
+
+The frozen study found sequence-dependent false confirmation, but did not establish an advantage for adaptive controls over a history model with simple candidate repetition.
+
+The study used 400 independent seed draws (10000–10399), reused across 12 regimes, producing 48,000 policy runs for 10 methods. Regime-specific uncertainty respects this pairing. All candidate formulations were frozen after a shared 24-assay discovery campaign; every confirmation policy had the same 16-unit budget cap.
+
+## Three informative regimes
+
+Rates below use all 400 campaigns as their denominator. Brackets give Wilson 95% intervals. Correct acceptance is a yield, not sensitivity conditional on a truly good recipe.
+
+| Regime | Method | False confirmations | Correct-acceptance yield | Unresolved | Mean absolute error |
+|---|---|---:|---:|---:|---:|
+| strong_carryover | Predecessor sequence repetition | 2.50% [1.36, 4.54] | 56.25% [51.35, 61.03] | 22.25% [18.45, 26.58] | 0.01710 |
+| strong_carryover | Candidate repetition | 0.00% [0.00, 0.95] | 58.00% [53.11, 62.74] | 17.25% [13.86, 21.26] | 0.00632 |
+| strong_carryover | One wash before each assay | 0.00% [0.00, 0.95] | 56.00% [51.10, 60.78] | 19.50% [15.92, 23.67] | 0.00744 |
+| strong_carryover | Independent fresh verification | 0.00% [0.00, 0.95] | 50.75% [45.87, 55.62] | 28.75% [24.53, 33.37] | 0.01173 |
+| strong_carryover | History model, candidate repetition | 0.00% [0.00, 0.95] | 58.75% [53.86, 63.47] | 15.75% [12.51, 19.64] | 0.00592 |
+| strong_carryover | Active confirmation | 0.00% [0.00, 0.95] | 57.25% [52.36, 62.01] | 17.25% [13.86, 21.26] | 0.00601 |
+| nonlinear_response_stress | Predecessor sequence repetition | 9.00% [6.57, 12.21] | 57.75% [52.86, 62.49] | 16.50% [13.18, 20.45] | 0.04585 |
+| nonlinear_response_stress | Candidate repetition | 0.50% [0.14, 1.80] | 61.25% [56.39, 65.90] | 13.00% [10.05, 16.65] | 0.00795 |
+| nonlinear_response_stress | One wash before each assay | 0.00% [0.00, 0.95] | 60.00% [55.13, 64.68] | 14.50% [11.39, 18.29] | 0.00752 |
+| nonlinear_response_stress | Independent fresh verification | 0.00% [0.00, 0.95] | 54.25% [49.35, 59.07] | 24.00% [20.07, 28.42] | 0.01173 |
+| nonlinear_response_stress | History model, candidate repetition | 0.00% [0.00, 0.95] | 61.25% [56.39, 65.90] | 13.00% [10.05, 16.65] | 0.00895 |
+| nonlinear_response_stress | Active confirmation | 0.00% [0.00, 0.95] | 61.25% [56.39, 65.90] | 11.00% [8.30, 14.45] | 0.01167 |
+| severe_carryover | Predecessor sequence repetition | 9.25% [6.79, 12.49] | 44.00% [39.22, 48.90] | 22.00% [18.22, 26.32] | 0.03964 |
+| severe_carryover | Candidate repetition | 1.50% [0.69, 3.23] | 47.00% [42.16, 51.90] | 14.00% [10.94, 17.74] | 0.01360 |
+| severe_carryover | One wash before each assay | 0.00% [0.00, 0.95] | 43.00% [38.24, 47.90] | 17.00% [13.64, 20.99] | 0.00756 |
+| severe_carryover | Independent fresh verification | 0.25% [0.04, 1.40] | 36.25% [31.69, 41.07] | 28.50% [24.30, 33.11] | 0.01173 |
+| severe_carryover | History model, candidate repetition | 0.00% [0.00, 0.95] | 43.25% [38.48, 48.15] | 18.50% [15.00, 22.60] | 0.00719 |
+| severe_carryover | Active confirmation | 0.00% [0.00, 0.95] | 42.25% [37.51, 47.14] | 17.00% [13.64, 20.99] | 0.00733 |
+
+## Primary comparison: active controls versus history-model repetition
+
+This comparison uses the same inference model and discovery evidence. Both methods had zero false acceptances in every evaluated regime. For an individual 0/400 rate, the Wilson 95% upper bound is 0.95%; zero observed events do not establish zero risk. The paired bootstrap differences for this all-zero outcome are degenerate and must not be interpreted as an equivalence result.
+
+| Regime | Difference in correct-acceptance yield | Difference in unresolved rate | Difference in mean absolute error |
+|---|---:|---:|---:|
+| no_carryover | +0.75 pp [-1.00, +2.50] | -2.00 pp [-4.25, +0.25] | +0.00050 [+0.00002, +0.00098] |
+| weak_carryover | +0.50 pp [-1.25, +2.25] | -1.25 pp [-3.50, +1.00] | +0.00023 [-0.00026, +0.00073] |
+| strong_carryover | -1.50 pp [-3.25, +0.25] | +1.50 pp [-1.00, +4.00] | +0.00009 [-0.00054, +0.00071] |
+| ineffective_wash | -2.00 pp [-3.75, -0.25] | +2.00 pp [-0.50, +4.75] | +0.00008 [-0.00052, +0.00072] |
+| long_memory_stress | -0.50 pp [-2.50, +1.50] | +0.75 pp [-2.25, +3.75] | +0.00041 [-0.00025, +0.00107] |
+| nonlinear_response_stress | +0.00 pp [-1.50, +1.25] | -2.00 pp [-4.75, +0.75] | +0.00272 [+0.00174, +0.00376] |
+| cheap_wash | -1.50 pp [-3.25, +0.25] | +1.75 pp [-0.75, +4.25] | -0.00008 [-0.00069, +0.00056] |
+| expensive_wash | -2.50 pp [-4.50, -0.75] | +4.25 pp [+1.75, +7.00] | +0.00123 [+0.00050, +0.00196] |
+| cheap_fresh | -1.25 pp [-3.00, +0.25] | +2.00 pp [-0.50, +4.50] | +0.00097 [+0.00029, +0.00168] |
+| expensive_fresh | -1.25 pp [-3.00, +0.50] | +1.50 pp [-1.00, +4.00] | +0.00004 [-0.00061, +0.00068] |
+| off_grid_stress | -0.75 pp [-2.75, +1.25] | -0.25 pp [-3.00, +2.75] | +0.00016 [-0.00043, +0.00073] |
+| severe_carryover | -1.00 pp [-3.00, +1.00] | -1.50 pp [-4.75, +1.75] | +0.00015 [-0.00063, +0.00094] |
+
+## Interpretation
+
+1. **Replaying history can reproduce the wrong formulation.** In nonlinear stress, predecessor-sequence replay produced 36 false confirmations out of 400 campaigns. Among its 267 accepted candidates, 36 were false (13.48%; Wilson 95% interval 9.90–18.10%). Ordinary candidate repetition produced 2/400 false confirmations, and history-model repetition produced 0/400. The requested recipe, preceding recipe and actual mixture are different objects.
+2. **Candidate repetition is a strong control.** Under last-mixture memory and a fixed repeated recipe, the composition discrepancy decays geometrically with each assay. A study that compares only with predecessor-sequence replay would overstate the need for adaptive action choice.
+3. **Adaptive controls did not beat the strongest simple baseline.** Under strong carryover, active controls accepted 229 truly good candidates, versus 235 for history-model repetition. The paired difference was −1.50 percentage points, with a 95% interval of −3.25 to +0.25. Under ineffective washing and costly washing the observed yield differences favored history-model repetition, but the multiple exploratory comparisons do not establish a universal ranking.
+4. **Model misspecification remains consequential.** Under nonlinear response stress, active controls and history-model repetition each correctly accepted 245/400 candidates. Active controls also falsely rejected 2 good candidates, versus none for history-model repetition. Its mean absolute fresh-response error was 0.01167, versus 0.00895; the paired increase was 0.00272, with a bootstrap 95% interval of 0.00174–0.00376. Fewer unresolved outcomes alone is not sufficient evidence of a better method.
+5. **Costs change the amount of evidence purchased.** Independent fresh assays cost four units by default, allowing four observations under the cap. Routine repetition permits sixteen. Fresh preparation removes modeled carryover but does not remove observation noise or the statistical difficulty of a near-threshold recipe. Costs are scenario assumptions, not measured laboratory time.
+6. **The study supports a benchmark and a mechanism, with a negative result for the proposed action rule.** The one-step covariance utility approximates clean-response variance reduction. It is not exact information gain, has no look-ahead, and does not explicitly minimize threshold decision error. These are plausible explanations to investigate in separately declared follow-up work, rather than conclusions identified causally by the present experiments.
+
+## Scope and uncertainty
+
+All outcomes are from synthetic dimensionless response surfaces. The primary quadratic response family is included in the inference model; nonlinear response, long memory and off-grid carryover are explicit stress cases. Initial residual composition and observation noise are assumed known. Independent fresh preparation is an available measured action. The policy cannot see the true composition, carryover parameters or clean response used by the scorer.
+
+The benchmark reports all campaigns, including weak discoveries; there was no post hoc restriction to apparently successful discovery runs. Illustrations use development seed 7, declared before evaluation, and are separate from evaluation estimates. Fixed wash/fresh-only policies can leave a remainder smaller than their scheduled next action; equal caps do not imply equal spend. First decision cost is a hypothetical threshold-crossing statistic from runs that continued to budget, not an early-stopping experiment.
+
+See protocol.json for exact pre-evaluation commitments and pilot changes, trial_results.csv for every policy run, all_results_with_intervals.csv for the full rate/count/denominator table, paired_comparisons.csv for differences, and examples.json for complete fixed-development trajectories.

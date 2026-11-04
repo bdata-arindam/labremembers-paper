@@ -1,0 +1,115 @@
+{
+  "project": "When the Lab Remembers",
+  "audit_date": "2026-11-03",
+  "purpose": "References 11–13 to merge with the existing catalog; no unused reference 14 is added.",
+  "sources": [
+    {
+      "id": 11,
+      "key": "langner2020opv",
+      "authors": [
+        "Stefan Langner",
+        "Florian Häse",
+        "José Darío Perea",
+        "Tobias Stubhan",
+        "Jens Hauch",
+        "Loïc M. Roch",
+        "Thomas Heumueller",
+        "Alán Aspuru-Guzik",
+        "Christoph J. Brabec"
+      ],
+      "year": 2020,
+      "title": "Beyond Ternary OPV: High-Throughput Experimentation and Self-Driving Laboratories Optimize Multicomponent Systems",
+      "journal": "Advanced Materials",
+      "volume": "32",
+      "issue": "14",
+      "article": "1907801",
+      "doi": "10.1002/adma.201907801",
+      "url": "https://doi.org/10.1002/adma.201907801",
+      "primary_url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201907801",
+      "author_preprint_url": "https://arxiv.org/abs/1909.03511",
+      "official_repository_url": "https://github.com/the-matter-lab/quaterny_opvs",
+      "metadata_url": "https://pubmed.ncbi.nlm.nih.gov/32049386/",
+      "status": "peer-reviewed journal article; published online 2020-02-12; April 2020 issue",
+      "is_preprint": false,
+      "verified": "Publisher-deposited Crossref metadata, author abstract, original authors' repository README and pinned numeric workbook. Primary publisher main-article text was independently inspected: workflow (18 h one-sun ambient-air exposure), Figure 2 caption (relative absorbance loss and weight fractions), SDA section (donor:acceptor range and paired specimens) and experimental-method source locators.",
+      "supports": "Measured photostability of quaternary organic photovoltaic blends and high-throughput/autonomous experimentation. The original repository separates measured workbook values from pre-existing emulator predictions. It supplies the measured data reanalyzed in the present study.",
+      "does_not_support": "The study does not establish carryover in this workbook, chronological meaning for Sample 1/2 labels, a physical Lipschitz upper bound, the proposed noise law or validation of the confirmation planner. Its article license is not automatically a license for the separate repository workbook.",
+      "relevance": "Primary materials dataset and response semantics; derived analyses remain distinct from original authors' experiments.",
+      "access_limits": "Main-article relevant text inspected directly using the primary /doi/ endpoint. The /doi/full/ endpoint was unavailable. Supporting-information Table S1, Figure S4 and section S1 were previously inspected by the live_demo/data reviewer; a second independent SI retrieval was blocked. Original numeric workbook independently checked. No claim of reproducing the original authors' neural-network models.",
+      "publication_status_check": "Current Crossref record identifies a journal article; inspected record has no update relation. This is not an exhaustive retraction or correction search.",
+      "source_artifacts": [
+        "application/crossref_metadata.json",
+        "application/original_README.md",
+        "application/original_repository_commit.json",
+        "application/original_download_manifest.json",
+        "application/extraction_log.json",
+        "application/DATA_PROVENANCE.txt"
+      ],
+      "raw_workbook_sha256": "69ae8917cd63fe9391278df86722c0ebc2921af92dd1b27d9b957cb030a074ad",
+      "source_access_refs": [
+        "turn113view0",
+        "turn109view2",
+        "turn111view1 (live_demo reviewer)",
+        "turn99view0 (live_demo reviewer; earlier SI access)"
+      ]
+    },
+    {
+      "id": 12,
+      "key": "mcshane1934extension",
+      "authors": [
+        "Edward J. McShane"
+      ],
+      "year": 1934,
+      "title": "Extension of range of functions",
+      "journal": "Bulletin of the American Mathematical Society",
+      "volume": "40",
+      "issue": "12",
+      "pages": "837–842",
+      "doi": "10.1090/S0002-9904-1934-05978-0",
+      "url": "https://doi.org/10.1090/S0002-9904-1934-05978-0",
+      "primary_url": "https://www.ams.org/journals/bull/1934-40-12/S0002-9904-1934-05978-0/",
+      "status": "published journal article",
+      "is_preprint": false,
+      "verified": "Bibliographic identity and DOI cross-checked against AMS bibliographic listings and indexing records; attempted original AMS article/PDF fetch returned 403 and Project Euclid was blocked by a security page.",
+      "supports": "Historical attribution for the extension of real-valued Lipschitz functions. The present finite-data upper/lower cone envelope is proved directly in Appendix A and theory_note.md.",
+      "does_not_support": "No uninspected theorem number, exact quotation, empirical result or novelty claim is attributed to this source. This paper is not evidence about physical carryover or materials data.",
+      "relevance": "Foundational attribution; prevents portraying the classical Lipschitz extension principle as a new theorem.",
+      "access_limits": "Metadata verified; original mathematical text not inspected in this environment. Citation support for historical attribution is qualified by that access limit; the present mathematical proof has independent method verification.",
+      "publication_status_check": "Historical journal identity verified; no comprehensive correction/retraction database search performed."
+    },
+    {
+      "id": 13,
+      "key": "armstrong2020honest",
+      "authors": [
+        "Timothy B. Armstrong",
+        "Michal Kolesár"
+      ],
+      "year": 2020,
+      "title": "Simple and honest confidence intervals in nonparametric regression",
+      "journal": "Quantitative Economics",
+      "volume": "11",
+      "issue": "1",
+      "pages": "1–39",
+      "doi": "10.3982/QE1199",
+      "url": "https://doi.org/10.3982/QE1199",
+      "primary_url": "https://onlinelibrary.wiley.com/doi/full/10.3982/QE1199",
+      "status": "peer-reviewed journal article; first published 2020-02-03",
+      "is_preprint": false,
+      "verified": "Primary publisher metadata, abstract, introduction and general-results discussion inspected. Section 2 explains confidence intervals that account for a bound on estimator bias and explicitly specified smoothness restrictions.",
+      "supports": "Bias-aware confidence intervals and explicit smoothness assumptions have established statistical precedent. Merely estimating a favorable smoothness constant does not automatically preserve uniform coverage.",
+      "does_not_support": "It is not the source of the present carryover-specific recurrence, finite-menu planner or fixed-final additive-bias interval. It does not validate the physical values of L, retained fraction or sensor noise. Its more refined critical-value construction is not claimed to be implemented here.",
+      "relevance": "Prior statistical context for conservative bias-aware uncertainty and a limit on novelty claims.",
+      "access_limits": "Relevant publisher full-text introduction and Section 2 inspected; no claim that all appendices or supplemental programs were reproduced.",
+      "publication_status_check": "Publisher currently presents the paper as an original journal article; no exhaustive correction or retraction search performed.",
+      "source_access_refs": [
+        "turn108view1"
+      ]
+    }
+  ],
+  "screened_not_added": [
+    {
+      "candidate": "Ham et al., arXiv:2210.08639v4",
+      "reason": "Not used by the actual manuscript; omitted to avoid reference padding. No substantive claim based on this candidate."
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "audit_id": "AUDIT-NOTEBOOK-INDEPENDENT",
+  "generated_utc": "2026-11-03T08:49:31.489346+00:00",
+  "command": "python audit/check_notebook_execution.py",
+  "status": "PASS",
+  "checks": {
+    "cell_counts_match": true,
+    "no_errors_or_unexecuted": true,
+    "notebook_hash": true,
+    "html_hash": true,
+    "all_recorded_inputs_unchanged": true,
+    "six_result_hashes_match": true,
+    "all_command_logs_match": true
+  },
+  "n_code_cells": 17,
+  "execution_counts": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "error_outputs": 0,
+  "recorded_input_count": 67,
+  "input_mismatches": [],
+  "result_comparisons": [
+    {
+      "artifact": "research/trial_results.csv",
+      "rows": 48000,
+      "hash_match": true
+    },
+    {
+      "artifact": "research/v2/trial_results.csv",
+      "rows": 62400,
+      "hash_match": true
+    },
+    {
+      "artifact": "research/all_results_with_intervals.csv",
+      "rows": 120,
+      "hash_match": true
+    },
+    {
+      "artifact": "research/v2/all_results_with_intervals.csv",
+      "rows": 416,
+      "hash_match": true
+    },
+    {
+      "artifact": "research/paired_comparisons.csv",
+      "rows": 480,
+      "hash_match": true
+    },
+    {
+      "artifact": "research/v2/paired_comparisons.csv",
+      "rows": 1248,
+      "hash_match": true
+    }
+  ],
+  "command_logs": [
+    {
+      "script": "research/test_lab_memory.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/test_lab_memory.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__test_lab_memory.log",
+      "recorded_sha256": "f2b7cdf24bb38094da8d1374d60e290ad23eb5733cbf544eb7e390233f1417cc",
+      "actual_sha256": "f2b7cdf24bb38094da8d1374d60e290ad23eb5733cbf544eb7e390233f1417cc",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/v2/test_v2.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/test_v2.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__test_v2.log",
+      "recorded_sha256": "3c35ff79cfe046848525a270efcc9e0531ddce778324701dd827770a7d601f82",
+      "actual_sha256": "3c35ff79cfe046848525a270efcc9e0531ddce778324701dd827770a7d601f82",
+      "log_hash_match": true
+    },
+    {
+      "script": "application/extract_measured_data.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/application/extract_measured_data.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/application__extract_measured_data.log",
+      "recorded_sha256": "f99a594dc8d9b388b3257ac07f5f0399018a122715c8d5a74bba214e6afaca88",
+      "actual_sha256": "f99a594dc8d9b388b3257ac07f5f0399018a122715c8d5a74bba214e6afaca88",
+      "log_hash_match": true
+    },
+    {
+      "script": "application/reconfirmation_analysis.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/application/reconfirmation_analysis.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/application__reconfirmation_analysis.log",
+      "recorded_sha256": "fa8629488a3592be7777feac9f61a3cb8d0c6127b840820fb352c384e85a972d",
+      "actual_sha256": "fa8629488a3592be7777feac9f61a3cb8d0c6127b840820fb352c384e85a972d",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/v2/opv_bernstein.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/opv_bernstein.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__opv_bernstein.log",
+      "recorded_sha256": "cd1dfffb6e7df4ee9ee4eef69f412815bc8c50fd5d506f187b60d559b1d9049e",
+      "actual_sha256": "cd1dfffb6e7df4ee9ee4eef69f412815bc8c50fd5d506f187b60d559b1d9049e",
+      "log_hash_match": true
+    },
+    {
+      "script": "application/validate_piecewise_affine.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/application/validate_piecewise_affine.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/application__validate_piecewise_affine.log",
+      "recorded_sha256": "0f8bf401d538d99e512a670fdd566319bbec9ac90b15f2addaf7104b89b04ad8",
+      "actual_sha256": "0f8bf401d538d99e512a670fdd566319bbec9ac90b15f2addaf7104b89b04ad8",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/run_study.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/run_study.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__run_study.log",
+      "recorded_sha256": "219a66d33215a103e5c2f3b7612125986752db19f9e39c95693cdb6b05ccc5bd",
+      "actual_sha256": "219a66d33215a103e5c2f3b7612125986752db19f9e39c95693cdb6b05ccc5bd",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/v2/run_v2.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/run_v2.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__run_v2.log",
+      "recorded_sha256": "a1556c599c74760afd10a5ea237e0e9035ab69747f7e3d6de5a717861c6ce472",
+      "actual_sha256": "a1556c599c74760afd10a5ea237e0e9035ab69747f7e3d6de5a717861c6ce472",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/make_figures.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/make_figures.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__make_figures.log",
+      "recorded_sha256": "031845389d5d0d44ae7451632bce69e81779c196679ad4082093b8278283cbaf",
+      "actual_sha256": "031845389d5d0d44ae7451632bce69e81779c196679ad4082093b8278283cbaf",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/write_results.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/write_results.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__write_results.log",
+      "recorded_sha256": "3aff99e19448542ca191a52fc8b9f4789b9f15dfec47df973267ecbaa53baaf9",
+      "actual_sha256": "3aff99e19448542ca191a52fc8b9f4789b9f15dfec47df973267ecbaa53baaf9",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/v2/make_v2_figures.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/make_v2_figures.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__make_v2_figures.log",
+      "recorded_sha256": "fbabcc9d092259c44fc371419a0706ce6206859fd7afc35e949c5bfea7c6944b",
+      "actual_sha256": "fbabcc9d092259c44fc371419a0706ce6206859fd7afc35e949c5bfea7c6944b",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/v2/audit_noise_coverage.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/audit_noise_coverage.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__audit_noise_coverage.log",
+      "recorded_sha256": "26b59935cdadf02743e53ff970d25f54b4a86ab2e37574218a94fca3bcf9d9eb",
+      "actual_sha256": "26b59935cdadf02743e53ff970d25f54b4a86ab2e37574218a94fca3bcf9d9eb",
+      "log_hash_match": true
+    },
+    {
+      "script": "research/v2/write_v2_results.py",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/rerun_project/research/v2/write_v2_results.py"
+      ],
+      "return_code": 0,
+      "path": "/workspace/scratch/6749959b1e50/lab_remembers/research/notebook/runs/20261103T083351_324712Z/logs/research__v2__write_v2_results.log",
+      "recorded_sha256": "84321d8e5685e7c664aef20d9e97e3f7cea53c0064406d839daa579dec095f55",
+      "actual_sha256": "84321d8e5685e7c664aef20d9e97e3f7cea53c0064406d839daa579dec095f55",
+      "log_hash_match": true
+    }
+  ],
+  "execution_validation": {
+    "fresh_kernel": true,
+    "kernel": "IPython InProcessKernel in a newly launched Python interpreter",
+    "execution_engine": "nbclient with public in-process client/manager API adapter",
+    "transport": "in-process Jupyter messages; no TCP or Unix sockets",
+    "code_cells": 17,
+    "execution_counts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "unexecuted_code_cells": 0,
+    "error_outputs": 0,
+    "elapsed_seconds": 508.83312333100184,
+    "completed_utc": "2026-11-03T08:42:19.520780+00:00",
+    "notebook_sha256": "c9e6248d621d4d434785a25eb57619716c2b2fa4c99ad1843c003287ff678089",
+    "html_sha256": "3d2204af1352998944b42dc81fea52f03d94ea93e4a264b48a9daa39fde5c3da",
+    "post_execution_formatting": {
+      "kind": "Whitespace-only Markdown cell cleanup and HTML re-export",
+      "changed_markdown_cell_indices": [
+        5,
+        9,
+        11,
+        13
+      ],
+      "code_outputs_and_execution_counts_unchanged": true,
+      "previous_notebook_sha256": "8871cdb2da3e66356068b1e5243892075a6a3e4dc12979f5a3b858d2b54a9ef1",
+      "previous_html_sha256": "1d11da2df22e84666540276e343b533345509408b2fe7ee4676e28d7317dc168",
+      "formatted_utc": "2026-11-03T08:44:57.229542+00:00"
+    },
+    "post_execution_source_fixes": [
+      {
+        "file": "build_notebook.py",
+        "change": "Future generated notebook logging uses a UUID per invocation, preventing same-basename overwrites.",
+        "archived_executed_notebook_code_changed": false,
+        "executed_scientific_code_changed": false,
+        "recorded_utc": "2026-11-03T08:48:39.709935+00:00",
+        "builder_sha256": "061107896fe30b704f44855a786ee94be80c1759179b84040e3aa9f475b2d1c1"
+      }
+    ],
+    "provenance_supplements": [
+      "kernel_transport_attempts.json",
+      "reconfirmation_log_recovery.json"
+    ]
+  },
+  "manifest_path": "research/notebook/latest_execution_manifest.json",
+  "manifest_sha256": "5bdd849f96666a6ec96365666a24a91bba14e4643896365ba1ad1e16adb4f281",
+  "scope": "Independent inspection of actual executed notebook outputs, recorded hashes and command logs; not an additional rerun or human validation. Execution used nbclient with a real in-process IPython kernel in a newly launched interpreter.",
+  "postrun_candidate_audit_mentioned_in_notebook": false,
+  "postrun_candidate_audit_scope": "The late manuscript P047b result is a separate post-run descriptive audit of existing outputs, with zero new campaigns. It is not silently attributed to one of the original 17 notebook code cells.",
+  "interpretation": "A completed notebook and exact result reproduction do not constitute external scientific or physical validation. Any retained-log discrepancy is a provenance issue to resolve or disclose separately from result-value reproduction."
+}

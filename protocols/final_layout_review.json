@@ -1,0 +1,73 @@
+{
+  "checked_utc": "2026-11-03T08:47:29.968003+00:00",
+  "status": "PASS_FOR_STATED_DOCUMENT_PRESENTATION_CHECKS",
+  "source_sha256": "731612ad548da9fe073ccf348fac150643b6b166729a54471a4ceaf9599c6342",
+  "docx_sha256": "4c4043d1afcdb53f62eff1b604928e42014726a205546df2f1e6cac0083e4cd6",
+  "pdf_sha256": "f10b2b2012deb88160e223858e07b67d8288ed086cdd6bc364f1c5ea8145efdc",
+  "counts": {
+    "pdf_pages": 18,
+    "native_docx_tables": 7,
+    "native_docx_equations": 10,
+    "embedded_figures": 4,
+    "references": 13,
+    "body_and_abstract_words": 7614
+  },
+  "punctuation_checks": {
+    "docx_comma_before_and_or": 0,
+    "pdf_comma_before_and_or": 0
+  },
+  "text_blocks_outside_page": [],
+  "visual_review": {
+    "reviewer": "root assistant",
+    "pages_inspected_after_final_render": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "method": "Direct full-page PNG inspection through the image viewer",
+    "findings": [
+      "All seven tables are legible and kept together.",
+      "All four scientific figures and captions are legible.",
+      "All ten native equations render with legible symbols and overbars.",
+      "No visible clipping or overlapping text was found.",
+      "References remain whole paragraphs across page boundaries.",
+      "Final negative-prediction caveat and coincident-curve caption are visible."
+    ],
+    "page_png_sha256": {
+      "1": "8751c04e1f8ff18796dcc1313f4f6d09287530b6aeb5c7ca1cae7037f311e35e",
+      "2": "3d27acd17beeae39451ba0efc47110d9b33c231e12bef02c798c59a998fa7f9e",
+      "3": "23365477b32aed9e8310e46c48ac4f94020b46ccd32885732ca93c41d79f6e5d",
+      "4": "24119add43d29c38a81052105aad39a8fc941a156d9d2ed55299acdcae730846",
+      "5": "d124eb970b156de0ddd49a3a811363b22682ecc574f4e90a24b0c2a472db6866",
+      "6": "4c7f6eaaa80420cd0f7a60cc1a21ee54b5d66c4d643d4fe70b4a4b2e065ca56b",
+      "7": "de06847144629cef3f1df508c4ece1190ea2b10a7473080daa93f4016833894a",
+      "8": "1b6653eb8113a8fc97fc7d2a623e122a48ed36e5ce41155b09381a4e2c34c241",
+      "9": "4d0e35d9451dbd55bde34bb58be8b9860c5fe0a70134820362cf473cb425314c",
+      "10": "c1e09fdb56dc144ccd4bf0aeafb84af8b95edddc3123d5ca9165fc0b042c6493",
+      "11": "4fe97114e6773b006ddb59bf01068a199517cba86ea7d4a17a8b60f52e3f3d94",
+      "12": "993f74d75e4a294e4257d47e9a8f67e3105f4542ddf2aad58468d147b1c57674",
+      "13": "65f44337fd419ca9056bd6ded29e4a075e9dbe0ac98a661281fab2a70aaffd85",
+      "14": "93a76501923d1ccbae270fc203623ea30ff18b20afd6825ee98b307038fe827d",
+      "15": "b223fb724f01d4b99cce006b314c31b4f6d68b4a5718a3001c65bcae6a1d51f4",
+      "16": "7dc49f963cda6944418ae47e105a5101afbb308c6d510eaa398498ed94c21988",
+      "17": "e97a790505e8a17c29630f132fac9908c79e56c125b3601a4e27100a49bf1888",
+      "18": "76ea56a5978657fa245356a05aa30d2c8239bf7d74b978f8ae51415a2e7a19ee"
+    }
+  },
+  "scope_limit": "Presentation and structural review does not establish scientific novelty, physical validity or journal acceptance."
+}

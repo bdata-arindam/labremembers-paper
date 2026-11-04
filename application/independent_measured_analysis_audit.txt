@@ -1,0 +1,35 @@
+# Independent audit of measured paired threshold agreement
+
+Date: 3 November 2026. Reviewed `reconfirmation_protocol.json`, `reconfirmation_analysis.py`, `measured_sda_replicate_pairs.csv`, and `measured_reconfirmation_summary.json`. This was a read-only audit of the extracted paired table and descriptive calculations; it did not rerun laboratory experiments or re-establish the original publication's data provenance.
+
+## Verified counts
+
+The paired input contains 240 complete pairs and no missing Sample 1 or Sample 2 values. Its SHA256 matches the analysis summary. Applying the prespecified illustrative rule “measured relative absorbance loss <= 0.10” independently reproduces all cell counts:
+
+| System and source campaign | Both pass | Sample 1 passes, Sample 2 fails | Sample 1 fails, Sample 2 passes | Both fail | Total |
+|---|---:|---:|---:|---:|---:|
+| PBQ-QF, merit 1 | 32 | 3 | 3 | 22 | 60 |
+| PBQ-QF, merit 2 | 20 | 0 | 0 | 40 | 60 |
+| PTB7-Th, merit 1 | 23 | 2 | 0 | 35 | 60 |
+| PTB7-Th, merit 2 | 19 | 1 | 1 | 39 | 60 |
+| Combined, descriptive only | 94 | 6 | 4 | 136 | 240 |
+
+There are 10 disagreements: 6/120 in PBQ-QF and 4/120 in PTB7-Th. Among the 100 Sample 1 records meeting the criterion, six corresponding Sample 2 records do not. These denominators describe the finite published dataset and are not population estimates. The maximum absolute paired differences are approximately 0.138706 and 0.361652 for the respective systems; retaining them does not alter their interpretation as measured pair discrepancies.
+
+Every paired point lies within the plotted limits: Sample 1 ranges from approximately 0.014943 to 0.633791, and Sample 2 from 0.015740 to 0.677130. Thus the plot does not omit paired observations through its chosen axis range.
+
+## Interpretation boundary
+
+The script partitions every pair into exactly one of four categories and does not trim or clip input values. The threshold is an illustrative research criterion, not an established OPV qualification standard. “Sample 1” and “Sample 2” are source labels; their temporal order, shared preparation history, and reset conditions are not established by this analysis. A disagreement therefore cannot be called a known false acceptance or attributed to carryover. The original adaptive campaign selection and repeated compositions also preclude treating all pairs as an independent random sample of materials space.
+
+The result provides measured evidence that a threshold decision can depend on which paired observation is used. It motivates confirmation as a research problem, while leaving the cause of disagreement and the true mean material response unresolved. No blocking counting or semantic error was found.
+
+## Alternative piecewise-affine emulator audit
+
+The separately declared piecewise-affine sensitivity emulator was reviewed mathematically and numerically. For each affine cell on the composition simplex, the L1 tangent Lipschitz norm is half the range of four ambient gradient components; adding a common constant to them has no effect. The L2 tangent norm is the norm after centering those components. The implementation's integer-grid adjugate calculation is consistent with these formulas, and the orthonormal coordinate map multiplies the first-three-coordinate tetrahedron volume by two, giving full-simplex volume 1/3.
+
+Independent reconstruction of each full-data geometry reproduced 5,851 cells, 28 exactly zero-volume numerical cells, and exact total positive-cell volume 1/3. Interpolation errors at group means were approximately 8.88e-16 and 1.05e-15. The orthonormal/tangent basis checks were accurate within 2.22e-16. The reported upward-rounded exact-rational gradient bounds were consistent with independently recomputed floating gradients.
+
+The saved cross-validation predictions independently reproduce the reported metrics: 1,008 of 1,021 unique composition groups covered per system, with 13 outside-training-hull exclusions. Covered-group R-squared is approximately 0.773726 for PBQ-QF and 0.683306 for PTB7-Th; mean errors match the summary within 7e-18. Composition rows are unique, and the recorded source hashes match. The reviewer did not retrain all cross-validation folds or run new policy campaigns.
+
+The rational certificate concerns the ideal continuous piecewise-affine interpolant, interpreting the input binary64 group means as exact values. Floating evaluation approximates that mathematical object; this is not a bitwise continuity proof. The large reported global bounds are retained, and neither the certificate nor the held-out metrics establishes a physical-material Lipschitz bound or measured carryover. Covered-group validation excludes and counts hull failures, rather than silently treating extrapolations as predictions.

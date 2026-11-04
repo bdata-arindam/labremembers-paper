@@ -1,0 +1,6 @@
+{
+  "retrieval_date": "2026-11-03",
+  "source_url": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201907801",
+  "scope": "Primary article reported process durations transcribed after the v2 protocol freeze. They do not tune or calibrate simulated costs. No raw time logs or cleaning/fresh cost comparison was retrieved.",
+  "do_not_sum": "Some steps can overlap or batch; the five resource entries must not be summed into marginal sample cost."
+}

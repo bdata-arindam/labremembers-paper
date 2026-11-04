@@ -1,0 +1,17 @@
+{
+  "analysis": "Descriptive threshold agreement of published paired OPV measurements",
+  "date": "2026-11-03",
+  "source": "Langner et al., Advanced Materials (2020), DOI 10.1002/adma.201907801; original experimental_data.xlsx",
+  "threshold": 0.10,
+  "passing_rule": "measured relative absorbance loss <= 0.10",
+  "threshold_status": "Illustrative benchmark criterion selected before computing these threshold-agreement counts; not an established device qualification standard.",
+  "inclusion": "All 240 SDA pairs, both systems and both merit-function campaigns. No outlier trimming or negative-value clipping.",
+  "counts": ["both_pass", "sample1_pass_sample2_fail", "sample1_fail_sample2_pass", "both_fail"],
+  "report": "Per system and per source campaign, plus explicitly descriptive combined table. Counts describe this finite dataset; no independence or population confidence claim is made.",
+  "limits": [
+    "Sample 1 and Sample 2 are source labels; temporal order and preparation/reset histories are not inferred.",
+    "A disagreement is not a known false acceptance because the true mean material response is unobserved.",
+    "Paired disagreement cannot be attributed to carryover without corresponding history/control measurements.",
+    "Adaptive campaign selection and shared compositions prevent treating all records as an independent random sample of materials space."
+  ]
+}

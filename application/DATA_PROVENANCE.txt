@@ -1,0 +1,165 @@
+MEASURED OPV FORMULATION DATA: PROVENANCE, SCHEMA AND LIMITS
+
+Primary study
+Langner S., Häse F., Perea J. D., Stubhan T., Hauch J., Roch L. M.,
+Heumueller T., Aspuru-Guzik A., Brabec C. J. (2020).
+Beyond Ternary OPV: High-Throughput Experimentation and Self-Driving Laboratories
+Optimize Multicomponent Systems. Advanced Materials 32, 1907801.
+DOI: https://doi.org/10.1002/adma.201907801
+Publisher: https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201907801
+
+Experimental meaning and source locations
+The main article, experimental section and Figure 2 define the response as
+relative spectral absorbance loss after 18 hours of approximately one-sun
+illumination in ambient air. Lower degradation means greater photostability.
+It is a film photostability response, not device efficiency or photocurrent.
+
+Supporting-information Table S1 explicitly identifies component weight fractions.
+The workbook labels columns wt.-% but numerical compositions are fractions in
+[0,1], summing to one. No division by 100 is applied. The robot uses equal-
+concentration stock solutions; the composition variables describe component
+mass fractions, not solvent volume fractions. The main article limits the
+self-driving experiments to donor:acceptor ratios 1:5 through 5:1, equivalent
+to total donor fraction P3HT + second donor in [1/6,5/6]. The full HTE data
+include pure components and do not all satisfy that candidate restriction.
+SI section S1 states merit 1 uses measured degradation, merit 2 its logarithm.
+Neither is a photocurrent objective. SI Figure S4 explains the negative PCBM
+result as a slight increase in absorbance; it must not be silently clipped.
+
+Supporting information:
+https://advanced.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002/adma.201907801&file=adma201907801-sup-0001-SuppMat.pdf
+
+Exact original numeric source
+The article's reference 36 points to the authors' repository:
+http://github.com/aspuru-guzik-group/quaterny_opvs
+It redirects to https://github.com/the-matter-lab/quaterny_opvs
+The repository README explicitly separates experimental_data.xlsx (measured
+results) from the emulators directory (Bayesian neural-network predictions).
+No emulator output was imported as a measured response.
+
+Pinned original commit: 226c2f0df03a645166d793c4a4b76a4744af015e
+Pinned raw URL:
+https://raw.githubusercontent.com/the-matter-lab/quaterny_opvs/226c2f0df03a645166d793c4a4b76a4744af015e/experimental_data.xlsx
+Local exact bytes: quaterny_opvs_experimental_data.xlsx
+Size: 138962 bytes
+SHA256: 69ae8917cd63fe9391278df86722c0ebc2921af92dd1b27d9b957cb030a074ad
+The retrieval timestamp and URL are in original_download_manifest.json.
+retrieve_original_data.py reproduces the download and rejects a hash mismatch.
+
+Original workbook schema
+Both sheets have three header rows, then 1041 HTE formulation/response rows.
+System 01: [P3HT, PBQ-QF, PCBM, oIDTBR].
+System 02: [P3HT, PTB7-Th, PCBM, oIDTBR].
+For pandas header=None, HTE fractions are columns 0..3, response column 4.
+SDA merit 1 fractions are columns 6..9, measured samples columns 10/11,
+cycle markers column 12. SDA merit 2 fractions are columns 14..17, measured
+samples columns 18/19, cycle markers column 20. Each SDA campaign has 60
+formulations and two measured samples per formulation, across 15 batches of
+four. All source values, including the two source copies of the negative
+PCBM value -0.025721015222783444, remain in the tidy export.
+
+Preparation and own data checks
+extract_measured_data.py creates a separate long table; it never edits the
+original workbook. Four composition fractions are checked to sum to one.
+Blank cycle labels are forward-filled only within each source SDA campaign.
+An Excel source row ID and formulation ID retain traceability. Data cleaning
+removes header/empty rows only; no response is clipped or generated.
+
+Each HTE sheet has 1021 unique exact composition groups. Nineteen groups have
+multiple measurements, producing 20 additional records. The single group
+with three observations explains why this differs from 19 extra rows.
+The per-composition arithmetic means are separate model inputs; original
+individual responses, counts, standard deviations, extrema and source IDs
+are retained. The two systems share some observations on the zero-second-
+donor face and should not be described as statistically independent studies.
+
+Files for measured analyses
+measured_observations_tidy.csv: 2562 measured responses in long form.
+measured_sda_replicate_pairs.csv: 240 measured pairs, with system, campaign,
+source row, cycle, four fractions, sample_1, sample_2 and signed difference.
+pbq_qf_hte_measured.csv / ptb7_th_hte_measured.csv: each 1041 original HTE rows.
+pbq_qf_hte_composition_means.csv / ptb7_th_hte_composition_means.csv:
+1021 grouped rows per system for emulator fitting.
+measured_data_profile.json: numerical counts, units, duplicate/replicate audit.
+
+Replicates and chronology
+Replicate disagreement is descriptive evidence about repeated measurements,
+not an empirical carryover coefficient. SDA pair RMS differences are 0.01911
+(PBQ-QF) and 0.04019 (PTB7-Th); median absolute differences are 0.00618 and
+0.00559. One PTB7-Th pair differs by 0.36165 and is retained. Do not silently
+convert these data into an independent equal-variance Gaussian noise claim.
+HTE spreadsheet ordering is not documented experimental execution order.
+SDA cycle labels establish batches but do not establish within-batch order,
+shared-channel use, wash commands or carryover. Neither the workbook nor
+this analysis measures a physical carryover law or validates transferred
+AutoFSP carryover parameters for this OPV platform.
+
+Olympus metadata cross-check
+A first-party related benchmark repository distributes processed copies at
+https://github.com/the-matter-lab/olympus
+Pinned commit: 440b6b58ebfcaa2391cff7e94b570fb4fda98d68
+The exact files and hashes are in olympus_download_manifest.json.
+Comparing all 1040 rows, not just a representative row, yields:
+* photo_pce10/data.csv matches original System 01 after its negative response
+  row is omitted, in the original column order, max absolute difference
+  4.99890823180138e-10 (consistent with nine-decimal response rounding).
+* photo_wf3/data.csv similarly matches original System 02, max difference
+  4.994858970874816e-10.
+The downloaded Olympus descriptions call the first feature PCE10 or WF3 and
+the second P3HT, whereas the original workbook's first feature is P3HT.
+These are documented metadata-to-numeric discrepancies. This analysis uses
+the original workbook headers, corroborated by SI Table S1 and does not
+claim an error in the original measured workbook. No aliases are silently
+mapped to donor identities in the analysis.
+
+License verification and distribution boundary
+Crossref's publisher-deposited metadata identifies the article's version of
+record license as CC BY-NC 4.0. The article first page and the corresponding
+authors' institutional repository confirm Attribution-NonCommercial:
+https://juser.fz-juelich.de/record/875398
+https://d-nb.info/1224355393/34
+https://api.crossref.org/works/10.1002/adma.201907801
+Saved evidence: crossref_metadata.json.
+
+The original GitHub repository has no explicit license file in the inspected
+root and its API metadata license field is null (saved metadata). The article
+license is not automatically asserted to cover a separate GitHub workbook.
+Olympus has an MIT repository notice, saved unmodified as olympus_LICENSE;
+that does not establish an MIT license for the original workbook. Therefore
+the original workbook is a research-use download with unresolved separate
+redistribution status. Do not relicense or automatically include the original
+workbook in a public archive. Provide its pinned download script/provenance
+and clarify rights before redistributing it. This is a provenance finding,
+not a legal determination about numerical facts or derived analyses.
+
+Alternative interpolation model
+opv_piecewise_affine.py builds a continuous piecewise affine interpolant of
+HTE composition-group means. This is an emulator, not new measurements.
+The fixed method and holdout design are recorded before fitting in
+piecewise_affine_protocol.json. Fivefold composition-group validation keeps
+all repeated observations of one composition together. Unsupported outside-
+training-hull predictions are excluded and counted; no held-out vertices
+are moved into training. The full model is fit afterwards for simulations.
+It includes all pure components, so its convex hull is the whole simplex.
+
+The model triangulates in three orthonormal simplex coordinates, recognizes
+zero-volume numerical cells using exact integer-grid determinants and checks
+full tetrahedron volume 1/3. It uses no jitter, response clipping, smoothing
+or nearest-neighbor extrapolation. Every valid affine cell's gradient is
+computed as exact rational arithmetic on the 0.02 composition grid and exact
+binary64 group means, then the returned bound is rounded upward.
+
+For L1 composition distance the cell bound is (max(g_i)-min(g_i))/2, because
+composition increments sum to zero. The L2 bound is the norm of the centered
+four-component gradient. Maxima over all cells bound the constructed
+mathematical interpolant on its convex hull. They do not establish physical
+material smoothness. Floating-point evaluations approximate that interpolant.
+The very large bounds are retained rather than tuned to favor a policy.
+
+Heldout results: 1008/1021 groups covered in each system (98.73%); 13 excluded
+outside their training hulls. PBQ-QF MAE 0.02880, RMSE 0.05071, R2 0.77373.
+PTB7-Th MAE 0.03714, RMSE 0.05958, R2 0.68331. Full-model L1 bounds are
+65.66965 and 50.64746; L2 bounds 93.27688 and 71.94348, respectively.
+These summarize an alternative model, while the separately declared cubic
+Bernstein model is the primary response emulator. Validation predictions,
+model arrays, source hashes and software versions are saved alongside code.

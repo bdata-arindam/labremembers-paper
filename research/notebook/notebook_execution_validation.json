@@ -1,0 +1,59 @@
+{
+  "fresh_kernel": true,
+  "kernel": "IPython InProcessKernel in a newly launched Python interpreter",
+  "execution_engine": "nbclient with public in-process client/manager API adapter",
+  "transport": "in-process Jupyter messages; no TCP or Unix sockets",
+  "code_cells": 17,
+  "execution_counts": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "unexecuted_code_cells": 0,
+  "error_outputs": 0,
+  "elapsed_seconds": 508.83312333100184,
+  "completed_utc": "2026-11-03T08:42:19.520780+00:00",
+  "notebook_sha256": "c9e6248d621d4d434785a25eb57619716c2b2fa4c99ad1843c003287ff678089",
+  "html_sha256": "3d2204af1352998944b42dc81fea52f03d94ea93e4a264b48a9daa39fde5c3da",
+  "post_execution_formatting": {
+    "kind": "Whitespace-only Markdown cell cleanup and HTML re-export",
+    "changed_markdown_cell_indices": [
+      5,
+      9,
+      11,
+      13
+    ],
+    "code_outputs_and_execution_counts_unchanged": true,
+    "previous_notebook_sha256": "8871cdb2da3e66356068b1e5243892075a6a3e4dc12979f5a3b858d2b54a9ef1",
+    "previous_html_sha256": "1d11da2df22e84666540276e343b533345509408b2fe7ee4676e28d7317dc168",
+    "formatted_utc": "2026-11-03T08:44:57.229542+00:00"
+  },
+  "post_execution_source_fixes": [
+    {
+      "file": "build_notebook.py",
+      "change": "Future generated notebook logging uses a UUID per invocation, preventing same-basename overwrites.",
+      "archived_executed_notebook_code_changed": false,
+      "executed_scientific_code_changed": false,
+      "recorded_utc": "2026-11-03T08:48:39.709935+00:00",
+      "builder_sha256": "061107896fe30b704f44855a786ee94be80c1759179b84040e3aa9f475b2d1c1"
+    }
+  ],
+  "provenance_supplements": [
+    "kernel_transport_attempts.json",
+    "reconfirmation_log_recovery.json"
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "role": "Alternative emulator sensitivity; cubic Bernstein is the separate primary model chosen by the research team",
+  "protocol": {
+    "status": "Declared before fitting or inspecting piecewise-affine validation outcomes",
+    "role": "Alternative emulator sensitivity; cubic Bernstein is the separate primary model chosen by the research team",
+    "source_sha256": "69ae8917cd63fe9391278df86722c0ebc2921af92dd1b27d9b957cb030a074ad",
+    "systems": [
+      "pbq_qf",
+      "ptb7_th"
+    ],
+    "observations": "Original HTE measured responses only; negative measurements retained",
+    "aggregation": "Group exact duplicate compositions; arithmetic mean within each group; retain all source observations separately",
+    "input_geometry": "Four mass fractions on the simplex; three orthonormal coordinates for Euclidean Delaunay triangulation",
+    "input_grid": "Verify the source 0.02 mass-fraction grid to floating-point tolerance and retain integer grid coordinates for exact zero-volume tests",
+    "model": "Continuous piecewise affine barycentric interpolant; no response clipping, smoothing, jitter, tuning, or extrapolation",
+    "holdout": {
+      "kind": "5-fold shuffled composition-group cross-validation",
+      "seed": 20261103,
+      "report": [
+        "coverage",
+        "outside-hull count",
+        "MAE",
+        "RMSE",
+        "R-squared"
+      ]
+    },
+    "holdout_integrity": "All repeated observations of a composition stay within one group. Fit each fold only on its training groups. Exclude and count held-out points outside the training convex hull. Never move held-out hull vertices into training.",
+    "final_emulator": "Refit on all HTE composition means after validation for simulation use; validation scores refer only to held-out predictions",
+    "bounds": "Report maximum L2 norm of affine tangent gradients and maximum (max(g4)-min(g4))/2 for L1 distance; these bound the emulator only, not an unknown physical material response",
+    "failure_policy": "Report degeneracy, hull gaps, large bounds, or poor prediction; do not tune the model to improve downstream policy outcomes"
+  },
+  "results": {
+    "pbq_qf": {
+      "validation": {
+        "method": "5-fold shuffled composition-group cross-validation; NumPy default_rng permutation split into five folds",
+        "seed": 20261103,
+        "total_composition_groups": 1021,
+        "covered_groups": 1008,
+        "excluded_outside_training_hull": 13,
+        "coverage": 0.9872673849167483,
+        "pooled_covered_metrics": {
+          "n": 1008,
+          "mae": 0.02879590979143221,
+          "rmse": 0.05070924579573725,
+          "r_squared": 0.773725666877368
+        },
+        "folds": [
+          {
+            "fold": 1,
+            "training_groups": 816,
+            "heldout_groups": 205,
+            "covered_groups": 202,
+            "excluded_outside_training_hull": 3,
+            "coverage": 0.9853658536585366,
+            "n": 202,
+            "mae": 0.030596658236950788,
+            "rmse": 0.05774717876990973,
+            "r_squared": 0.7247571206850932,
+            "training_hull_volume": 0.33233333333333337,
+            "numerical_zero_volume_cells": 66
+          },
+          {
+            "fold": 2,
+            "training_groups": 817,
+            "heldout_groups": 204,
+            "covered_groups": 197,
+            "excluded_outside_training_hull": 7,
+            "coverage": 0.9656862745098039,
+            "n": 197,
+            "mae": 0.028864788676309077,
+            "rmse": 0.05049156930574026,
+            "r_squared": 0.7673896708839352,
+            "training_hull_volume": 0.33162666666666674,
+            "numerical_zero_volume_cells": 52
+          },
+          {
+            "fold": 3,
+            "training_groups": 817,
+            "heldout_groups": 204,
+            "covered_groups": 204,
+            "excluded_outside_training_hull": 0,
+            "coverage": 1.0,
+            "n": 204,
+            "mae": 0.02619561548466929,
+            "rmse": 0.03967732205114871,
+            "r_squared": 0.8611009160478151,
+            "training_hull_volume": 0.3333333333333333,
+            "numerical_zero_volume_cells": 46
+          },
+          {
+            "fold": 4,
+            "training_groups": 817,
+            "heldout_groups": 204,
+            "covered_groups": 203,
+            "excluded_outside_training_hull": 1,
+            "coverage": 0.9950980392156863,
+            "n": 203,
+            "mae": 0.03134680065156604,
+            "rmse": 0.056315719952448676,
+            "r_squared": 0.7673159293130958,
+            "training_hull_volume": 0.3330000000000001,
+            "numerical_zero_volume_cells": 55
+          },
+          {
+            "fold": 5,
+            "training_groups": 817,
+            "heldout_groups": 204,
+            "covered_groups": 202,
+            "excluded_outside_training_hull": 2,
+            "coverage": 0.9901960784313726,
+            "n": 202,
+            "mae": 0.026990508146169705,
+            "rmse": 0.0472610784756876,
+            "r_squared": 0.7316557127421509,
+            "training_hull_volume": 0.3326666666666668,
+            "numerical_zero_volume_cells": 53
+          }
+        ]
+      },
+      "full_data_emulator": {
+        "system": "pbq_qf",
+        "dimension": 4,
+        "n_compositions": 1021,
+        "n_cells": 5851,
+        "n_positive_volume_cells": 5823,
+        "n_zero_volume_numerical_cells": 28,
+        "grid_snap_max_abs": 0.0,
+        "hull_volume": 0.3333333333333333,
+        "exact_sum_cell_volumes": "1/3",
+        "full_simplex_hull": true,
+        "lipschitz_l1": 65.66964690221323,
+        "lipschitz_l2": 93.27687621203268,
+        "bound_arithmetic": "Exact rational gradients on integer composition grid with exact binary64 response values; returned floats rounded upward",
+        "minimum_absolute_integer_determinant": 1,
+        "maximum_simplex_condition_number": 173.67709755250442,
+        "l1_worst_cell": 5823,
+        "l2_worst_cell": 5823
+      },
+      "verification": {
+        "maximum_error_at_group_means": 8.881784197001252e-16,
+        "random_pair_count": 20000,
+        "maximum_sampled_L1_quotient": 2.5331502057889046,
+        "maximum_sampled_L2_quotient": 4.380123969664615,
+        "random_pair_note": "Diagnostic only; rigorous emulator bound comes from every-cell exact rational gradient calculation, not sampled pairs."
+      },
+      "material_claim_limit": "The bound certifies the constructed interpolant only. It does not bound an unknown physical response or empirically establish carryover."
+    },
+    "ptb7_th": {
+      "validation": {
+        "method": "5-fold shuffled composition-group cross-validation; NumPy default_rng permutation split into five folds",
+        "seed": 20261103,
+        "total_composition_groups": 1021,
+        "covered_groups": 1008,
+        "excluded_outside_training_hull": 13,
+        "coverage": 0.9872673849167483,
+        "pooled_covered_metrics": {
+          "n": 1008,
+          "mae": 0.03713740650441613,
+          "rmse": 0.05957848916065178,
+          "r_squared": 0.6833058465517343
+        },
+        "folds": [
+          {
+            "fold": 1,
+            "training_groups": 816,
+            "heldout_groups": 205,
+            "covered_groups": 202,
+            "excluded_outside_training_hull": 3,
+            "coverage": 0.9853658536585366,
+            "n": 202,
+            "mae": 0.03720196976967536,
+            "rmse": 0.06159997423742373,
+            "r_squared": 0.6792955897464443,
+            "training_hull_volume": 0.33233333333333337,
+            "numerical_zero_volume_cells": 66
+          },
+          {
+            "fold": 2,
+            "training_groups": 817,
+            "heldout_groups": 204,
+            "covered_groups": 197,
+            "excluded_outside_training_hull": 7,
+            "coverage": 0.9656862745098039,
+            "n": 197,
+            "mae": 0.03638649824069547,
+            "rmse": 0.058742994187102354,
+            "r_squared": 0.6803480881994595,
+            "training_hull_volume": 0.33162666666666674,
+            "numerical_zero_volume_cells": 52
+          },
+          {
+            "fold": 3,
+            "training_groups": 817,
+            "heldout_groups": 204,
+            "covered_groups": 204,
+            "excluded_outside_training_hull": 0,
+            "coverage": 1.0,
+            "n": 204,
+            "mae": 0.039653751551715306,
+            "rmse": 0.06262116494905451,
+            "r_squared": 0.653772705013906,
+            "training_hull_volume": 0.3333333333333333,
+            "numerical_zero_volume_cells": 46
+          },
+          {
+            "fold": 4,
+            "training_groups": 817,
+            "heldout_groups": 204,
+            "covered_groups": 203,
+            "excluded_outside_training_hull": 1,
+            "coverage": 0.9950980392156863,
+            "n": 203,
+            "mae": 0.03645837585598124,
+            "rmse": 0.055504312701208404,
+            "r_squared": 0.7413646309182109,
+            "training_hull_volume": 0.3330000000000001,
+            "numerical_zero_volume_cells": 55
+          },
+          {
+            "fold": 5,
+            "training_groups": 817,
+            "heldout_groups": 204,
+            "covered_groups": 202,
+            "excluded_outside_training_hull": 2,
+            "coverage": 0.9901960784313726,
+            "n": 202,
+            "mae": 0.03594629749626687,
+            "rmse": 0.05913323497455219,
+            "r_squared": 0.6490503984948517,
+            "training_hull_volume": 0.3326666666666668,
+            "numerical_zero_volume_cells": 53
+          }
+        ]
+      },
+      "full_data_emulator": {
+        "system": "ptb7_th",
+        "dimension": 4,
+        "n_compositions": 1021,
+        "n_cells": 5851,
+        "n_positive_volume_cells": 5823,
+        "n_zero_volume_numerical_cells": 28,
+        "grid_snap_max_abs": 0.0,
+        "hull_volume": 0.3333333333333333,
+        "exact_sum_cell_volumes": "1/3",
+        "full_simplex_hull": true,
+        "lipschitz_l1": 50.64745949208355,
+        "lipschitz_l2": 71.94347760187786,
+        "bound_arithmetic": "Exact rational gradients on integer composition grid with exact binary64 response values; returned floats rounded upward",
+        "minimum_absolute_integer_determinant": 1,
+        "maximum_simplex_condition_number": 173.67709755250442,
+        "l1_worst_cell": 5823,
+        "l2_worst_cell": 5823
+      },
+      "verification": {
+        "maximum_error_at_group_means": 1.0547118733938987e-15,
+        "random_pair_count": 20000,
+        "maximum_sampled_L1_quotient": 1.6370310046362586,
+        "maximum_sampled_L2_quotient": 2.830625174182408,
+        "random_pair_note": "Diagnostic only; rigorous emulator bound comes from every-cell exact rational gradient calculation, not sampled pairs."
+      },
+      "material_claim_limit": "The bound certifies the constructed interpolant only. It does not bound an unknown physical response or empirically establish carryover."
+    }
+  },
+  "source_sha256": "69ae8917cd63fe9391278df86722c0ebc2921af92dd1b27d9b957cb030a074ad",
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3"
+  },
+  "source_hashes": {
+    "piecewise_affine_protocol.json": "88332244cf48b0d968209415ab069465c239260745f176abcb11bf0af21de5c3",
+    "opv_piecewise_affine.py": "8f70aef540a33fde25f54e66674fc297e1555271f1ab147e9579a9bcec0e0372",
+    "validate_piecewise_affine.py": "b1a5eb2a0d53e7459ffd9a0e411c3423794ca709b8e0383ef9ab625ed1d8762b"
+  },
+  "interpretation": "Interpolation predictions are model outputs, not measured outcomes. Large global bounds are reported without tuning the response or geometry to improve policy performance."
+}
