@@ -1,0 +1,7 @@
+F1000_When_the_Lab_Remembers.docx: 18 pages, 9,387 words (research article limit 20,000): PASS
+abstract 230 words in Background/Methods/Results/Conclusions (limit 300): PASS; keywords 6 (up to 8): PASS
+figures 4 exported as TIFF under figures/, legends in the text; tables 7 inline
+references 13, the master's numbered catalog, consistent style: PASS
+", and"/", or" unresolved in prose: 0
+banned tokens: none
+REQUIRED AUTHOR INPUT: the Zenodo DOI of the repository deposit, for the Data and Software availability statements; suggested reviewers at submission; the $1,758 charge on acceptance

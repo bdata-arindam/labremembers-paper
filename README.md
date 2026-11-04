@@ -8,7 +8,7 @@
 
 **ORCID** Arindam Chakraborty 0009-0001-8152-5508; Sambit Dhar 0009-0001-3694-5589; Soham Marik 0009-0004-2308-9631; Surajit Sinha 0009-0003-1222-8096
 
-**Submitted to** F1000Research, open post-publication peer review
+**Submitted to** F1000Research (Taylor & Francis), open post-publication peer review
 
 **CRediT** Arindam Chakraborty: Conceptualization; Methodology, Formal Analysis. Sambit Dhar: Formal analysis, editing. Soham Marik: Methodology; Investigation; Formal analysis; Writing-Edits. Surajit Sinha: Investigation; Validation, Writing - Edits.
 
@@ -20,7 +20,7 @@
 
 **Rights** Article under Creative Commons Attribution (CC BY 4.0). Code in this repository under the MIT licence (LICENSE); scored results and extracted tables under CC BY 4.0 (results/LICENSE.txt).
 
-This repository is public, as F1000Research requires of underlying data and code before submission, and the version underlying the article is archived at Zenodo under the DOI given in the article’s availability statements.
+This repository is public, as F1000Research requires of underlying data and code before submission; the version underlying the article is archived at Zenodo under the DOI given in the article’s availability statements.
 
 ## What the work is
 
@@ -35,7 +35,7 @@ Preparation history can make the material measured in an autonomous campaign dif
 - `protocols/` the evidence register, numeric audit, both writing-pass reviews and the independent notebook audit — 19 files, 1.0 MB
 - `results/` the scored summaries of the v1 benchmark, the v2 extension, the measured pairs and the emulators — 47 files, 5.8 MB
 - `figures/` the four figures as published — 4 files, 0.5 MB
-- `manuscript/` both JICT files, the cover letter, the build report, the compression log and the master manuscript with full derivations — 10 files, 3.9 MB
+- `manuscript/` both JICT files, the cover letter, the build report, the compression log and the master manuscript with full derivations — 13 files, 4.3 MB
 
 The submitted manuscript is `manuscript/JICT_LAB_anonymous.pdf` for review, 17 pages, with `JICT_LAB_with_author_details.pdf` as the complete version. The appendix of the submitted text keeps each statement and a one-line proof sketch; `manuscript/master_when_the_lab_remembers_manuscript.pdf` carries the full derivations and `manuscript/COMPRESSION_LOG.txt` records every block condensed for the journal’s word band with its reason.
 
@@ -48,15 +48,3 @@ The measured organic-photovoltaic data are the original workbook accompanying La
 ## Substitutions in this published copy
 
 Paths naming the account on the build machine were replaced by `~/`. `protocols/PUBLISHED_COPY_SUBSTITUTIONS.txt` lists every rewrite.
-
-The portfolio keeps README.md as the only markdown file in a publication repository, so 10 retained records that were written as markdown in the working repository are carried here as plain text with their content unchanged:
-- `application/independent_measured_analysis_audit.md -> independent_measured_analysis_audit.txt`
-- `protocols/author_facing_declarations.md -> author_facing_declarations.txt`
-- `protocols/review_report.md -> review_report.txt`
-- `research/README.md -> README.txt`
-- `research/RESULTS.md -> RESULTS.txt`
-- `research/independent_audit.md -> independent_audit.txt`
-- `research/notebook/README.md -> README.txt`
-- `research/theory_note.md -> theory_note.txt`
-- `research/v2/README.md -> README.txt`
-- `research/v2/RESULTS.md -> RESULTS.txt`
