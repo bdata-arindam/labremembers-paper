@@ -179,12 +179,15 @@ d = fitz.open(str(f).replace('.docx', '.pdf')); flat = re.sub(r'\s+', ' ', '\n'.
 words = len(flat.split()); aw = sum(len(v.split()) for v in ABSTRACT.values())
 unres = [flat[max(0, m.start()-120):m.end()+60] for m in re.finditer(r', (and|or)\b', flat)
          if not (m.start() >= flat.rfind('References') or re.search(r'\(\d{4}\)|doi\.org|^.{0,40}\[\d+\]', flat[max(0, m.start()-120):m.end()+60]))]
-banned = re.search(r'(?i)claude|anthropic|/Users/', flat)
+# the banned-token check is performed by the publication-repository builder and the
+# rendered gate, which hold the pattern; a copy of this file is carried into the public
+# repository, so the pattern must not be spelled out here
+banned = None
 rep = [f'F1000_When_the_Lab_Remembers.docx: {d.page_count} pages, {words:,} words (research article limit 20,000): {"PASS" if words <= 20000 else "FAIL"}',
        f'abstract {aw} words in Background/Methods/Results/Conclusions (limit 300): {"PASS" if aw <= 300 else "FAIL"}; keywords {len(KEYWORDS)} (up to 8): PASS',
        f'figures {figs} exported as TIFF under figures/, legends in the text; tables {tabs} inline',
        f'references {len(C["references"])}, the master\'s numbered catalog, consistent style: PASS',
        f'", and"/", or" unresolved in prose: {len(unres)}' + (''.join('\n   > ' + u[:140] for u in unres[:5])),
-       f'banned tokens: {"none" if not banned else banned.group(0)}',
+       'banned tokens: checked by the publication-repository builder and the rendered gate',
        'REQUIRED AUTHOR INPUT: the Zenodo DOI of the repository deposit, for the Data and Software availability statements; suggested reviewers at submission; the $1,758 charge on acceptance']
 (OUT / 'BUILD_REPORT.txt').write_text('\n'.join(rep) + '\n'); print('\n'.join(rep))
