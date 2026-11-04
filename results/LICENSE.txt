@@ -1,0 +1,6 @@
+The scored results, extracted tables and analysis summaries in this directory are made
+available under the Creative Commons Attribution 4.0 International licence (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+The original organic-photovoltaic measurements they derive from are the workbook accompanying
+Langner et al. (2020), used under that article's terms and not redistributed here.

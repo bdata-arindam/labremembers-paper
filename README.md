@@ -8,7 +8,7 @@
 
 **ORCID** Arindam Chakraborty 0009-0001-8152-5508; Sambit Dhar 0009-0001-3694-5589; Soham Marik 0009-0004-2308-9631; Surajit Sinha 0009-0003-1222-8096
 
-**Submitted to** Journal of Information and Communication Technology (UUM Press), double-blind review
+**Submitted to** F1000Research, open post-publication peer review
 
 **CRediT** Arindam Chakraborty: Conceptualization; Methodology, Formal Analysis. Sambit Dhar: Formal analysis, editing. Soham Marik: Methodology; Investigation; Formal analysis; Writing-Edits. Surajit Sinha: Investigation; Validation, Writing - Edits.
 
@@ -18,9 +18,9 @@
 
 **Ethics** No institutional determination applies to this study.
 
-**Rights** The authors intend to publish under Creative Commons Attribution (CC BY 4.0).
+**Rights** Article under Creative Commons Attribution (CC BY 4.0). Code in this repository under the MIT licence (LICENSE); scored results and extracted tables under CC BY 4.0 (results/LICENSE.txt).
 
-This repository is private at the time of submission. It will be made public on request of the editors or reviewers and on acceptance.
+This repository is public, as F1000Research requires of underlying data and code before submission, and the version underlying the article is archived at Zenodo under the DOI given in the article’s availability statements.
 
 ## What the work is
 
